@@ -1,0 +1,26 @@
+<div class="toolbar" role="banner">
+    <div class="container">
+        <a href="/">
+            <img alt="Visa Logo" class="visa-logo" src="assets/images/VISA-logo.png"/>
+        </a>
+
+        <!-- TO-DO: Start + finish features for search + account page and add routing -->
+        <div class="float-wrapper">
+            <div class="search">
+                <p class="search-text body-font">Search</p>
+                <img src="assets/images/search.svg" class="icon" alt="Search Icon">
+            </div>
+            <img src="assets/images/account.svg" class="icon" alt="Account Icon">
+        </div>
+    </div>
+</div>
+
+<!-- TO-DO: Start + finish features for tags pages + add routing to each respective `tag` -->
+<div class="tag-container">
+    <div *ngFor="let tag of tags" class="tag-bar">
+        <span class="small-body-font tag">{{tag}}</span>
+    </div>
+</div>
+
+<div class="content" role="main">
+</div>
