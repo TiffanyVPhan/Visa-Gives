@@ -8,6 +8,8 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 32px;
+    text-shadow: 0px 1px, 1px 0px, 1px 1px;
+    /* margin: 3% 0px; */
 }
 
 .sub-header {
