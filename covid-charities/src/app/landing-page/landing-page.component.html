@@ -25,43 +25,76 @@
 <div class="content" role="main">
     <span class="sub-header">Featured</span>
     <div class="grid-container">
+
+        <!-- Featured Charity -->
         <div class="featured-charity">
             <img class="images" src={{featureImage}}/>
         </div>
-        <div class="box5">
+        <div class="featured-desc">
             <span class="header">{{name}}</span>
         </div>
-        <div class="side-charity-1">
+
+        <!-- Side Charity 1 -->
+        <div class="side-charity-1 col-2">
             <img class="images" src={{featureImage}}/>
-            <div class="sub-feature">
-                <span class="body-font">{{name}}</span>
-            </div>
         </div>
-        <div class="box3">
-            <img class="images" src={{featureImage}}/>
+    
+        <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
+        <div class="desc-1 desc-margin">
             <div class="sub-feature">
                 <span class="body-font">{{name}}</span>
-                <br>
-                <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
                 <div class="tag-container">
                     <span class="tag-button body-font tag-button-text">Tag</span>
                     <span class="tag-button body-font tag-button-text">Tag</span>
+
                     <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
+                    <span class="tag-button body-font tag-button-text">Health</span>
+                    
                 </div>
             </div>
         </div>
-        <div class="box4">
+
+        <!-- Side Charity 2 -->
+        <div class="side-charity-2 col-2">
             <img class="images" src={{featureImage}}/>
+        </div>
+    
+        <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
+        <div class="desc-2 desc-margin">
             <div class="sub-feature">
                 <span class="body-font">{{name}}</span>
                 <div class="tag-container">
-                    <div class="tag-button body-font tag-button-text">Tag</div>
-                    <div class="tag-button body-font tag-button-text">Tag</div>
-                    <div class="tag-button body-font tag-button-text">Human & Civil Rights</div>
+                    <span class="tag-button body-font tag-button-text">Tag</span>
+                    <span class="tag-button body-font tag-button-text">Tag</span>
+
+                    <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
+                    <span class="tag-button body-font tag-button-text">Health</span>
+                    
                 </div>
             </div>
         </div>
-        <div class="box6">
+     
+        <!-- Side Charity 3 -->
+        <div class="side-charity-3 col-2">
+            <img class="images" src={{featureImage}}/>
+        </div>
+    
+        <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
+        <div class="desc-3 desc-margin">
+            <div class="sub-feature">
+                <span class="body-font">{{name}}</span>
+                <div class="tag-container">
+                    <span class="tag-button body-font tag-button-text">Tag</span>
+                    <span class="tag-button body-font tag-button-text">Tag</span>
+
+                    <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
+                    <span class="tag-button body-font tag-button-text">Health</span>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="more col-2">
             <!-- TODO: link to total list of non-profits -->
             <span class="small-body-font small-body-size">See More...</span>
         </div>
