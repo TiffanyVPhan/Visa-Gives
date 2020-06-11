@@ -1,20 +1,3 @@
-<div class="toolbar" role="banner">
-    <div class="container">
-        <a href="/">
-            <img alt="Visa Logo" class="visa-logo" src="assets/images/VISA-logo.png"/>
-        </a>
-
-        <!-- TODO: Start + finish features for search + account page and add routing -->
-        <div class="float-wrapper">
-            <div class="search">
-                <p class="search-text body-font">Search</p>
-                <img src="assets/images/search.svg" class="icon" alt="Search Icon">
-            </div>
-            <img src="assets/images/account.svg" class="icon" alt="Account Icon">
-        </div>
-    </div>
-</div>
-
 <!-- TODO: Start + finish features for tags pages + add routing to each respective `tag` -->
 <div class="tag-line-container">
     <div *ngFor="let tag of tags" class="tag-bar">
@@ -34,62 +17,15 @@
             <span class="header">{{name}}</span>
         </div>
 
-        <!-- Side Charity 1 -->
-        <div class="side-charity-1 col-2">
-            <img class="images" src={{featureImage}}/>
+        <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="col-2" ngClass="side-charity-{{i+1}}">
+            <img src={{charity.coverPhoto}}/> 
         </div>
-    
-        <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
-        <div class="desc-1 desc-margin">
+
+        <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="desc-margin" ngClass="desc-{{i+1}}">
             <div class="sub-feature">
-                <span class="body-font">{{name}}</span>
-                <div class="tag-container">
-                    <span class="tag-button body-font tag-button-text">Tag</span>
-                    <span class="tag-button body-font tag-button-text">Tag</span>
-
-                    <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
-                    <span class="tag-button body-font tag-button-text">Health</span>
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Side Charity 2 -->
-        <div class="side-charity-2 col-2">
-            <img class="images" src={{featureImage}}/>
-        </div>
-    
-        <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
-        <div class="desc-2 desc-margin">
-            <div class="sub-feature">
-                <span class="body-font">{{name}}</span>
-                <div class="tag-container">
-                    <span class="tag-button body-font tag-button-text">Tag</span>
-                    <span class="tag-button body-font tag-button-text">Tag</span>
-
-                    <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
-                    <span class="tag-button body-font tag-button-text">Health</span>
-                    
-                </div>
-            </div>
-        </div>
-     
-        <!-- Side Charity 3 -->
-        <div class="side-charity-3 col-2">
-            <img class="images" src={{featureImage}}/>
-        </div>
-    
-        <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
-        <div class="desc-3 desc-margin">
-            <div class="sub-feature">
-                <span class="body-font">{{name}}</span>
-                <div class="tag-container">
-                    <span class="tag-button body-font tag-button-text">Tag</span>
-                    <span class="tag-button body-font tag-button-text">Tag</span>
-
-                    <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
-                    <span class="tag-button body-font tag-button-text">Health</span>
-                    
+                <span class="body-font">{{charity.name}}</span>
+                <div *ngFor="let tag of charity.tags">
+                    <span class="tag-button body-font tag-button-text">{{tag}}</span>
                 </div>
             </div>
         </div>
@@ -98,6 +34,6 @@
             <!-- TODO: link to total list of non-profits -->
             <span class="small-body-font small-body-size">See More...</span>
         </div>
-     </div>
+    </div>
     
 </div>
