@@ -4,7 +4,7 @@
             <img alt="Visa Logo" class="visa-logo" src="assets/images/VISA-logo.png"/>
         </a>
 
-        <!-- TO-DO: Start + finish features for search + account page and add routing -->
+        <!-- TODO: Start + finish features for search + account page and add routing -->
         <div class="float-wrapper">
             <div class="search">
                 <p class="search-text body-font">Search</p>
@@ -15,8 +15,8 @@
     </div>
 </div>
 
-<!-- TO-DO: Start + finish features for tags pages + add routing to each respective `tag` -->
-<div class="tag-container">
+<!-- TODO: Start + finish features for tags pages + add routing to each respective `tag` -->
+<div class="tag-line-container">
     <div *ngFor="let tag of tags" class="tag-bar">
         <span class="small-body-font tag">{{tag}}</span>
     </div>
@@ -25,13 +25,13 @@
 <div class="content" role="main">
     <span class="sub-header">Featured</span>
     <div class="grid-container">
-        <div class="box1">
+        <div class="featured-charity">
             <img class="images" src={{featureImage}}/>
         </div>
-        <div class="box-5">
+        <div class="box5">
             <span class="header">{{name}}</span>
         </div>
-        <div class="box2">
+        <div class="side-charity-1">
             <img class="images" src={{featureImage}}/>
             <div class="sub-feature">
                 <span class="body-font">{{name}}</span>
@@ -42,21 +42,27 @@
             <div class="sub-feature">
                 <span class="body-font">{{name}}</span>
                 <br>
-                <div class="tag-button body-font tag-button-text">Human & Civil Rights</div>
-                <div class="tag-button body-font tag-button-text">Tag</div>
+                <!-- TODO: Eventually use *ngFor b/c we will receive tags from the database in the form of an array -->
+                <div class="tag-container">
+                    <span class="tag-button body-font tag-button-text">Tag</span>
+                    <span class="tag-button body-font tag-button-text">Tag</span>
+                    <span class="tag-button body-font tag-button-text">Human & Civil Rights</span>
+                </div>
             </div>
         </div>
         <div class="box4">
             <img class="images" src={{featureImage}}/>
             <div class="sub-feature">
                 <span class="body-font">{{name}}</span>
-                <!-- TO-DO: readjust tag button sizes dynamically to amount of text -->
-                <div class="tag-button body-font tag-button-text">Tag</div>
-                <div class="tag-button body-font tag-button-text">Tag</div>
+                <div class="tag-container">
+                    <div class="tag-button body-font tag-button-text">Tag</div>
+                    <div class="tag-button body-font tag-button-text">Tag</div>
+                    <div class="tag-button body-font tag-button-text">Human & Civil Rights</div>
+                </div>
             </div>
         </div>
         <div class="box6">
-            <!-- TO-DO: link to total list of non-profits -->
+            <!-- TODO: link to total list of non-profits -->
             <span class="small-body-font small-body-size">See More...</span>
         </div>
      </div>

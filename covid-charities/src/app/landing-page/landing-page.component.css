@@ -85,43 +85,50 @@ a:hover {
   display: grid;
   /* grid-template-columns: % 30%; */
   /* grid-column-gap: ; */
-  grid-template-columns: repeat(3, 350px);
+  /* grid-template-columns: repeat(4, 350px); */
+  grid-template-columns: 350px 350px 125px 200px;
   grid-template-rows: repeat(4, 100px);
-  grid-column-gap: 4em;
+  /* grid-column-gap: 4em; */
   grid-row-gap: 2em;
   margin-top: 20px;
   /* gap: 1px 5%; */
-  /* grid-template-areas: "Featured-charity ." "Featured-charity ." "Featured-charity ."; */
+  grid-template-areas: 
+    "featured-charity featured-charity side-charity-1 desc-1"
+    "featured-charity featured-charity side-charity-2 desc-2"
+    "featured-charity featured-charity side-charity-3 desc-3"
+    "featured-desc featured-desc more ...";
 }
 
-.box1 {
-  grid-column-start: 1;
+.featured-charity {
+  /* grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row-end: 4; */
   border: 1px solid black;
+  grid-area: featured-charity;
 }
 
-.box2 {
+.side-charity-1 {
+  grid-area: side-charity-1;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 .box3 {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 .box4 {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 .box5 {
@@ -129,6 +136,8 @@ a:hover {
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 5;
+  /* border: 1px solid black; */
+  margin-top: -2%;
 }
 
 .box6 {
@@ -136,19 +145,20 @@ a:hover {
   grid-column-end: 4;
   grid-row-start: 4;
   grid-row-end: 5;
+  border: 1px solid black;
 }
 
 .small-body-size {
   font-size: 12px;
 }
 
-.box1 > img {
+.featured-charity > img {
   object-fit: cover;
   width: 100%;
   max-height: 100%;
 }
 
-.box2 > img, 
+.side-charity-1 > img, 
 .box3 > img, 
 .box4 > img {
   object-fit: cover;
@@ -163,7 +173,7 @@ a:hover {
   padding-right: 2px;
 }
 
-.tag-container {
+.tag-line-container {
   display: flex;
   margin-top: 25px;
   margin-left: 17%;
@@ -173,21 +183,24 @@ a:hover {
   margin: auto;
 }
 
+.tag-button-text {
+  font-size: 12px;
+  padding: 2px;
+}
+
 .tag-button {
-  /* width: auto; */
-  /* height: auto; */
+  width: max-content;
+  min-height: 100%;
   background: #F0F0F0;
   border-radius: 2px;
   margin: 10px 2px;
-}
-.tag-button-text {
-  font-size: 11px;
   padding: 2px 10px;
-  /* line-height: 11px; */
+}
+
+.tag-container {
+  display: inline-block;
   text-align: center;
 }
 .sub-feature {
-  float: left;
-  vertical-align: top;
   margin-left: 5%;
 }
