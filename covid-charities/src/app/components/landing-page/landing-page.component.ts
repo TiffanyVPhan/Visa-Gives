@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Charity } from '../model/charity';
+import { Charity } from 'src/app/model/charity';
+
 
 @Component({
   selector: 'app-landing-page',

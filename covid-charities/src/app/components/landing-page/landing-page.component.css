@@ -1,0 +1,139 @@
+:host {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    
+  }
+  
+  @media screen and (max-width: 575px) {
+    
+  }
+  
+  .content {
+    margin: 2% 17%;
+    height: 100vh;
+    max-width: 1200px;
+  }
+  
+  .grid-container {
+    display: grid;
+    /* grid-template-columns: % 30%; */
+    /* grid-column-gap: ; */
+    /* grid-template-columns: repeat(4, 350px); */
+    grid-template-columns: 350px 350px 240px 300px;
+    grid-template-rows: repeat(4, 100px);
+    /* grid-column-gap: 3em; */
+    grid-row-gap: 2em;
+    margin-top: 20px;
+    /* gap: 1px 5%; */
+    grid-template-areas: 
+      "featured-charity featured-charity side-charity-1 desc-1"
+      "featured-charity featured-charity side-charity-2 desc-2"
+      "featured-charity featured-charity side-charity-3 desc-3"
+      "featured-desc featured-desc more ...";
+  }
+  
+  .featured-charity {
+    grid-area: featured-charity;
+  }
+  
+  .featured-charity > img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+  }
+  
+  .tag-line-container {
+    display: flex;
+    margin-top: 25px;
+    margin-left: 17%;
+    margin-right: 17%;
+  }
+  .featured-desc {
+    grid-area: featured-desc;
+    /* border: 1px solid black; */
+    margin-top: -2%;
+  }
+  
+  .side-charity-1 {
+    grid-area: side-charity-1;
+  }
+  
+  .side-charity-2 {
+    grid-area: side-charity-2;
+  }
+  
+  .side-charity-3 {
+    grid-area: side-charity-3;
+  }
+  
+  .more {
+    grid-area: more;
+  }
+  
+  .col-2 {
+    margin-left: 4em;;
+  }
+  .desc-1 {
+    grid-area: desc-1;
+  }
+  .desc-2 {
+    grid-area: desc-2;
+  }
+  .desc-3 {
+    grid-area: desc-3;
+  }
+  .desc-margin {
+    margin-left: 20px;
+  }
+  
+  .side-charity-1 > img, 
+  .side-charity-2 > img, 
+  .side-charity-3 > img {
+    object-fit: cover;
+    min-width: 100%;
+    max-height: 100%;
+    float: left;
+  }
+  
+  .small-body-size {
+    font-size: 12px;
+  }
+  
+  .tag {
+    font-size: 14px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  
+  .tag-bar {
+    margin: auto;
+  }
+  
+  .tag-button-text {
+    font-size: 10px;
+  }
+  
+  .tag-button {
+    float: left;
+    width: max-content;
+    min-height: 100%;
+    background: #F0F0F0;
+    border-radius: 2px;
+    margin: 5px 5px 0px 0px;
+    padding: 4px 15px;
+    line-height: 11px;
+  }
+  
+  .tag-container {
+    display: inline-block;
+    text-align: center;
+  }
+  .sub-feature {
+    margin-left: 5%;
+  }
+  
