@@ -1,7 +1,7 @@
 <!-- TODO: Start + finish features for tags pages + add routing to each respective `tag` -->
 <div class="tag-line-container">
     <div *ngFor="let tag of tags" class="tag-bar">
-        <span class="small-body-font tag">{{tag}}</span>
+        <span class="small-body-font tag">{{ tag }}</span>
     </div>
 </div>
 
@@ -14,7 +14,7 @@
             <img class="images" src={{featureImage}}/>
         </div>
         <div class="featured-desc">
-            <span class="header">{{name}}</span>
+            <span class="header">{{ name }}</span>
         </div>
 
         <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="col-2" ngClass="side-charity-{{i+1}}">
@@ -23,9 +23,9 @@
 
         <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="desc-margin" ngClass="desc-{{i+1}}">
             <div class="sub-feature">
-                <span class="body-font">{{charity.name}}</span>
+                <span class="body-font">{{ charity.name }}</span>
                 <div *ngFor="let tag of charity.tags">
-                    <span class="tag-button body-font tag-button-text">{{tag}}</span>
+                    <span class="tag-button body-font tag-button-text">{{ tag }}</span>
                 </div>
             </div>
         </div>

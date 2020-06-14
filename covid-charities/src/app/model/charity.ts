@@ -5,4 +5,11 @@ export class Charity {
                 public coverPhoto: string,
                 public additionalPhotos: string [],
                 public donationTiers: number []) {}
+
+    public static JSONtoObj(obj: any): Charity {
+        return new Charity(obj.name, obj.description, obj.tags,
+                            obj.coverPhoto, obj.additionalPhotos, 
+                            obj.donationTiers);
+    }
 }
+
