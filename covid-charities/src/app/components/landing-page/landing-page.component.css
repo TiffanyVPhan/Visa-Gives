@@ -29,7 +29,7 @@
     "featured-charity featured-charity side-charity-1 desc-1"
     "featured-charity featured-charity side-charity-2 desc-2"
     "featured-charity featured-charity side-charity-3 desc-3"
-    "featured-desc featured-desc more ...";
+    "featured-desc featured-desc ... ...";
 }
 
 .featured-charity {
@@ -69,12 +69,8 @@
   grid-area: side-charity-3;
 }
 
-.more {
-  grid-area: more;
-}
-
 .col-2 {
-  margin-left: 4em;;
+  margin-left: 4em;
 }
 .desc-1 {
   grid-area: desc-1;

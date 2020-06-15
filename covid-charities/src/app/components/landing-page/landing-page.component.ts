@@ -26,7 +26,7 @@ export class LandingPageComponent implements OnInit {
   constructor() {
     this.charities = [
       Charity.JSONtoObj({
-        'name': 'COVID-19 Solidarity Response Fund for WHO',
+        'name': 'World Health Organization',
         'description': 'Donations support WHO’s work, including with partners, to track and understand the spread of the virus; to ensure patients get the care they need and frontline workers get essential supplies and information; and to accelerate research and development of a vaccine and treatments for all who need them.',
         'tags': ['Health', 'Research', 'International'],
         'coverPhoto': "https://quincy-network.s3.ca-central-1.amazonaws.com/wp-content/uploads/sites/3/2020/05/World-Health-Organization-MGN.jpg",
@@ -34,7 +34,7 @@ export class LandingPageComponent implements OnInit {
         'donationTiers': [5, 10, 15, 25]
       }),
       Charity.JSONtoObj({
-        'name': 'COVID-19 Solidarity Response Fund for WHO',
+        'name': 'World Health Organization',
         'description': 'Donations support WHO’s work, including with partners, to track and understand the spread of the virus; to ensure patients get the care they need and frontline workers get essential supplies and information; and to accelerate research and development of a vaccine and treatments for all who need them.',
         'tags': ['Health', 'Human Services', 'Research', 'International'],
         'coverPhoto': "https://quincy-network.s3.ca-central-1.amazonaws.com/wp-content/uploads/sites/3/2020/05/World-Health-Organization-MGN.jpg",
@@ -50,7 +50,7 @@ export class LandingPageComponent implements OnInit {
         'donationTiers': [5, 10, 15, 25]
       }),
       Charity.JSONtoObj({
-        'name': 'COVID-19 Solidarity Response Fund for WHO',
+        'name': 'World Health Organization',
         'description': 'Donations support WHO’s work, including with partners, to track and understand the spread of the virus; to ensure patients get the care they need and frontline workers get essential supplies and information; and to accelerate research and development of a vaccine and treatments for all who need them.',
         'tags': ['Environment', 'Research', 'International'],
         'coverPhoto': "https://quincy-network.s3.ca-central-1.amazonaws.com/wp-content/uploads/sites/3/2020/05/World-Health-Organization-MGN.jpg",
