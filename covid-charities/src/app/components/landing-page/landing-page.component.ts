@@ -12,6 +12,7 @@ export class LandingPageComponent implements OnInit {
                             'Animals',
                             'Arts',
                             'Community',
+                            'COVID-19',
                             'Education',
                             'Environment',
                             'Health',
