@@ -22,9 +22,6 @@ export class LandingPageComponent implements OnInit {
                             'Religion',
                           ];
 
-  public featureImage: string = 'https://quincy-network.s3.ca-central-1.amazonaws.com/wp-content/uploads/sites/3/2020/05/World-Health-Organization-MGN.jpg';
-  public name: string = 'Nonprofit Name';
-
   charities: Charity[];
   constructor() {
     this.charities = [
@@ -59,7 +56,8 @@ export class LandingPageComponent implements OnInit {
         'coverPhoto': "https://quincy-network.s3.ca-central-1.amazonaws.com/wp-content/uploads/sites/3/2020/05/World-Health-Organization-MGN.jpg",
         'additionalPhotos': [],
         'donationTiers': [5, 10, 15, 25]
-      })
+      }),
+      
     ]
   }
 
