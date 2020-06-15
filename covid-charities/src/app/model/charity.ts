@@ -1,17 +1,15 @@
 export class Charity {
-    public title: string;
-    public description: string;
-    public tags: string [];
-    public coverPhoto: string;
-    public moneyRaised: number;
-    public targetAmount: number;
+    constructor(public name: string,
+                public description: string,
+                public tags: string [],
+                public coverPhoto: string,
+                public additionalPhotos: string [],
+                public donationTiers: number []) {}
 
-    constructor(t: string, d: string, tag: string[], cp: string, mr: number, ta: number) {
-        this.title = t;
-        this.description = d;
-        this.tags = tag;
-        this.coverPhoto = cp;
-        this.moneyRaised = mr;
-        this.targetAmount = ta;
+    public static JSONtoObj(obj: any): Charity {
+        return new Charity(obj.name, obj.description, obj.tags,
+                            obj.coverPhoto, obj.additionalPhotos, 
+                            obj.donationTiers);
     }
 }
+

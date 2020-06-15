@@ -1,1 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #1A1F71;
+    --accent-color: #F7B600;
+}
+
+.header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.sub-header {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.body-font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+
+}
+
+.small-body-font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.tag {
+    font-size: 14px;
+}
+
+.toolbar {
+    width: 100%;
+    height: 84px;
+    border-bottom: 1.5px solid #000000;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  
+.visa-logo {
+  margin-top: 21px;
+}
+
+.full {
+  height: 100vh;
+}
+
+.search {
+  display: inline-block;
+}
+
+.search-text {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.float-wrapper {
+  float: right;
+  display: inline-block;
+  margin-top: 1.5%;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.container {
+  margin-left: 15%;
+  margin-right: 15%;
+}
