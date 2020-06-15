@@ -8,13 +8,11 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 32px;
-    text-shadow: 0px 0.25px, 0.25px 0px, 0.25px 0.25px;
-    /* margin: 3% 0px; */
 }
 
 .sub-header {
     font-family: 'Open Sans', sans-serif;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 20px;
 }
 
@@ -43,38 +41,36 @@
     border-color: rgba(0, 0, 0, 0.2);
   }
   
-  .visa-logo {
-    margin-top: 21px;
-  }
-  
-  .full {
-    height: 100vh;
-  }
-  
-  .search {
-    display: inline-block;
-    margin: 28px 30px 5px 5px;
-  }
-  
-  .search-text {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .float-wrapper {
-    float: right;
-  }
-  
-  .account-icon {
-    margin-top: 20px;
-  }
-  
-  .icon {
-    margin-bottom: 40px;
-    vertical-align: middle;
-  }
-  
-  .container {
-    margin-left: 15%;
-    margin-right: 15%;
-  }
+.visa-logo {
+  margin-top: 21px;
+}
+
+.full {
+  height: 100vh;
+}
+
+.search {
+  display: inline-block;
+}
+
+.search-text {
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.float-wrapper {
+  float: right;
+  display: inline-block;
+  margin-top: 1.5%;
+}
+
+.icon {
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.container {
+  margin-left: 15%;
+  margin-right: 15%;
+}
