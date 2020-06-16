@@ -12,12 +12,6 @@
 @media screen and (max-width: 575px) {
   
 }
-  
-.content {
-  margin: 2% 17%;
-  height: 200vh;
-  max-width: 1200px;
-}
 
 .grid-container {
   display: grid;
