@@ -8,8 +8,7 @@ export class Charity {
 
     public static JSONtoObj(obj: any): Charity {
         return new Charity(obj.name, obj.description, obj.tags,
-                            obj.coverPhoto, obj.additionalPhotos, 
+                            obj.coverPhoto, obj.additionalPhotos,
                             obj.donationTiers);
     }
 }
-

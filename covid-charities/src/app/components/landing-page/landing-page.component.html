@@ -12,7 +12,9 @@
             <img [src]="this.charities[0].coverPhoto" />
         </div>
         <div class="featured-desc-margin">
-            <p class="header">{{ this.charities[0].name }}</p>
+            <a [routerLink]="['/charity', this.charities[0].name]">
+                <p class="header">{{ this.charities[0].name }}</p>
+            </a>
             <p class="body-font featured-desc">The World Health Organization (WHO) is leading and coordinating the
                 global effort, supporting countries to prevent, detect, and respond to the pandemic.
             </p>
@@ -26,7 +28,7 @@
         <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="desc-margin"
             ngClass="desc-{{i+1}}">
             <div class="sub-feature">
-                <span class="body-font">{{ charity.name }}</span>
+                <a [routerLink]="['/charity', charity.name]" class="body-font">{{ charity.name }}</a>
                 <div *ngFor="let tag of charity.tags">
                     <span class="tag-button body-font tag-button-text">{{ tag }}</span>
                 </div>
@@ -42,7 +44,9 @@
                     <img [src]="charity.coverPhoto">
                 </div>
                 <div class="charity-desc">
-                    <span class="sub-header popular-title">{{ charity.name }}</span>
+                    <a [routerLink]="['/charity', charity.name]">
+                        <span class="sub-header popular-title">{{ charity.name }}</span>
+                    </a>
                     <br>
                     <br>
                     <span class="body-font">{{ charity.description }}</span>

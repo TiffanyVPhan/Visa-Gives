@@ -4,6 +4,13 @@
   --accent-color: #F7B600;
 }
 
+a,
+a:visited,
+a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
 .header {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -27,6 +34,12 @@
   font-weight: 300;
   font-size: 20px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  margin: 2% 17%;
+  height: 200vh;
+  max-width: 1200px;
 }
 
 .tag {
@@ -69,6 +82,6 @@
 }
 
 .container {
-  margin-left: 15%;
+  margin-left: 17%;
   margin-right: 15%;
 }
