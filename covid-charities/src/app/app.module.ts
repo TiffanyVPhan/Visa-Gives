@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { CharityService } from './services/charity.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CharityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
