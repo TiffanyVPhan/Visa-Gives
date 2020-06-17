@@ -4,26 +4,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-  /* Responsive Styles */
-@media screen and (max-width: 767px) {
-  
-}
-
-@media screen and (max-width: 575px) {
-  
-}
-
 .grid-container {
   display: grid;
-  grid-template-columns: 350px 350px 240px 300px;
-  grid-template-rows: repeat(5, 100px);
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: repeat(4, 100px);
   grid-row-gap: 2em;
   margin-top: 20px;
   grid-template-areas: 
-    "featured-charity featured-charity side-charity-1 desc-1"
-    "featured-charity featured-charity side-charity-2 desc-2"
-    "featured-charity featured-charity side-charity-3 desc-3"
-    "featured-desc featured-desc ... ...";
+    "featured-charity side-charity-1 desc-1"
+    "featured-charity side-charity-2 desc-2"
+    "featured-charity  side-charity-3 desc-3"
+    "featured-desc  ... ...";
 }
 
 .featured-charity {
@@ -36,12 +27,6 @@
   max-height: 100%;
 }
 
-.tag-line-container {
-  display: flex;
-  margin-top: 25px;
-  margin-left: 17%;
-  margin-right: 17%;
-}
 .featured-desc-margin {
   grid-area: featured-desc;
   margin-top: -6%;
@@ -92,6 +77,13 @@
   font-size: 12px;
 }
 
+.tag-line-container {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 17%;
+  margin-right: 17%;
+}
+
 .tag {
   font-size: 14px;
   padding-left: 2px;
@@ -112,7 +104,7 @@
   min-height: 100%;
   background: #F0F0F0;
   border-radius: 2px;
-  margin: 5px 5px 0px 0px;
+  margin: 8px 5px 0px 0px;
   padding: 4px 15px;
   line-height: 11px;
 }
@@ -142,8 +134,8 @@
 }
 
 .charity-photo > img {
-  width: 100%;
-  max-height: 205px;
+  width: 321px;
+  height: 205px;
   object-fit: cover;
 }
 
@@ -153,4 +145,77 @@
 
 .popular-title {
   margin-top: 10%;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1452px) {
+  .content {
+    margin: 2% 14% 8%;
+  }
+  .featured-desc-margin {
+    margin-top: -6%;
+  }
+  .tag-line-container {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
+@media screen and (min-width: 1301px) and (max-width: 1500px) {
+  .featured-desc-margin {
+    margin-top: -10%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .content {
+    margin: 2% 10% 8%;
+  }
+  .featured-desc-margin {
+    margin-top: -10%;
+  }
+  .tag-line-container {
+    margin-left: 12%;
+    margin-right: 12%;
+  }
+}
+
+@media screen and (max-width: 1168px) {
+  .featured-desc-margin {
+    margin-top: -20%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    margin: 2% 5% 8%;
+  }
+  .featured-desc-margin {
+    margin-top: -15%;
+  }
+  .tag-line-container {
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+}
+
+/* TO-DO: work on mobile responsiveness */
+@media (max-width: 976px) {
+  /* .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 200px);
+    grid-template-areas:
+      "featured-charity"
+      "featured-desc"
+      "side-charity-1"
+      "desc-1"
+      "side-charity-2"
+      "desc-2"
+      "side-charity-3"
+      "desc-3";
+  } */
+
+  /* .tag-line-container {
+    display: none;
+  } */
 }

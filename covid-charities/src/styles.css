@@ -37,8 +37,8 @@ a:hover {
 }
 
 .content {
-  margin: 2% 17%;
-  height: 200vh;
+  margin: 2% 17% 8%;
+  /* height: 200vh; */
   max-width: 1200px;
 }
 
@@ -85,3 +85,31 @@ a:hover {
   margin-left: 17%;
   margin-right: 15%;
 }
+
+@media screen and (max-width: 1452px) {
+  .container {
+    margin-left: 14%;
+    margin-right: 14%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+
+/* @media (max-width: 976px) {  
+  div {
+    display: none;
+  }
+} */

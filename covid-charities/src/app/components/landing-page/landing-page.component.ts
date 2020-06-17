@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Charity } from 'src/app/model/charity';
 import { CharityService } from '../../services/charity.service';
+import { toast } from 'materialize-css';
 
 
 @Component({
@@ -10,7 +11,6 @@ import { CharityService } from '../../services/charity.service';
 })
 export class LandingPageComponent implements OnInit {
   public tags: string[] = [
-                            'Animals',
                             'Arts',
                             'Community',
                             'COVID-19',
@@ -21,7 +21,6 @@ export class LandingPageComponent implements OnInit {
                             'Human Services',
                             'International',
                             'Research',
-                            'Religion',
                           ];
 
   charities: Charity[];
