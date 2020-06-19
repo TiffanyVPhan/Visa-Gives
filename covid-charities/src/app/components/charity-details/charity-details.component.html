@@ -1,5 +1,28 @@
 <div class="content">
-    <span class="header">charity-details works!</span>
-    <p>{{ this.charity.name }} </p>
-    <p> {{ this.charity.tags }} </p>
+    <span class="header">{{ this.charity.name }} </span>
+
+    <div class="charity-grid">
+        <div class="main-photo">
+            <img [src]="this.charity.coverPhoto">
+        </div>
+
+        <div *ngFor="let i of [1,2,3]" ngClass="side-{{ i }}">
+            <img [src]="this.charity.additionalPhotos[i - 1]">
+        </div>
+    </div>
+
+    <div class="description">
+        <p class="body-font">
+            <span>{{ this.charity.summary }}</span>
+            <br>
+            <span>{{ this.charity.description }}</span>
+            <br>
+            <span>{{ this.charity.money }}</span>
+        </p>
+    </div>
+
+    <div class="description">
+        <span class="sub-header">Show your support</span>
+    </div>
 </div>
+

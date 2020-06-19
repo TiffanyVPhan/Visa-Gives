@@ -19,6 +19,7 @@
 
 .featured-charity {
   grid-area: featured-charity;
+  overflow: hidden;
 }
 
 .featured-charity > img {
@@ -38,14 +39,17 @@
 
 .side-charity-1 {
   grid-area: side-charity-1;
+  overflow: hidden;
 }
 
 .side-charity-2 {
   grid-area: side-charity-2;
+  overflow: hidden;
 }
 
 .side-charity-3 {
   grid-area: side-charity-3;
+  overflow: hidden;
 }
 
 .col-2 {
@@ -131,6 +135,7 @@
 
 .charity-photo {
   grid-area: charity-photo;
+  /* overflow: hidden; */
 }
 
 .charity-photo > img {
