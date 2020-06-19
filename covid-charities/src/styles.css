@@ -91,6 +91,9 @@ a:hover {
     margin-left: 14%;
     margin-right: 14%;
   }
+  .content {
+    margin: 2% 14% 8%;
+  }
 }
 
 @media screen and (max-width: 1300px) {
@@ -98,12 +101,18 @@ a:hover {
     margin-left: 10%;
     margin-right: 10%;
   }
+  .content {
+    margin: 2% 10% 8%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .container {
     margin-left: 5%;
     margin-right: 5%;
+  }
+  .content {
+    margin: 2% 5% 8%;
   }
 }
 
