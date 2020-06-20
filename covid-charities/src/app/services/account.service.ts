@@ -12,7 +12,8 @@ export class AccountService {
       ['World Health Organization', 'Project Hope'],
       [123, 5],
       ['2012-04-23', '2012-04-23'],
-      ['123456789']);
+      ['123456789'],
+      'https://tiffanyphan.dev/static/tiff.jpg');
   }
 
   getAccount(): Observable<Account> {
