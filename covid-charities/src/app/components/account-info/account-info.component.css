@@ -1,0 +1,42 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 2px;
+    max-width: 50%;
+    margin-top: 4em;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    margin: 5em 10em;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    display: block;
+    margin-top: 0.5em;
+}
+
+.charity-text {
+    margin-top: 0.5em;
+}
+
+.img-wrapper {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.img-wrapper img{
+    width: 100%;
+}

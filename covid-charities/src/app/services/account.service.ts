@@ -8,12 +8,12 @@ import { Account } from '../model/account';
 export class AccountService {
   account: Account;
   constructor() {
-    this.account = new Account('Tiffany Phan',
+    this.account = new Account('Anand Chandra',
       ['World Health Organization', 'Project Hope'],
       [123, 5],
       ['2012-04-23', '2012-04-23'],
       ['123456789'],
-      'https://tiffanyphan.dev/static/tiff.jpg');
+      'https://i.ibb.co/x1f3CYh/profile-1.png');
   }
 
   getAccount(): Observable<Account> {
