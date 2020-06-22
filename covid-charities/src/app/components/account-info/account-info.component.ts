@@ -1,13 +1,13 @@
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { AccountService } from '../../services/account.service';
 import { Account } from '../../model/account';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-account-info',
   templateUrl: './account-info.component.html',
-  styleUrls: ['./account-info.component.css']
+  styleUrls: ['./account-info.component.css'],
 })
 export class AccountInfoComponent implements OnInit {
 
