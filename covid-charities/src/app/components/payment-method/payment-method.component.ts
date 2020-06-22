@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 import { Account } from '../../model/account';
 import { AccountService } from '../../services/account.service';
@@ -13,7 +14,8 @@ export class PaymentMethodComponent implements OnInit {
 
   account: Account;
   constructor(private accountService: AccountService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
