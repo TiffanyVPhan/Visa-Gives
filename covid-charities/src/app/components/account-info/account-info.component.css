@@ -1,0 +1,76 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    border-radius: 5px;
+    padding: 2px;
+    margin-top: 4em;
+    width: 500px;
+    max-width: 50%;
+}
+
+.container {
+    margin: 2% 2%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    display: block;
+    margin-top: 0.5em;
+}
+
+.charity-text {
+    margin-top: 0.75em;
+}
+
+.img-wrapper {
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 13%;
+}
+
+.img-wrapper img{
+    width: 100%;
+}
+
+.link-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 40px);
+    grid-template-columns: 1fr 1fr;
+    margin: 10% 0 15% 15%;
+    grid-template-areas: 
+        "reset-password logout"
+        "invite-friends delete-account"
+        "contact-us ...";
+}
+
+.reset-password {
+    grid-area: reset-password;
+}
+
+.logout {
+    grid-area: logout;
+}
+
+.invite-friends {
+    grid-area: invite-friends;
+}
+
+.delete-account {
+    grid-area: delete-account;
+}
+
+.contact-us {
+    grid-area: contact-us;
+}
+
+.link-font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}

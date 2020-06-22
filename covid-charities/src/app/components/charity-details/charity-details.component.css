@@ -51,3 +51,33 @@ p span {
 .description {
     margin-top: 5%
 }
+
+.donation-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.horizontal {
+    display: flex;
+    margin-top: 1em;
+}
+
+.donation-margin {
+    margin-right: 3em;
+}
+
+.donation-button {
+    display: block;
+    background: var(--accent-color);
+    border-radius: 3px;
+    padding: 5px 15px;
+}
+
+.no-display {
+    display: block;
+    background: white;
+    border-radius: 3px;
+    padding: 5px 15px;
+}

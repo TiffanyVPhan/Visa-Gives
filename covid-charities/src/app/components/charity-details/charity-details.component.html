@@ -3,26 +3,33 @@
 
     <div class="charity-grid">
         <div class="main-photo">
-            <img [src]="this.charity.coverPhoto">
+            <img [src]="charity.coverPhoto">
         </div>
 
         <div *ngFor="let i of [1,2,3]" ngClass="side-{{ i }}">
-            <img [src]="this.charity.additionalPhotos[i - 1]">
+            <img [src]="charity.additionalPhotos[i - 1]">
         </div>
     </div>
 
     <div class="description">
         <p class="body-font">
-            <span>{{ this.charity.summary }}</span>
+            <span>{{ charity.summary }}</span>
             <br>
-            <span>{{ this.charity.description }}</span>
+            <span>{{ charity.description }}</span>
             <br>
-            <span>{{ this.charity.money }}</span>
+            <span>{{ charity.money }}</span>
         </p>
     </div>
 
     <div class="description">
-        <span class="sub-header">Show your support</span>
+        <span class="donation-text">Show your support</span>
+
+        <div class="horizontal">
+            <div *ngFor="let amount of charity.donationTiers" class="donation-margin">
+                <span class="donation-text">
+                    <div (click)="onClick(amount)" class="{{ (amount == selectedAmount) ? 'donation-button' : 'no-display' }}">${{ amount }}</div>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
-
