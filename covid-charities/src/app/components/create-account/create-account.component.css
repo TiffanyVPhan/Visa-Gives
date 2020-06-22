@@ -18,6 +18,7 @@
 
 .img-wrapper img{
     width: 100%;
+    cursor: pointer;
 }
 
 .form-text {
@@ -35,6 +36,7 @@
     background: var(--primary-color);
     padding: 3% 21%;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .button-text {
