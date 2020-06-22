@@ -1,0 +1,30 @@
+<div class="content">
+    <span class="header">Payment Methods</span>
+    <br>
+    <br>
+    <span *ngIf="!(account.paymentMethod == 'undefined')" class="sub-header">Your Visa card:</span>
+    <span *ngIf="account.paymentMethod == 'undefined'" class="sub-header">Add a Visa Card to send donations</span>
+
+    <div class="circle-container">
+        <span class="circle circle1"></span>
+        <span class="circle circle2"></span>
+        <span class="circle circle3"></span>
+    </div>
+
+    <card *ngIf="account.paymentMethod == 'undefined'">
+        <div class="card-size"></div>
+
+        <div class="logo">
+            <img src="assets/images/VISA-logo.png">
+        </div>
+    </card>
+
+    <card *ngIf="!(account.paymentMethod == 'undefined')">
+        <div class="card-size"></div>
+
+        <div class="logo">
+            <img src="assets/images/VISA-logo.png">
+        </div>
+    </card>
+</div>
+

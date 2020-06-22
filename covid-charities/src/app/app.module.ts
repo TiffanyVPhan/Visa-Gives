@@ -11,6 +11,7 @@ import { CharityDetailsComponent } from './components/charity-details/charity-de
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { CardComponent } from './components/card/card.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 
 const routes: Routes = [
   { path: '',
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'create-account',
     component: CreateAccountComponent
+  },
+  {
+    path: 'payment-methods',
+    component: PaymentMethodComponent
   }
 ];
 
@@ -37,6 +42,7 @@ const routes: Routes = [
     AccountInfoComponent,
     CardComponent,
     CreateAccountComponent,
+    PaymentMethodComponent,
   ],
   imports: [
     BrowserModule,
