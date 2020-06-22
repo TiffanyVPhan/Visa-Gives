@@ -1,26 +1,36 @@
 <div class="center">
     <card>
-        <div class="container">
-            <div class="img-wrapper">
-                <img src="assets/images/chooseProfilePic.png">
+        <form *ngIf="!submit" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <div class="img-wrapper">
+                    <img src="assets/images/chooseProfilePic.png">
+                </div>
             </div>
-        </div>
+            <div class="form-grid">
+                <span class="body-font form-text field" required>First name</span>
+                <input type="text" class="body-font" [(ngModel)]="firstName" placeholder="Al"
+                    formControlName="first" [ngClass]="{'is-invalid': accountForm.get('first').touched && accountForm.get('first').invalid}">
 
-        <div class="form-grid">
-            <span class="body-font form-text">First name</span>
-            <span class="body-font form-text">[input here]</span>
-            <span class="body-font form-text">Last Name</span>
-            <span class="body-font form-text">[input here]</span>
-            <span class="body-font form-text">Email</span>
-            <span class="body-font form-text">[input here]</span>
-            <span class="body-font form-text">Password</span>
-            <span class="body-font form-text">[input here]</span>
-            <span class="body-font form-text">Confirm</span>
-            <span class="body-font form-text">[input here]</span>
-        </div>
-        
-        <div class="button-wrapper">
-            <span class="button button-text">Create Account</span>
-        </div>
+                <span class="body-font form-text">Last Name</span>
+                <input type="text" class="body-font" [(ngModel)]="lastName" placeholder="Kelly"
+                    formControlName="last">
+
+                <span class="body-font form-text">Email</span>
+                <input type="text" class="body-font" [(ngModel)]="email" placeholder="alkelly@visa.com"
+                    formControlName="email_">
+
+                <span class="body-font form-text">Password</span>
+                <input type="text" class="body-font" [(ngModel)]="password" placeholder="*******"
+                    formControlName="pass">
+
+                <span class="body-font form-text">Confirm</span>
+                <input type="text" class="body-font" [(ngModel)]="confirmPassword" placeholder="*******"
+                    formControlName="confirm">
+            </div>
+            <div class="button-wrapper">
+                <input type="submit" class="button button-text" value="Create Account">
+            </div>
+        </form>
+        <div *ngIf="submit" class="sub-header created">Account Created.</div>
     </card>
 </div>

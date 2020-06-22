@@ -4,11 +4,18 @@ export class Account {
                 public donationAmount: number [],
                 public datesDonated: string [],
                 public paymentMethod: string [],
-                public profilePicture: string) {}
+                public profilePicture: string,
+                public email: string,
+                public password: string) {}
 
     public static JSONtoObj(obj: any): Account {
         return new Account(obj.name, obj.donatedCharities,
                             obj.donationAmount, obj.datesDonated,
-                            obj.paymentMethod, obj.profilePicture);
+                            obj.paymentMethod, obj.profilePicture,
+                            obj.email, obj.password);
+    }
+
+    public static createNewAccount(): Account {
+        return new Account('', null, null, null, null, '', '', '');
     }
 }

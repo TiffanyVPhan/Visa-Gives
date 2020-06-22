@@ -13,7 +13,9 @@ export class AccountService {
       [123, 5],
       ['2012-04-23', '2012-04-23'],
       ['123456789'],
-      'https://i.ibb.co/x1f3CYh/profile-1.png');
+      'https://i.ibb.co/x1f3CYh/profile-1.png',
+      'achandra@visa.com',
+      'asdf');
   }
 
   getAccount(): Observable<Account> {

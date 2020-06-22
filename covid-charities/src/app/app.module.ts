@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
@@ -42,7 +43,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled'
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [AccountService, CharityService],
   bootstrap: [AppComponent]
