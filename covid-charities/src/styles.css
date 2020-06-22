@@ -38,7 +38,6 @@ a:hover {
 
 .content {
   margin: 2% 17% 8%;
-  /* height: 200vh; */
   max-width: 1200px;
 }
 
@@ -79,6 +78,7 @@ a:hover {
 .icon {
   vertical-align: middle;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .container {
