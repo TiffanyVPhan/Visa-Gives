@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CharityDetailsComponent } from './components/charity-details/charity-details.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { CardComponent } from './components/card/card.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 const routes: Routes = [
   { path: '',
@@ -28,7 +30,9 @@ const routes: Routes = [
     AppComponent,
     LandingPageComponent,
     CharityDetailsComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    CardComponent,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,
