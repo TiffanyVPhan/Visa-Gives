@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'account',
     component: AccountInfoComponent
+  },
+  {
+    path: 'create-account',
+    component: CreateAccountComponent
   }
 ];
 
