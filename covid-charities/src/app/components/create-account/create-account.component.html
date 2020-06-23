@@ -1,6 +1,6 @@
 <div class="center">
     <card>
-        <form *ngIf="!submit" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+        <form *ngIf="!submit" [formGroup]="accountForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="container">
                 <div class="img-wrapper">
                     <img *ngIf="!image" src="assets/images/chooseProfilePic.png">
@@ -12,26 +12,29 @@
             <div class="form-grid">
                 <span class="body-font form-text field" required>First name</span>
                 <input required type="text" class="body-font" [(ngModel)]="firstName" placeholder="Al"
-                    formControlName="first">
+                    formControlName="first" required>
 
                 <span class="body-font form-text">Last Name</span>
                 <input type="text" class="body-font" [(ngModel)]="lastName" placeholder="Kelly"
-                    formControlName="last">
+                    formControlName="last" required>
 
                 <span class="body-font form-text">Email</span>
                 <input type="text" class="body-font" [(ngModel)]="email" placeholder="alkelly@visa.com"
-                    formControlName="email_">
+                    formControlName="email_" required email>
 
                 <span class="body-font form-text">Password</span>
                 <input type="text" class="body-font" [(ngModel)]="password" placeholder="*******"
-                    formControlName="pass">
+                    formControlName="pass" required>
 
                 <span class="body-font form-text">Confirm</span>
                 <input type="text" class="body-font" [(ngModel)]="confirmPassword" placeholder="*******"
-                    formControlName="confirm">
+                    formControlName="confirm" required>
             </div>
             <div class="button-wrapper">
-                <input type="submit" class="button button-text" value="Create Account">
+                <input type="submit" class="button button-text" 
+                value="Create Account"
+                [disabled]="!f.valid">
+            
             </div>
         </form>
         <div *ngIf="submit" class="sub-header created">Account Created.</div>
