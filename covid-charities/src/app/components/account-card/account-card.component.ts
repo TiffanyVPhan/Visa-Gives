@@ -1,0 +1,24 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-account-card',
+  templateUrl: './account-card.component.html',
+  styleUrls: ['./account-card.component.css']
+})
+export class AccountCardComponent implements OnInit {
+  public accountfeatures: string[] = [
+  									'Donation History',
+		                            'Bookmarked',
+		                            'Payment Methods',
+		                            'Settings',
+		                            'Notifications',
+		                            'Terms of Service',
+		                            'Privacy Policy',
+		                            'Human Services',
+		                         	];
+ 
+  constructor() {}
+
+  ngOnInit() {}
+
+}
