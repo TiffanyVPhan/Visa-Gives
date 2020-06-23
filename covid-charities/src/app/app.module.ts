@@ -12,6 +12,7 @@ import { CharityDetailsComponent } from './components/charity-details/charity-de
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { CardComponent } from './components/card/card.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { AccountCardComponent } from './components/account-card/account-card.component';
 
 const routes: Routes = [
   { path: '',
@@ -38,6 +39,7 @@ const routes: Routes = [
     AccountInfoComponent,
     CardComponent,
     CreateAccountComponent,
+    AccountCardComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +49,6 @@ const routes: Routes = [
     ReactiveFormsModule
   ],
   providers: [AccountService, CharityService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, AccountCardComponent]
 })
 export class AppModule { }

@@ -1,0 +1,25 @@
+<div class="dropdown">
+    <img src="assets/images/account.svg" class="icon" alt="Account Icon">
+    <div class="small-body-font dropdown-content">
+        <div class="account">
+            <a href="#"> 
+                <img src="assets/images/account.svg" class="icon" alt="Account Icon">
+                Person Name
+            </a>
+        </div>
+        <hr>
+        <div class="info" *ngFor="let accountfeature of accountfeatures; let i = index" >
+            <div class="info-row" *ngIf="i % 2 == 0" >
+                <a href="#">{{ accountfeature }}</a>
+                <div *ngIf="i + 1 < accountfeatures.length">
+                    <a href="#">{{ accountfeatures[i + 1]}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="signout">
+            <a href="#"> Sign Out </a>
+        </div>
+    </div>
+</div>
+
+
