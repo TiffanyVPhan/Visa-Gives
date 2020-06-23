@@ -1,5 +1,4 @@
-input[type="text"]
-{
+input[type="text"] {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -70,4 +69,8 @@ input[type="text"]
     vertical-align: middle;
     text-align: center;
     padding: 5% 5%;
+}
+
+.hidden {
+    display: none;
 }

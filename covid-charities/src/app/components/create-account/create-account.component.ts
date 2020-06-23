@@ -14,6 +14,7 @@ export class CreateAccountComponent implements OnInit {
   password: string;
   confirmPassword: string;
   email: string;
+  image: string;
   submit = false;
 
   accountForm = new FormGroup({
@@ -21,7 +22,8 @@ export class CreateAccountComponent implements OnInit {
      last: new FormControl(this.lastName, [Validators.required]),
      pass: new FormControl(this.password, [Validators.required]),
      confirm: new FormControl(this.confirmPassword, [Validators.required]),
-     email_: new FormControl(this.email, [Validators.required])
+     email_: new FormControl(this.email, [Validators.required]),
+     profilePicture: new FormControl(this.image)
    });
   constructor(private accountService: AccountService,
               private fb: FormBuilder) {}

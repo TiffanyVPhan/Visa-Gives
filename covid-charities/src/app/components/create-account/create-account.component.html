@@ -3,13 +3,16 @@
         <form *ngIf="!submit" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
             <div class="container">
                 <div class="img-wrapper">
-                    <img src="assets/images/chooseProfilePic.png">
+                    <img *ngIf="!image" src="assets/images/chooseProfilePic.png">
+                    <!-- <input type="file" 
+                        [(ngModel)]="image" src="assets/images/chooseProfilePic.png" accept="image/x-png,image/gif,image/jpeg" formControlName="profilePicture">
+                    <img *ngIf="image" [src]="image"> -->
                 </div>
             </div>
             <div class="form-grid">
                 <span class="body-font form-text field" required>First name</span>
-                <input type="text" class="body-font" [(ngModel)]="firstName" placeholder="Al"
-                    formControlName="first" [ngClass]="{'is-invalid': accountForm.get('first').touched && accountForm.get('first').invalid}">
+                <input required type="text" class="body-font" [(ngModel)]="firstName" placeholder="Al"
+                    formControlName="first">
 
                 <span class="body-font form-text">Last Name</span>
                 <input type="text" class="body-font" [(ngModel)]="lastName" placeholder="Kelly"
