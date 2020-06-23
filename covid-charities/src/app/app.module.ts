@@ -8,6 +8,7 @@ import { CharityService } from './services/charity.service';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { CharityDetailsComponent } from './components/charity-details/charity-details.component';
+import { AccountCardComponent } from './components/account-card/account-card.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LandingPageComponent,
-    CharityDetailsComponent
+    CharityDetailsComponent,
+    AccountCardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,6 @@ const routes: Routes = [
     })
   ],
   providers: [AccountService, CharityService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, AccountCardComponent]
 })
 export class AppModule { }
