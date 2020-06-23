@@ -15,7 +15,6 @@ import { CreateAccountComponent } from './components/create-account/create-accou
 import { AccountCardComponent } from './components/account-card/account-card.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 
-
 const routes: Routes = [
   { path: '',
     component: LandingPageComponent
