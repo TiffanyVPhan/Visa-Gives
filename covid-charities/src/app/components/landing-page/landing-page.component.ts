@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Charity } from 'src/app/model/charity';
 import { CharityService } from '../../services/charity.service';
-import { toast } from 'materialize-css';
-
 
 @Component({
   selector: 'app-landing-page',
@@ -23,12 +21,12 @@ export class LandingPageComponent implements OnInit {
                             'Research',
                           ];
 
-  charities: Charity[];
+  public charities: Charity[];
   constructor(private charityService: CharityService) {}
 
   ngOnInit() {
     this.charityService.getAllCharities()
-        .subscribe((charities) => this.charities = charities);
+    .subscribe((charities) => this.charities = charities);
   }
-
+  
 }

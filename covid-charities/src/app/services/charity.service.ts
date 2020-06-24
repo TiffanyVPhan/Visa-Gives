@@ -14,11 +14,8 @@ export class CharityService {
     this.db.list(this.dbPath).snapshotChanges().subscribe(item => {
       item.forEach(element => {
         const y = element.payload.toJSON();
-        // console.log(y);
         this.charities.push(y as Charity);
       });
-      console.log(this.charities);
-      console.log(this.charities[0]);
     });
 
   }
