@@ -1,0 +1,65 @@
+.banner {
+    width: 100%;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-container {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.total-donation {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 96px;
+}
+
+.dollar {
+    margin-right: 15%;
+    line-height: 90px;
+    vertical-align: top;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: 1;
+    grid-auto-rows: minmax(100px, auto);
+    grid-row-gap: 10%;
+    width: 75%;
+    margin-top: 10%
+}
+
+.charity-img,
+.text {
+    height: 152px;
+}
+
+.charity-img {
+    width: 206px;
+    background: grey;
+}
+
+.row {
+    display: flex;
+  }
+  
+  /* Create three equal columns that sits next to each other */
+  .column {
+    flex: 33.33%;
+    padding: 5px;
+  }
+
+  @media screen and (min-width: 1025px) {
+    .donation-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
