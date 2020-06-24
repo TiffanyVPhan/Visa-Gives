@@ -1,4 +1,8 @@
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
+import { Account } from '../../model/account';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-account-card',
@@ -15,10 +19,17 @@ export class AccountCardComponent implements OnInit {
 		                            'Terms of Service',
 		                            'Privacy Policy',
 		                            'Human Services',
-		                         	];
+		                         	];                         	
  
-  constructor() {}
+  account: Account;
+  constructor(private accountService: AccountService,
+              private  route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+    	this.accountService.getAccount()
+    	.subscribe((account) => this.account = account);
+    });
+  }
 
 }
