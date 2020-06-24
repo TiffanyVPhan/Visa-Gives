@@ -11,7 +11,7 @@ import { AccountService } from '../../services/account.service';
 })
 export class AccountCardComponent implements OnInit {
   public accountfeatures: string[] = [
-  									'Donation History',
+  									            'Donation History',
 		                            'Bookmarked',
 		                            'Payment Methods',
 		                            'Settings',
@@ -19,7 +19,17 @@ export class AccountCardComponent implements OnInit {
 		                            'Terms of Service',
 		                            'Privacy Policy',
 		                            'Human Services',
-		                         	];                         	
+		                         	];  
+  public accountroutes: string[] = [
+                                '#',
+                                '#',
+                                'payment-methods',
+                                '#',
+                                '#',
+                                '#',
+                                '#',
+                                '#',
+                              ];                        	
  
   account: Account;
   constructor(private accountService: AccountService,

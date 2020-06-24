@@ -10,9 +10,9 @@
         <hr>
         <div class="info" *ngFor="let accountfeature of accountfeatures; let i = index" >
             <div class="info-row" *ngIf="i % 2 == 0" >
-                <a href="#">{{ accountfeature }}</a>
+                <a href="{{accountroutes[i]}}" >{{ accountfeature }}</a>
                 <div *ngIf="i + 1 < accountfeatures.length">
-                    <a href="#">{{ accountfeatures[i + 1]}}</a>
+                    <a href="{{accountroutes[i+1]}}" >{{ accountfeatures[i + 1]}}</a>
                 </div>
             </div>
         </div>
