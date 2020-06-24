@@ -16,6 +16,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
 import { AccountCardComponent } from './components/account-card/account-card.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { environment } from 'src/environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 const routes: Routes = [
   { path: '',
@@ -55,7 +56,8 @@ const routes: Routes = [
       scrollPositionRestoration: 'enabled'
     }),
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [AccountService, CharityService],
   bootstrap: [AppComponent, AccountCardComponent]
