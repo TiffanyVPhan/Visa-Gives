@@ -8,16 +8,29 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 })
 export class CharityService {
   charities: Charity[] = [];
+  items: Observable<Charity[]> | Observable<any> | any;
   dbPath = '/Charity';
   constructor(private db: AngularFireDatabase) {
 
     this.db.list(this.dbPath).snapshotChanges().subscribe(item => {
       item.forEach(element => {
         const y = element.payload.toJSON();
+        // y[$key] = element.key;
         this.charities.push(y as Charity);
       });
     });
+    // this.items = db.list(this.dbPath).valueChanges();
+    // console.log(this.items);
 
+    db.list('/Charity').valueChanges()
+    .subscribe(items => {
+      // console.log(items); // Check the returned values;
+      this.items = items;
+    });
+  }
+
+  findCharities() {
+    return this.charities;
   }
 
   getAllCharities(): Observable<Charity[]> {

@@ -22,12 +22,12 @@ export class CharityDetailsComponent implements OnInit {
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      const charityName = params.get('charity_name');
+    // this.route.paramMap.subscribe((params: ParamMap) => {
+    //   const charityName = params.get('charity_name');
 
-      this.charityService.getCharityByName(charityName)
-        .subscribe((charity) => this.charity = charity);
-    });
+    //   this.charityService.getCharityByName(charityName)
+    //     .subscribe((charity) => this.charity = charity);
+    // });
 
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.accountService.getAccount()

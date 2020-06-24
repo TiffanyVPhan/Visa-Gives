@@ -25,8 +25,11 @@ export class LandingPageComponent implements OnInit {
   constructor(private charityService: CharityService) {}
 
   ngOnInit() {
-    this.charityService.getAllCharities()
-    .subscribe((charities) => this.charities = charities);
+    // this.charityService.getAllCharities()
+    // .subscribe((charities) => this.charities = charities);
+    this.charities = this.charityService.findCharities();
+    console.log(this.charities);
   }
-  
+
+
 }
