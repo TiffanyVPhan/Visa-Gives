@@ -28,6 +28,11 @@
 	font-size: 18px;
 }
 
+img {
+	border-radius: 50%;
+	height: 50px;
+}
+
 .info {
 	column-count: 2;
 }

@@ -1,10 +1,10 @@
 <div class="dropdown">
-    <img src="assets/images/account.svg" class="icon" alt="Account Icon">
+    <img [src]="account.profilePicture" class="icon" alt="Account Icon">
     <div class="small-body-font dropdown-content">
         <div class="account">
-            <a href="#"> 
-                <img src="assets/images/account.svg" class="icon" alt="Account Icon">
-                Person Name
+            <a href="account"> 
+                <img [src]="account.profilePicture" class="icon" alt="Account Icon">
+                {{ account.name }}
             </a>
         </div>
         <hr>
