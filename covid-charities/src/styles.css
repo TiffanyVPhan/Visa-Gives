@@ -54,6 +54,8 @@ a:hover {
   
 .visa-logo {
   margin-top: 21px;
+  max-width:230px;
+  max-height:95px;
 }
 
 .full {
