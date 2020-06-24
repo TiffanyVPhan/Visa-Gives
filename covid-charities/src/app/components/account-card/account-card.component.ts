@@ -19,9 +19,9 @@ export class AccountCardComponent implements OnInit {
 		                            'Terms of Service',
 		                            'Privacy Policy',
 		                            'Human Services',
-		                         	];  
+		                         	];
   public accountroutes: string[] = [
-                                '#',
+                                'donation-history',
                                 '#',
                                 'payment-methods',
                                 '#',
@@ -29,8 +29,8 @@ export class AccountCardComponent implements OnInit {
                                 '#',
                                 '#',
                                 '#',
-                              ];                        	
- 
+                              ];
+
   account: Account;
   constructor(private accountService: AccountService,
               private  route: ActivatedRoute) {}

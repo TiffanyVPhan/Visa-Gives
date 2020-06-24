@@ -14,6 +14,7 @@ import { CardComponent } from './components/card/card.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { AccountCardComponent } from './components/account-card/account-card.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
+import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
 
 const routes: Routes = [
   { path: '',
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'payment-methods',
     component: PaymentMethodComponent
+  },
+  {
+    path: 'donation-history',
+    component: DonationHistoryComponent
   }
 ];
 
@@ -46,6 +51,7 @@ const routes: Routes = [
     CreateAccountComponent,
     AccountCardComponent,
     PaymentMethodComponent,
+    DonationHistoryComponent,
   ],
   imports: [
     BrowserModule,
