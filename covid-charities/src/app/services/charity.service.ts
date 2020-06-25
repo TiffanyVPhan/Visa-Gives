@@ -33,7 +33,7 @@ export class CharityService {
           'https://www.projecthope.org/wp-content/uploads/2020/03/Financial-accountability-graphic-92-Nov-2019.png',
           'https://www.projecthope.org/wp-content/uploads/2019/12/Indonesia-MNCH.png',
         ],
-        donationTiers: [5, 10, 15, 25],
+        donationTiers: [5, 10, 15, 25, 50, 100, 250, 500, 1000],
         summary: 'Project HOPE works in five main areas: disasters and health crises; infectious diseases; noncommunicable diseases; maternal, neonatal and child health; and health policy.',
         money: 'More than 92 percent of our expended resources — among the highest of all philanthropic organizations — support our lifesaving health projects around the world. Less than eight percent of expended resources go toward management and fundraising costs.'
       }),
