@@ -19,6 +19,7 @@ hr {
 	min-width: 400px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	z-index: 1;
 }
 
 .account a {
