@@ -1,9 +1,9 @@
-<div class="content">
-    <span class="header">{{ this.charity.name }} </span>
+<div *ngIf="charity" class="content">
+    <span class="header">{{ charity.name }} </span>
 
     <div class="charity-grid">
         <div class="main-photo">
-            <img [src]="charity.coverPhoto">
+            <img [src]="charity.coverPhoto[0]">
         </div>
 
         <div *ngFor="let i of [1,2,3]" ngClass="side-{{ i }}">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="horizontal">
-            <div *ngFor="let amount of charity.donationTiers" class="donation-margin">
+            <div *ngFor="let amount of donationTiers" class="donation-margin">
                 <span class="donation-text">
                     <div class="donation-button">Donate ${{ amount }} → </div>
                 </span>

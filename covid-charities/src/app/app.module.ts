@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
@@ -14,6 +16,7 @@ import { CardComponent } from './components/card/card.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { AccountCardComponent } from './components/account-card/account-card.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
 
 const routes: Routes = [
@@ -58,7 +61,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled'
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [AccountService, CharityService],
   bootstrap: [AppComponent, AccountCardComponent]

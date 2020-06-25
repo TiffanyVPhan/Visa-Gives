@@ -5,33 +5,32 @@
     </div>
 </div>
 
-<div role="main">
+<div *ngIf="charities.length > 0" role="main">
     <div class="content">
         <span class="sub-header">Featured</span>
         <div class="grid-container">
             <div class="featured-charity">
-                <img [src]="this.charities[0].coverPhoto" />
+                <img [src]="charities[0].coverPhoto[0]" />
             </div>
             <div class="featured-desc-margin">
-                <a [routerLink]="['/charity', this.charities[0].name]">
-                    <p class="header">{{ this.charities[0].name }}</p>
+                <a [routerLink]="['/charity', charities[0].name]">
+                    <p class="header">{{ charities[0].name }}</p>
                 </a>
-                <p class="body-font featured-desc">The World Health Organization (WHO) is leading and coordinating the
-                    global effort, supporting countries to prevent, detect, and respond to the pandemic.
+                <p class="body-font featured-desc">{{ charities[0].description }}
                 </p>
             </div>
     
             <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="col-2"
                 ngClass="side-charity-{{i+1}}">
-                <img [src]="charity.coverPhoto" />
+                <img [src]="charity.coverPhoto[0]" />
             </div>
     
             <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="desc-margin"
                 ngClass="desc-{{i+1}}">
                 <div class="sub-feature">
                     <a [routerLink]="['/charity', charity.name]" class="body-font">{{ charity.name }}</a>
-                    <div *ngFor="let tag of charity.tags">
-                        <span class="tag-button body-font tag-button-text">{{ tag }}</span>
+                    <div *ngFor="let tag of charity.tags | keyvalue">
+                        <span class="tag-button body-font tag-button-text">{{ tag.value }}</span>
                     </div>
                 </div>
             </div>
@@ -43,7 +42,7 @@
         <div class="popular-grid">
             <div *ngFor="let charity of charities; let i = index" [attr.data-index]="i" class="border">
                 <div class="charity-photo">
-                    <img [src]="charity.coverPhoto">
+                    <img [src]="charity.coverPhoto[0]">
                 </div>
                 <div class="charity-desc">
                     <a [routerLink]="['/charity', charity.name]">
