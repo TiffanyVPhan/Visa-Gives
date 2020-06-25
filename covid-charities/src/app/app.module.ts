@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 
 import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
+import { AuthenticationService } from './services/authentication.service';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
@@ -76,7 +77,7 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AccountService, CharityService],
+  providers: [AccountService, CharityService, AuthenticationService],
   bootstrap: [AppComponent, AccountCardComponent]
 })
 export class AppModule { }
