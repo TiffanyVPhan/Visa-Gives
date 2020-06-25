@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Charity } from '../model/charity';
 import { Observable, observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
@@ -10,31 +10,23 @@ export class CharityService {
   charities: Charity[] = [];
   items: Observable<Charity[]> | Observable<any> | any;
   dbPath = '/Charity';
+  ready = new EventEmitter();
+
   constructor(private db: AngularFireDatabase) {
     this.db.list(this.dbPath).snapshotChanges().subscribe(item => {
       item.forEach(element => {
         const y = element.payload.toJSON();
         this.charities.push(y as Charity);
       });
+      this.ready.emit(null);
     });
   }
 
-  getAllCharities(): Observable<Charity[]> {
-    return new Observable<Charity[]>((observable) => {
-      observable.next(this.charities);
-      observable.complete();
-    });
-  }
-
-  getCharityByName(name: string): Observable<Charity> {
-    return new Observable<Charity>((observable) => {
-      for (const charity of this.charities) {
-        if (charity.name === name) {
-          observable.next(charity);
-          observable.complete();
-          return;
-        }
+  getCharity(name: string): Charity {
+    for (const charity of this.charities) {
+      if (charity.name === name) {
+        return charity;
       }
-    });
+    }
   }
 }

@@ -1,9 +1,9 @@
-<div class="content">
-    <span class="header">{{ this.charity.name }} </span>
+<div *ngIf="charity" class="content">
+    <span class="header">{{ charity.name }} </span>
 
     <div class="charity-grid">
         <div class="main-photo">
-            <img [src]="charity.coverPhoto">
+            <img [src]="charity.coverPhoto[0]">
         </div>
 
         <div *ngFor="let i of [1,2,3]" ngClass="side-{{ i }}">
@@ -23,13 +23,5 @@
 
     <div class="description">
         <span class="donation-text">Show your support</span>
-
-        <div class="horizontal">
-            <div *ngFor="let amount of charity.donationTiers" class="donation-margin">
-                <span class="donation-text">
-                    <div (click)="onClick(amount)" class="{{ (amount == selectedAmount) ? 'donation-button' : 'no-display' }}">${{ amount }}</div>
-                </span>
-            </div>
-        </div>
     </div>
 </div>

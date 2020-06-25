@@ -16,18 +16,21 @@ export class CharityDetailsComponent implements OnInit {
   account: Account;
   charity: Charity;
   selectedAmount: number;
+  charityName: string;
 
   constructor(private accountService: AccountService,
               private charityService: CharityService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute) {
+    this.charityService.ready.subscribe(() => {
+      this.charity = this.charityService.getCharity(this.charityName);
+    });
+  }
 
   ngOnInit(): void {
-    // this.route.paramMap.subscribe((params: ParamMap) => {
-    //   const charityName = params.get('charity_name');
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.charityName = params.get('charity_name');
 
-    //   this.charityService.getCharityByName(charityName)
-    //     .subscribe((charity) => this.charity = charity);
-    // });
+    });
 
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.accountService.getAccount()
