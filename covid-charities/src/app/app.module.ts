@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'donation-history',
     component: DonationHistoryComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
