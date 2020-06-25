@@ -61,21 +61,19 @@ p span {
 
 .horizontal {
     display: flex;
-    margin-top: 1em;
     flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-
-.donation-margin {
-    margin-right: 3em;
+    margin-top: 1em;
+    margin-bottom: 5%;
+    align-items: center;
+    justify-content: center;
 }
 
 .donation-button {
     display: block;
-    background: var(--primary-color);
+    background: var(--secondary);
     border-radius: 3px;
     padding: 15px 15px;
-    min-width: 200px;
+    min-width: 167px;
     text-align: center;
     color: #ffffff;
     margin: 5px;
@@ -84,18 +82,20 @@ p span {
 .no-display {
     display: block;
     background: white;
-    border-radius: 3px;
+    border-radius: 3zxcpx;
     padding: 5px 15px;
 }
 
 .title {
     display: inline;
+    margin: 0% 5.9%;
 }
 
 .right-text {
     float: right;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-
 }
+
+.wrapper {
+    padding: 5% 10%;
+}
+
