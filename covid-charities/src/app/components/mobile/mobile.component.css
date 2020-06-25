@@ -1,0 +1,74 @@
+.mobile-container {
+    margin: 30% 10% 10% 10%;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-wrapper {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .visa-logo2 {
+    width: 182px;
+    height: 182px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  
+  .caption {
+    display: block;
+    margin-bottom: 15%;
+  }
+  
+  .caption2 {
+    display: block;
+    margin-bottom: 20%;
+    margin-top: 25%;
+  }
+  
+  .mobile-sub-header {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .mobile-body-font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  
+  .mobile-app-logo {
+    display: block;
+    width: 200px;
+  }
+  
+  .rectangle {
+    height: 5.66px;
+    width: 50px;
+    display: inline-block;
+  }
+  
+  
+  .blue {
+    background: var(--primary-color);
+  }
+  
+  .yellow {
+    background: var(--accent-color);
+  }
+  
+  .app-store {
+    margin-top: 80%;
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+    bottom: 0;
+  }

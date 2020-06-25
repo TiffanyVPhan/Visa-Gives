@@ -18,6 +18,7 @@ import { AccountCardComponent } from './components/account-card/account-card.com
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
+import { MobileComponent } from './components/mobile/mobile.component';
 
 const routes: Routes = [
   { path: '',
@@ -55,6 +56,7 @@ const routes: Routes = [
     AccountCardComponent,
     PaymentMethodComponent,
     DonationHistoryComponent,
+    MobileComponent,
   ],
   imports: [
     BrowserModule,
