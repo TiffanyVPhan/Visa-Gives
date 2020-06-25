@@ -22,6 +22,31 @@
     </div>
 
     <div class="description">
-        <span class="donation-text">Show your support</span>
+        <div class="title">
+            <span class="donation-text">Donate Immediately</span>
+            <div class="right-text">
+                <input type="checkbox">
+                Make it Monthly
+            </div>
+        </div>
+
+        <div class="horizontal">
+            <div *ngFor="let amount of donationTiers" class="donation-margin">
+                <span class="donation-text">
+                    <div class="donation-button">Donate ${{ amount }} → </div>
+                </span>
+            </div>
+        </div>
+
+        <div *ngIf="(account.paymentMethod == 'undefined')">
+            <div  class="right-text" >
+                No payment method
+            </div>
+        </div>
+        <div *ngIf="!(account.paymentMethod == 'undefined')">
+            <div  class="right-text" >
+                Donating from Visa card ************{{ account.paymentMethod % 10000}}
+            </div>
+        </div>
     </div>
 </div>

@@ -2,6 +2,7 @@
 :root {
   --primary-color: #1A1F71;
   --accent-color: #F7B600;
+  --secondary: #1B8AF1;
 }
 
 a,
@@ -54,6 +55,8 @@ a:hover {
   
 .visa-logo {
   margin-top: 21px;
+  max-width:230px;
+  max-height:95px;
 }
 
 .full {
