@@ -8,11 +8,35 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private account: Account;
-  userData: Observable<firebase.User>;
+  public account: Account = new Account('', [], [], [], [], '', '', '');
+  private isAuthenticated = false;
+  private authState: Observable<firebase.User>;
+  private currentUser: firebase.User = null;
+
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
-    this.userData = angularFireAuth.authState;
+    this.authState = angularFireAuth.authState;
+    console.log(this.authState);
+
+    this.authState.subscribe(user => {
+      if (user) {
+        this.currentUser = user;
+        console.log('Successfully authenticated');
+        console.log('AUTHSTATE USER', user);
+        localStorage.setItem('user', JSON.stringify(this.currentUser));
+        JSON.parse(localStorage.getItem('user'));
+        
+        this.account.email = this.currentUser.email;
+        console.log('this.account.email', JSON.stringify(this.currentUser));
+      } else {
+        console.log('AUTHSTATE USER EMPTY', user);
+        this.currentUser = null;
+        localStorage.setItem('user', null);
+      }
+    },
+      err => {
+       console.log('Something went wrong with authState: ', err);
+      });
   }
 
   signUp(email: string, password: string) {
@@ -20,6 +44,7 @@ export class AuthenticationService {
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         console.log('Successfully signed up!', res);
+        this.router.navigate(['/login']);
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
@@ -31,6 +56,7 @@ export class AuthenticationService {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log('Successfully signed in!');
+        this.authSuccessfully();
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
@@ -38,6 +64,16 @@ export class AuthenticationService {
   }
 
   signOut() {
-    this.angularFireAuth.signOut();
+    this.angularFireAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      // this.router.navigate(['sign-in']);
+    });
+    this.isAuthenticated = false;
+    console.log('Signed Out');
+  }
+
+  private authSuccessfully() {
+    this.isAuthenticated = true;
+    // this.router.navigate['/'];
   }
 }

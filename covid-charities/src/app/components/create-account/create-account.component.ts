@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Account } from '../../model/account';
 import { AccountService } from '../../services/account.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-create-account',
@@ -17,8 +18,10 @@ export class CreateAccountComponent implements OnInit {
   image: string;
   submit = false;
   accountForm: FormGroup;
+  account: Account;
 
   constructor(private accountService: AccountService,
+              public authenticationService: AuthenticationService,
               private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -31,11 +34,14 @@ export class CreateAccountComponent implements OnInit {
       profilePicture: new FormControl(this.image)
     });
     console.log(this.accountForm);
+    console.log(this.authenticationService.userData);
   }
 
   onSubmit(form: NgForm): void {
-    // TO-DO: this probably pings backend to create a new account
+    this.authenticationService.signUp(this.email, this.password);
+    this.email = '';
+    this.password = '';
     console.log(form);
-    this.submit = true;
+    this.submit = !this.submit;
   }
 }

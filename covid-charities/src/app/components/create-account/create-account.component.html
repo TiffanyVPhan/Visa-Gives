@@ -1,5 +1,5 @@
 <div class="center">
-    <card class="card-width">
+    <card class="card-width" *ngIf="!(authenticationService.userData | async)">
         <form *ngIf="!submit" [formGroup]="accountForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="container">
                 <div class="img-wrapper">
@@ -37,8 +37,8 @@
             
             </div>
         </form>
-        <div *ngIf="submit" class="sub-header created">Account Created.</div>
     </card>
+    <div *ngIf="submit" class="sub-header created">Account Created.</div>
 </div>
 
 <div id="div-mobile">
