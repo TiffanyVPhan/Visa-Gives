@@ -29,8 +29,8 @@
                 ngClass="desc-{{i+1}}">
                 <div class="sub-feature">
                     <a [routerLink]="['/charity', charity.name]" class="body-font">{{ charity.name }}</a>
-                    <div *ngFor="let tag of charity.tags">
-                        <span class="tag-button body-font tag-button-text">{{ tag }}</span>
+                    <div *ngFor="let tag of charity.tags | keyvalue">
+                        <span class="tag-button body-font tag-button-text">{{ tag.value }}</span>
                     </div>
                 </div>
             </div>

@@ -21,15 +21,12 @@ export class LandingPageComponent implements OnInit {
                             'Research',
                           ];
 
+  public dataFetch: boolean = false;
   public charities: Charity[];
   constructor(private charityService: CharityService) {}
 
   ngOnInit() {
-    // this.charityService.getAllCharities()
-    // .subscribe((charities) => this.charities = charities);
-    this.charities = this.charityService.findCharities();
-    console.log(this.charities);
+    this.charities = this.charityService.charities;
   }
-
 
 }
