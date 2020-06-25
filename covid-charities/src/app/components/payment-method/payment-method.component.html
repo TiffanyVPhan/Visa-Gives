@@ -11,20 +11,24 @@
         <span class="circle circle3"></span>
     </div>
 
-    <card *ngIf="account.paymentMethod == 'undefined'">
-        <div class="card-size"></div>
+    <div class="card-size" *ngIf="account.paymentMethod == 'undefined'" >
+        <card>
+            <div class="card-size"></div>
+    
+            <div class="logo">
+                <img src="assets/images/VISA-logo.png">
+            </div>
+        </card>
+    </div>
 
-        <div class="logo">
-            <img src="assets/images/VISA-logo.png">
-        </div>
-    </card>
-
-    <card *ngIf="!(account.paymentMethod == 'undefined')">
-        <div class="card-size"></div>
-
-        <div class="logo">
-            <img src="assets/images/VISA-logo.png">
-        </div>
-    </card>
+    <div class="card-size" *ngIf="!(account.paymentMethod == 'undefined')">
+        <card>
+            <div class="card-size"></div>
+    
+            <div class="logo">
+                <img src="assets/images/VISA-logo.png">
+            </div>
+        </card>
+    </div>
 </div>
 

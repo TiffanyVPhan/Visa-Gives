@@ -18,7 +18,7 @@ export class CharityDetailsComponent implements OnInit {
   selectedAmount: number;
   charityName: string;
 
-  donationTiers: number[] = [5, 10, 15, 25, 50, 100, 250, 500, 1000];
+  donationTiers: number[] = [5, 10, 25, 50, 100, 250, 500, 1000];
 
   constructor(private accountService: AccountService,
               private charityService: CharityService,

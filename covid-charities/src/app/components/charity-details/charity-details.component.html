@@ -22,31 +22,35 @@
     </div>
 
     <div class="description">
-        <div class="title">
-            <span class="donation-text">Donate Immediately</span>
-            <div class="right-text">
-                <input type="checkbox">
-                Make it Monthly
-            </div>
-        </div>
+        <card>
+            <div class="wrapper">
+                <div class="title">
+                    <span class="donation-text">Donate Immediately</span>
+                    <div class="right-text body-font">
+                        <input type="checkbox">
+                        Make it Monthly
+                    </div>
+                </div>
 
-        <div class="horizontal">
-            <div *ngFor="let amount of donationTiers" class="donation-margin">
-                <span class="donation-text">
-                    <div class="donation-button">Donate ${{ amount }} → </div>
-                </span>
-            </div>
-        </div>
+                <div class="horizontal">
+                    <div *ngFor="let amount of donationTiers">
+                        <span class="donation-text">
+                            <div class="donation-button">Donate ${{ amount }} → </div>
+                        </span>
+                    </div>
+                </div>
 
-        <div *ngIf="(account.paymentMethod == 'undefined')">
-            <div  class="right-text" >
-                No payment method
+                <div *ngIf="(account.paymentMethod == 'undefined')">
+                    <div class="right-text body-font">
+                        No payment method
+                    </div>
+                </div>
+                <div *ngIf="!(account.paymentMethod == 'undefined')">
+                    <div class="right-text small-body-font">
+                        Donating from Visa card ending in {{ account.paymentMethod % 10000}}
+                    </div>
+                </div>
             </div>
-        </div>
-        <div *ngIf="!(account.paymentMethod == 'undefined')">
-            <div  class="right-text" >
-                Donating from Visa card ************{{ account.paymentMethod % 10000}}
-            </div>
-        </div>
+        </card>
     </div>
 </div>

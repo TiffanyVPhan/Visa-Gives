@@ -65,3 +65,7 @@
     font-weight: 300;
     font-size: 16px;
 }
+
+.card-width {
+    width: 500px;
+}
