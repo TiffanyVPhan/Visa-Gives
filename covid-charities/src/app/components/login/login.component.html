@@ -1,10 +1,26 @@
-<div class="content">
-    <span class="header">Login</span>
-    <card>
-        <form [formGroup]="accountForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
-            <input required type="text" [(ngModel)]="email" formControlName="email_" placeholder="Email">
-            <input required type="text" [(ngModel)]="password" formControlName="password_" placeholder="Password">
-            <input type="submit" class="button button-text" value="Log In" [disabled]="!f.valid">
-        </form>
-    </card>
+<div class="center">
+    <div class="content">
+        <card class="card-width">
+            <span class="header header-text center">Login</span>
+            <form [formGroup]="accountForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="form-grid">
+                    <!-- <span class="body-font form-text field">Email</span> -->
+                    <input required type="email" [(ngModel)]="email" formControlName="email_" placeholder="Email">
+                    <!-- <span class="body-font form-text field">Password</span> -->
+                    <input required type="password" [(ngModel)]="password" formControlName="password_" placeholder="Password">
+    
+                </div>
+                <div class="button-wrapper">
+                    <input type="submit" class="button button-text" value="Sign In" [disabled]="!f.valid">
+                </div>
+            </form>
+        </card>
+        <br>
+        <div class="center">
+
+            <span class="small-body-font">Don't have an account?</span>
+            &nbsp;
+            <a [routerLink]="['/create-account']" class="small-body-font signup">Sign up here!</a>
+        </div>
+    </div>
 </div>

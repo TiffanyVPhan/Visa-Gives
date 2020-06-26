@@ -19,11 +19,7 @@ export class AccountService {
   constructor(private authenticationService: AuthenticationService,
               private db: AngularFireDatabase,
               private angularFireAuth: AngularFireAuth) {
-    
-    // this.db.list('/Personal_Data', ref => ref.orderByChild('Email').equalTo(this.email))
-    //   .snapshotChanges().subscribe( item => {
-    //     console.log(item);
-    //   });
+
     this.authState = angularFireAuth.authState;
 
     this.authState.subscribe(user => {

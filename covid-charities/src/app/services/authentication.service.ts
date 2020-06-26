@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class AuthenticationService {
   public account: Account = new Account('', [], [], [], [], '', '');
-  private isAuthenticated = false;
   private authState: Observable<firebase.User>;
   public currentUser: firebase.User = null;
 
@@ -17,7 +16,6 @@ export class AuthenticationService {
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
     this.authState = angularFireAuth.authState;
-    // console.log(this.authState);
 
     this.authState.subscribe(user => {
       if (user) {
@@ -54,7 +52,7 @@ export class AuthenticationService {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log('Successfully signed in!');
-        this.authSuccessfully();
+        location.reload();
         this.loggedIn = true;
       })
       .catch(error => {
@@ -64,18 +62,17 @@ export class AuthenticationService {
 
   signOut() {
     this.angularFireAuth.signOut().then(() => {
-      localStorage.removeItem('user');
       // this.router.navigate(['sign-in']);
     });
-    this.isAuthenticated = false;
+
     this.loggedIn = false;
+    location.reload();
     console.log('Signed Out');
   }
-
-  private authSuccessfully() {
-    this.isAuthenticated = true;
-    // this.router.navigate['/'];
-  }
+  
+  // resetPassword(email: string) {
+  //   this.angularFireAuth.chang
+  // }
 
   getLogInStatus() {
     return this.loggedIn;
