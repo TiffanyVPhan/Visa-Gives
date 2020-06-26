@@ -1,4 +1,4 @@
-<div *ngIf="charity && account" class="content">
+<div *ngIf="charity" class="content">
     <span class="header">{{ charity.name }} </span>
 
     <div class="charity-grid">
@@ -40,12 +40,12 @@
                     </div>
                 </div>
 
-                <div *ngIf="(account.paymentMethod == 'undefined')">
+                <div *ngIf="account && (account.paymentMethod == 'undefined')">
                     <div class="right-text body-font">
                         No payment method
                     </div>
                 </div>
-                <div *ngIf="!(account.paymentMethod == 'undefined')">
+                <div *ngIf="account && !(account.paymentMethod == 'undefined')">
                     <div class="right-text small-body-font">
                         Donating from Visa card ending in {{ account.paymentMethod % 10000}}
                     </div>

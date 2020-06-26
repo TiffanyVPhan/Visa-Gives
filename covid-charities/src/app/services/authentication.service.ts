@@ -65,7 +65,7 @@ export class AuthenticationService {
 
   signOut() {
     this.angularFireAuth.signOut().then(() => {
-      // this.router.navigate(['sign-in']);
+      this.router.navigate(['/']);
     });
 
     this.loggedIn = false;
