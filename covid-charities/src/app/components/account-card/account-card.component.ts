@@ -42,5 +42,7 @@ export class AccountCardComponent implements OnInit {
       this.accountService.getAccount()
         .subscribe((account) => this.account = account);
     });
+
+    console.log(this.accountService.users);
   }
 }

@@ -34,7 +34,7 @@ export class CreateAccountComponent implements OnInit {
       profilePicture: new FormControl(this.image)
     });
     console.log(this.accountForm);
-    console.log(this.authenticationService.userData);
+    // console.log(this.authenticationService.userData);
   }
 
   onSubmit(form: NgForm): void {

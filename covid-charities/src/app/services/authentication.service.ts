@@ -8,30 +8,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  public account: Account = new Account('', [], [], [], [], '', '', '');
+  public account: Account = new Account('', [], [], [], [], '', '');
   private isAuthenticated = false;
   private authState: Observable<firebase.User>;
-  private currentUser: firebase.User = null;
+  public currentUser: firebase.User = null;
 
+  public loggedIn = false;
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
     this.authState = angularFireAuth.authState;
-    console.log(this.authState);
+    // console.log(this.authState);
 
     this.authState.subscribe(user => {
       if (user) {
         this.currentUser = user;
         console.log('Successfully authenticated');
         console.log('AUTHSTATE USER', user);
-        localStorage.setItem('user', JSON.stringify(this.currentUser));
-        JSON.parse(localStorage.getItem('user'));
-        
+        this.loggedIn = true;
         this.account.email = this.currentUser.email;
         console.log('this.account.email', JSON.stringify(this.currentUser));
       } else {
         console.log('AUTHSTATE USER EMPTY', user);
         this.currentUser = null;
-        localStorage.setItem('user', null);
       }
     },
       err => {
@@ -57,6 +55,7 @@ export class AuthenticationService {
       .then(res => {
         console.log('Successfully signed in!');
         this.authSuccessfully();
+        this.loggedIn = true;
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
@@ -69,11 +68,16 @@ export class AuthenticationService {
       // this.router.navigate(['sign-in']);
     });
     this.isAuthenticated = false;
+    this.loggedIn = false;
     console.log('Signed Out');
   }
 
   private authSuccessfully() {
     this.isAuthenticated = true;
     // this.router.navigate['/'];
+  }
+
+  getLogInStatus() {
+    return this.loggedIn;
   }
 }
