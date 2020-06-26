@@ -23,11 +23,5 @@ export class AccountInfoComponent implements OnInit {
       });
     }
 
-  ngOnInit() {
-    // this.route.paramMap.subscribe((params: ParamMap) => {
-    //   this.accountService.getAccount()
-    //     .subscribe((account) => this.account = account);
-    // });
-
-  }
+  ngOnInit() {}
 }
