@@ -66,3 +66,12 @@ img {
 .account-img {
 	width: 36px;
 }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 45px);
+    margin: 2% 0%;
+    width: 450px;
+}
+

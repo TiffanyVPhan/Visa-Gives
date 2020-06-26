@@ -37,8 +37,8 @@
     grid-template-columns: 1fr 1fr;
     margin: 10% 0 15% 15%;
     grid-template-areas: 
-        "reset-password logout"
-        "invite-friends delete-account"
+        "reset-password delete-account"
+        "invite-friends logout"
         "contact-us ...";
 }
 

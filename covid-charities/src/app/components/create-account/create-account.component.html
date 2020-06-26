@@ -3,12 +3,18 @@
         <form *ngIf="!submit" [formGroup]="accountForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="container">
                 <div class="img-wrapper">
-                    <img *ngIf="!image" src="assets/images/chooseProfilePic.png">
-                    <!-- <input type="file" 
-                        [(ngModel)]="image" src="assets/images/chooseProfilePic.png" accept="image/x-png,image/gif,image/jpeg" formControlName="profilePicture">
-                    <img *ngIf="image" [src]="image"> -->
+                    <label for="file-input">
+                        <img *ngIf="!imageSrc" src="assets/images/chooseProfilePic.png">
+                        <img *ngIf="imageSrc" class="img" [src]="imageSrc">
+                    </label>
+                    
+                    <input id="file-input" type="file" 
+                        accept="image/x-png,image/gif,image/jpeg" 
+                        (change)="setImage($event)">
+                        
                 </div>
             </div>
+            
             <div class="form-grid">
                 <span class="body-font form-text field">First name</span>
                 <input required type="text" class="body-font" [(ngModel)]="firstName" placeholder="Al"
@@ -19,15 +25,15 @@
                     formControlName="last" required>
 
                 <span class="body-font form-text">Email</span>
-                <input type="text" class="body-font" [(ngModel)]="email" placeholder="alkelly@visa.com"
+                <input type="email" class="body-font" [(ngModel)]="email" placeholder="alkelly@visa.com"
                     formControlName="email_" required email>
 
                 <span class="body-font form-text">Password</span>
-                <input type="text" class="body-font" [(ngModel)]="password" placeholder="*******"
+                <input type="password" class="body-font" [(ngModel)]="password" placeholder="*******"
                     formControlName="pass" required>
 
                 <span class="body-font form-text">Confirm</span>
-                <input type="text" class="body-font" [(ngModel)]="confirmPassword" placeholder="*******"
+                <input type="password" class="body-font" [(ngModel)]="confirmPassword" placeholder="*******"
                     formControlName="confirm" required>
             </div>
             <div class="button-wrapper">

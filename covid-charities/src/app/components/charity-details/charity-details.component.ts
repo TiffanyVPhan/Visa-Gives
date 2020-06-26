@@ -30,7 +30,6 @@ export class CharityDetailsComponent implements OnInit {
     this.accountService.ready.subscribe(() => {
       this.account = this.accountService.currentUser;
     });
-
   }
 
   ngOnInit(): void {

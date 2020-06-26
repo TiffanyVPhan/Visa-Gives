@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Account } from '../model/account';
@@ -11,8 +11,10 @@ export class AuthenticationService {
   public account: Account = new Account('', [], [], [], [], '', '');
   private authState: Observable<firebase.User>;
   public currentUser: firebase.User = null;
+  ready = new EventEmitter();
 
   public loggedIn = false;
+  public errMsg = '';
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
     this.authState = angularFireAuth.authState;
@@ -44,6 +46,7 @@ export class AuthenticationService {
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
+        this.errMsg = error.message;
       });
   }
 
@@ -52,7 +55,7 @@ export class AuthenticationService {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         console.log('Successfully signed in!');
-        location.reload();
+        this.router.navigate(['/']);
         this.loggedIn = true;
       })
       .catch(error => {
@@ -69,7 +72,7 @@ export class AuthenticationService {
     location.reload();
     console.log('Signed Out');
   }
-  
+
   // resetPassword(email: string) {
   //   this.angularFireAuth.chang
   // }

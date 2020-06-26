@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   accountForm: FormGroup;
+  errMsg: string;
 
   constructor(private fb: FormBuilder,
               public authenticationService: AuthenticationService) { }

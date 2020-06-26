@@ -15,10 +15,12 @@ export class CreateAccountComponent implements OnInit {
   password: string;
   confirmPassword: string;
   email: string;
-  image: string;
   submit = false;
   accountForm: FormGroup;
   account: Account;
+
+  private file: File;
+  public imageSrc;
 
   constructor(private accountService: AccountService,
               public authenticationService: AuthenticationService,
@@ -30,8 +32,7 @@ export class CreateAccountComponent implements OnInit {
       last: new FormControl(this.lastName, [Validators.required]),
       pass: new FormControl(this.password, [Validators.required]),
       confirm: new FormControl(this.confirmPassword, [Validators.required]),
-      email_: new FormControl(this.email, [Validators.required]),
-      profilePicture: new FormControl(this.image)
+      email_: new FormControl(this.email, [Validators.required])
     });
     console.log(this.accountForm);
     // console.log(this.authenticationService.userData);
@@ -43,5 +44,12 @@ export class CreateAccountComponent implements OnInit {
     this.password = '';
     console.log(form);
     this.submit = !this.submit;
+  }
+
+  setImage(event: Event) {
+    this.file = (event.target as HTMLInputElement).files[0];
+    const reader = new FileReader();
+    reader.onload = e => this.imageSrc = reader.result;
+    reader.readAsDataURL(this.file);
   }
 }

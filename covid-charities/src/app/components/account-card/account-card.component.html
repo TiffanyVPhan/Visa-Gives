@@ -26,9 +26,10 @@
     <img src="assets/images/account.svg" class="icon" alt="Account Icon">
     <div class="small-body-font dropdown-content">
         <div class="center">
-            <a [routerLink]="['login']" class="">Log In</a>
-            <br>
-            <a href="" class="">Create Account</a>
+            <div class="form-grid">
+                <a [routerLink]="['login']" class="center">Sign in</a>
+                <a [routerLink]="['create-account']" class="center">Create Account</a>
+            </div>
         </div>
     </div>
 </div>
