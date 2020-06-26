@@ -1,9 +1,9 @@
-<!-- <div class="dropdown">
-    <img [src]="account.profilePicture" class="icon" alt="Account Icon">
+<div class="dropdown">
+    <img [src]="account.profilePicture[0]" class="icon" alt="Account Icon">
     <div class="small-body-font dropdown-content">
         <div class="account">
             <a href="account">
-                <img [src]="account.profilePicture" class="icon" alt="Account Icon">
+                <img [src]="account.profilePicture[0]" class="icon" alt="Account Icon">
                 {{ account.name }}
             </a>
         </div>
@@ -20,4 +20,4 @@
             <a [routerLink]="" (click)="authenticationService.signOut()"> Sign Out </a>
         </div>
     </div>
-</div> -->
+</div>

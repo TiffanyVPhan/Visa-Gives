@@ -23,6 +23,7 @@ import { PaymentMethodComponent } from './components/payment-method/payment-meth
 import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
 import { MobileComponent } from './components/mobile/mobile.component';
 import { LoginComponent } from './login/login.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
   { path: '',
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'nav',
+    component: NavBarComponent
   }
 ];
 
@@ -66,6 +71,7 @@ const routes: Routes = [
     DonationHistoryComponent,
     MobileComponent,
     LoginComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

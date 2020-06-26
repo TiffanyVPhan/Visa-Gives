@@ -35,14 +35,12 @@ export class AccountCardComponent implements OnInit {
   account: Account;
   constructor(private accountService: AccountService,
               private  route: ActivatedRoute,
-              public authenticationService: AuthenticationService) {}
+              public authenticationService: AuthenticationService) {
+      this.accountService.ready.subscribe(() => {
+        this.account = this.accountService.currentUser;
+        });
+      }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.accountService.getAccount()
-        .subscribe((account) => this.account = account);
-    });
+  ngOnInit() {}
 
-    console.log(this.accountService.users);
-  }
 }
