@@ -26,17 +26,16 @@ export class CharityDetailsComponent implements OnInit {
     this.charityService.ready.subscribe(() => {
       this.charity = this.charityService.getCharity(this.charityName);
     });
+
+    this.accountService.ready.subscribe(() => {
+      this.account = this.accountService.currentUser;
+    });
+
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.charityName = params.get('charity_name');
-
-    });
-
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.accountService.getAccount()
-        .subscribe((account) => this.account = account);
     });
   }
 
