@@ -38,6 +38,7 @@ export class AccountCardComponent implements OnInit {
               public authenticationService: AuthenticationService) {
       this.accountService.ready.subscribe(() => {
         this.account = this.accountService.currentUser;
+        console.log(this.account);
         });
       }
 

@@ -22,7 +22,7 @@ import { AccountCardComponent } from './components/account-card/account-card.com
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
 import { MobileComponent } from './components/mobile/mobile.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
