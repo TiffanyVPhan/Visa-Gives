@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { CharityService } from '../../services/charity.service';
@@ -22,7 +22,8 @@ export class CharityDetailsComponent implements OnInit {
 
   constructor(private accountService: AccountService,
               private charityService: CharityService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private cdr: ChangeDetectorRef) {
     this.charityService.ready.subscribe(() => {
       this.charity = this.charityService.getCharity(this.charityName);
     });
@@ -35,6 +36,7 @@ export class CharityDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.charityName = params.get('charity_name');
+      this.charity = this.charityService.getCharity(this.charityName);
     });
   }
 
