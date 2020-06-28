@@ -1,15 +1,24 @@
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    margin-bottom: 20px;
     border-radius: 2px;
     width: 200px;
     
     background: transparent;
     border: none;
     outline: transparent;
+}
+
+.image-upload > input {
+    display: none;
+}
+
+.img {
+    border-radius: 5px;
 }
 
 input{
@@ -34,21 +43,27 @@ input{
     margin-top: 13%;
 }
 
-.img-wrapper img{
+.img-wrapper img {
     width: 100%;
     cursor: pointer;
+}
+
+.img-wrapper > input {
+    display: none;
 }
 
 .form-text {
     text-align: left;
     position: relative;
+    margin-top: 6px;
 
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: repeat(5, 45px);
+    grid-template-rows: repeat(5, 40px);
+    grid-row-gap: 5px;
     margin: 12% 0 8% 15%;
 }
 
@@ -76,10 +91,6 @@ input{
     vertical-align: middle;
     text-align: center;
     padding: 5% 5%;
-}
-
-.hidden {
-    display: none;
 }
 
 input.ng-invalid.ng-touched {

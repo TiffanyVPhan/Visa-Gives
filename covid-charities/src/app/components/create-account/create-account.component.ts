@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Account } from '../../model/account';
 import { AccountService } from '../../services/account.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-create-account',
@@ -14,11 +15,15 @@ export class CreateAccountComponent implements OnInit {
   password: string;
   confirmPassword: string;
   email: string;
-  image: string;
   submit = false;
   accountForm: FormGroup;
+  account: Account;
+
+  private file: File;
+  public imageSrc;
 
   constructor(private accountService: AccountService,
+              public authenticationService: AuthenticationService,
               private fb: FormBuilder) {}
 
   ngOnInit() {
@@ -27,15 +32,24 @@ export class CreateAccountComponent implements OnInit {
       last: new FormControl(this.lastName, [Validators.required]),
       pass: new FormControl(this.password, [Validators.required]),
       confirm: new FormControl(this.confirmPassword, [Validators.required]),
-      email_: new FormControl(this.email, [Validators.required]),
-      profilePicture: new FormControl(this.image)
+      email_: new FormControl(this.email, [Validators.required])
     });
     console.log(this.accountForm);
+    // console.log(this.authenticationService.userData);
   }
 
   onSubmit(form: NgForm): void {
-    // TO-DO: this probably pings backend to create a new account
+    this.authenticationService.signUp(this.email, this.password);
+    this.email = '';
+    this.password = '';
     console.log(form);
-    this.submit = true;
+    this.submit = !this.submit;
+  }
+
+  setImage(event: Event) {
+    this.file = (event.target as HTMLInputElement).files[0];
+    const reader = new FileReader();
+    reader.onload = e => this.imageSrc = reader.result;
+    reader.readAsDataURL(this.file);
   }
 }

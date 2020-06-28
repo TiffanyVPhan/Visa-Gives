@@ -13,13 +13,12 @@ export class PaymentMethodComponent implements OnInit {
 
   account: Account;
   constructor(private accountService: AccountService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+        this.accountService.ready.subscribe(() => {
+          this.account = this.accountService.currentUser;
+      });
+    }
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.accountService.getAccount()
-        .subscribe((account) => this.account = account);
-    });
-  }
+  ngOnInit() {}
 
 }

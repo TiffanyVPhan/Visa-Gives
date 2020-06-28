@@ -2,6 +2,10 @@ hr {
 	opacity: 0.2;
 }
 
+img {
+	border-radius: 50%;
+}
+
 .dropdown {
 	display: inline-block;
 	position: relative;
@@ -29,9 +33,10 @@ hr {
 	font-size: 18px;
 }
 
-img {
-	border-radius: 50%;
-	height: 50px;
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .info {
@@ -57,3 +62,16 @@ img {
 .dropdown:hover .dropdown-content {
 	display: block; 
 }
+
+.account-img {
+	width: 36px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 45px);
+    margin: 2% 0%;
+    width: 450px;
+}
+

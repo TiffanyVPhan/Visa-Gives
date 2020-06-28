@@ -1,9 +1,9 @@
-<div class="dropdown">
-    <img [src]="account.profilePicture" class="icon" alt="Account Icon">
+<div *ngIf="account" class="dropdown">
+    <img [src]="account.profilePicture[0]" class="icon account-img" alt="Account Icon">
     <div class="small-body-font dropdown-content">
         <div class="account">
             <a href="account">
-                <img [src]="account.profilePicture" class="icon" alt="Account Icon">
+                <img [src]="account.profilePicture[0]" class="icon account-img" alt="Account Icon">
                 {{ account.name }}
             </a>
         </div>
@@ -17,7 +17,19 @@
             </div>
         </div>
         <div class="signout">
-            <a href="#"> Sign Out </a>
+            <a [routerLink]="" (click)="authenticationService.signOut()"> Sign Out </a>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!account" class="dropdown">
+    <img src="assets/images/account.svg" class="icon" alt="Account Icon">
+    <div class="small-body-font dropdown-content">
+        <div class="center">
+            <div class="form-grid">
+                <a [routerLink]="['login']" class="center">Sign in</a>
+                <a [routerLink]="['create-account']" class="center">Create Account</a>
+            </div>
         </div>
     </div>
 </div>

@@ -1,10 +1,10 @@
-<div class="content">
+<div *ngIf="charities && account" class="content">
     <span class="header">Donation History</span>
     <div class="img-container">
         <img src="assets/images/donation-bg.png" class="banner">
         <div class="centered">
             <span class="header dollar">$</span>
-            <span class="total-donation">200</span>
+            <span class="total-donation">{{ totalDonationAmount }}</span>
         </div>
     </div>
 

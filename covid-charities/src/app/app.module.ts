@@ -1,12 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+
 
 import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
+import { AuthenticationService } from './services/authentication.service';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
@@ -16,9 +20,10 @@ import { CardComponent } from './components/card/card.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { AccountCardComponent } from './components/account-card/account-card.component';
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
 import { MobileComponent } from './components/mobile/mobile.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 const routes: Routes = [
   { path: '',
@@ -42,6 +47,14 @@ const routes: Routes = [
   {
     path: 'donation-history',
     component: DonationHistoryComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'nav',
+    component: NavBarComponent
   }
 ];
 
@@ -57,6 +70,8 @@ const routes: Routes = [
     PaymentMethodComponent,
     DonationHistoryComponent,
     MobileComponent,
+    LoginComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,9 +80,11 @@ const routes: Routes = [
     }),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    FormsModule
   ],
-  providers: [AccountService, CharityService],
+  providers: [AccountService, CharityService, AuthenticationService],
   bootstrap: [AppComponent, AccountCardComponent]
 })
 export class AppModule { }
