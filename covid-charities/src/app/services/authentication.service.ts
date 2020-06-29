@@ -19,6 +19,7 @@ export class AuthenticationService {
   public user: Account;
   userID: any;
   list: any;
+  numCards = 0;
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth,
               public db: AngularFireDatabase) {
@@ -27,7 +28,6 @@ export class AuthenticationService {
     this.authState.subscribe(user => {
       if (user != null) {
         this.userID = user.uid;
-        console.log(this.userID);
         this.currentUser = user;
         console.log('Successfully authenticated');
         console.log('AUTHSTATE USER', user);
@@ -50,7 +50,7 @@ export class AuthenticationService {
         console.log(res.user.uid);
         console.log('Successfully signed up!', res);
         this.newUser(acc, res.user.uid);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
@@ -110,6 +110,21 @@ export class AuthenticationService {
       amount: money,
       charity_id: id,
       date_donated: date
+    });
+  }
+
+  addPayment(name: string, cardInfo: number, exp: string, cvv: number) {
+    this.db.object('Users/' + this.userID + `/payment_methods/${this.numCards}`).set({
+      card_holder: name,
+      card_number: cardInfo,
+      exp_: exp,
+      cvv_: cvv
+    })
+    .then(() => {
+      console.log('Successfully added card in database');
+    })
+    .catch(error => {
+      console.log('Something went wrong: ', error);
     });
   }
 }
