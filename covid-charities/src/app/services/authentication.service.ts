@@ -17,8 +17,10 @@ export class AuthenticationService {
   public loggedIn = false;
   public errMsg = '';
   public user: Account;
+  public numDonation: number;
   userID: any;
   list: any;
+  numCards = 0;
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth,
               public db: AngularFireDatabase) {
@@ -27,7 +29,6 @@ export class AuthenticationService {
     this.authState.subscribe(user => {
       if (user != null) {
         this.userID = user.uid;
-        console.log(this.userID);
         this.currentUser = user;
         console.log('Successfully authenticated');
         console.log('AUTHSTATE USER', user);
@@ -50,7 +51,7 @@ export class AuthenticationService {
         console.log(res.user.uid);
         console.log('Successfully signed up!', res);
         this.newUser(acc, res.user.uid);
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
@@ -105,11 +106,37 @@ export class AuthenticationService {
     return this.db.object('Users/' + this.userID).valueChanges();
   }
 
-  addDonation(money: number, id: string, date: string) {
-    this.db.list('Users/' + this.userID).push({
-      amount: money,
-      charity_id: id,
-      date_donated: date
+  addPayment(name: string, cardInfo: number, exp: string, cvv: number) {
+    this.db.object('Users/' + this.userID + `/payment_methods/${this.numCards}`).set({
+      card_holder: name,
+      card_number: cardInfo,
+      exp_: exp,
+      cvv_: cvv
+    })
+    .then(() => {
+      console.log('Successfully added card in database');
+    })
+    .catch(error => {
+      console.log('Something went wrong: ', error);
+    });
+  }
+
+  removePayment() {
+    this.db.list('Users/' + this.userID + `/payment_methods/`).remove('0');
+    this.router.navigate(['/payment-methods']);
+  }
+
+  addDonation(name: string, amount_: number, date_: string, numDonation: number) {
+    this.db.object(`Users/${this.userID}/donation_history/${numDonation}`).set({
+          amount: amount_,
+          charity_name: name,
+          date_donated: date_
+    })
+    .then(() => {
+      console.log('Successfully added donation to database');
+    })
+    .catch(error => {
+      console.log('Something went wrong: ', error);
     });
   }
 }

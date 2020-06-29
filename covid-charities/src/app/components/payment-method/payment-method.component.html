@@ -2,8 +2,8 @@
     <span class="header">Payment Methods</span>
     <br>
     <br>
-    <span *ngIf="account.paymentMethod == 'undefined'" class="sub-header">Add a Visa Card to send donations</span>
-    <span *ngIf="!(account.paymentMethod == 'undefined')" class="sub-header">Your Visa card:</span>
+    <span *ngIf="(account.payment[0] === undefined)" class="sub-header">Add a Visa Card to send donations</span>
+    <span *ngIf="(account.payment[0] != undefined)" class="sub-header">Your Visa card:</span>
 
     <div class="circle-container">
         <span class="circle circle1"></span>
@@ -11,38 +11,81 @@
         <span class="circle circle3"></span>
     </div>
 
-    <div class="card-size" *ngIf="account.paymentMethod == 'undefined'" >
-        <card>
-            <div class="card-size"></div>
-            <div class="logo">
-                <img src="assets/images/VISA-logo.png">
-            </div>
-        </card>
-    </div>
+    <div class="card-size" *ngIf="(account.payment[0] != undefined)" >
+        <div *ngIf="!edit">
+            <card>
+                <div class="card-size" style="margin-top: 10%; margin-left: 7%">
+                    <span class="small-body-font name">{{ account.payment[0][0].card_holder }}</span>
+                    <br>
+                    <span class="small-body-font small"> {{ account.payment[0][0].card_number}} </span>
+                    <br>
+                    <span class="small-body-font small"> {{ account.payment[0][0].exp_ }} </span>
+                    <span class="small-body-font small"> {{ account.payment[0][0].cvv_ }} </span>
+                </div>
+                <div *ngIf="!edit" class="logo">
+                    <img src="assets/images/VISA-logo.png">
+                </div>
+            </card>
+            <button *ngIf="!edit" (click)="onEdit()" class="btn button">Edit</button>
+        </div>
+        
 
-    <div class="card-size" *ngIf="!(account.paymentMethod == 'undefined')">
-        <card>
-            <div class="card-size">
-                <form [formGroup]="cardForm" #f="ngForm">
+        <div *ngIf="edit">
+            <form [formGroup]="updateCard">
+                <card>
+                    <div class="card-size" style="margin-top: 10%; margin-left: 5%">
                         <input required type="text" class="small-body-font name" 
-                        placeholder="Full Name" [(ngModel)]="fullName"
-                        formControlName="fullName">
+                            [(ngModel)]="account.payment[0][0].card_holder"
+                            formControlName="fullName">
                         <input required type="text" class="small-body-font small" 
-                        placeholder="1234 1234 1234 1234" [(ngModel)]="cardNumber"
-                        formControlName="cardNumber"> 
+                            [(ngModel)]="account.payment[0][0].card_number"
+                            formControlName="cardNumber"> 
     
                         <input required type="text" class="small-body-font small inline" 
-                        placeholder="EXP" [(ngModel)]="expDate"
-                        formControlName="expDate"> 
+                            [(ngModel)]="account.payment[0][0].exp_"
+                            formControlName="expDate"> 
                         <input required type="text" class="small-body-font small" 
-                        placeholder="CVC" [(ngModel)]="CVC"
-                        formControlName="CVC"> 
-                </form> 
-            </div>
-            <div class="logo">
-                <img src="assets/images/VISA-logo.png">
-            </div>
-        </card>
+                            [(ngModel)]="account.payment[0][0].cvv_"
+                            formControlName="CVV"> 
+                    </div>
+                    <div class="logo">
+                        <img src="assets/images/VISA-logo.png">
+                    </div>
+                </card>
+                
+                <button class="btn button" (click)="updateCardInfo()" style="display: inline-block;">Save Card</button>
+                <button class="btn button" (click)="deleteCard()" style="display: inline-block;">Delete Card</button>
+            </form> 
+        </div>
+        <br>
+    </div>
+
+    <div class="card-size" *ngIf="(account.payment[0] === undefined)">
+        <form [formGroup]="cardForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <card>
+                <div class="card-size" style="margin-top: 10%; margin-left: 5%">
+                    <input required type="text" class="small-body-font name" 
+                    placeholder="Full Name" [(ngModel)]="fullName"
+                    formControlName="fullName">
+                    <input required type="text" class="small-body-font small" 
+                    placeholder="1234 1234 1234 1234" [(ngModel)]="cardNumber"
+                    formControlName="cardNumber"> 
+
+                    <input required type="text" class="small-body-font small inline" 
+                    placeholder="EXP" [(ngModel)]="expDate"
+                    formControlName="expDate"> 
+                    <input required type="text" class="small-body-font small" 
+                    placeholder="CVV" [(ngModel)]="CVV"
+                    formControlName="CVV"> 
+                 </div>
+                <div class="logo">
+                    <img src="assets/images/VISA-logo.png">
+                </div>
+            </card>
+            
+            <input type="submit" value="Add Card">
+        </form> 
+            
     </div>
 </div>
 
