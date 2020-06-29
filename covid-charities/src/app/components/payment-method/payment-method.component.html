@@ -2,8 +2,8 @@
     <span class="header">Payment Methods</span>
     <br>
     <br>
-    <span *ngIf="account.paymentMethod == 'undefined'" class="sub-header">Add a Visa Card to send donations</span>
-    <span *ngIf="!(account.paymentMethod == 'undefined')" class="sub-header">Your Visa card:</span>
+    <span *ngIf="(account.payment[0] === undefined)" class="sub-header">Add a Visa Card to send donations</span>
+    <span *ngIf="(account.payment[0] != undefined)" class="sub-header">Your Visa card:</span>
 
     <div class="circle-container">
         <span class="circle circle1"></span>

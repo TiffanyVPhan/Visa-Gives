@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CharityService } from '../../services/charity.service';
 import { Charity } from 'src/app/model/charity';
-import { Account } from 'src/app/model/account';
+import { Account, paymentMethod } from 'src/app/model/account';
+
 import { AuthenticationService } from '../../services/authentication.service';
+import { CharityService } from '../../services/charity.service';
 
 @Component({
   selector: 'app-donation-history',
@@ -15,15 +16,18 @@ export class DonationHistoryComponent implements OnInit {
   account: Account;
   charities: Charity[];
   totalDonationAmount: number;
+  paymentMethod: paymentMethod[] = [];
 
   constructor(private authenticationService: AuthenticationService,
               private charityService: CharityService) {
     this.charities = this.charityService.charities;
+    console.log(this.charities);
 
     this.authenticationService.ready.subscribe(() => {
       if (this.authenticationService.currentUser != null) {
-        console.log('here');
         this.authenticationService.getUser().subscribe((val) => {
+          this.paymentMethod = [];
+          this.paymentMethod.push(val.payment_methods);
           this.account = new Account(val.first_name,
                                     val.last_name,
                                     val.interests,
@@ -31,15 +35,14 @@ export class DonationHistoryComponent implements OnInit {
                                     val.profile_image,
                                     val.total_amount_donated,
                                     val.email_address,
-                                    val.user_ID);
-          console.log(this.account);
+                                    val.user_ID,
+                                    this.paymentMethod);
         });
       }
     });
-
-      // this.totalDonationAmount = Object.values(this.account.donationAmount).map(Number).reduce((x, y) => x + y);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

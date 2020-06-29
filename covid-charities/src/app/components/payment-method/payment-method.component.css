@@ -28,9 +28,6 @@ input[type="submit"] {
     border: none;
 }
 
-form { display: inline; }
-
-
 .button {
     background: var(--secondary);
     padding: 3% 10%;

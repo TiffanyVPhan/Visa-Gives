@@ -40,14 +40,14 @@
                     </div>
                 </div>
 
-                <div *ngIf="account && (account.paymentMethod == 'undefined')">
+                <div *ngIf="account && (account.payment[0] === undefined)">
                     <div class="right-text body-font">
                         No payment method
                     </div>
                 </div>
-                <div *ngIf="account && !(account.paymentMethod == 'undefined')">
+                <div *ngIf="account && (account.payment[0] !== undefined)">
                     <div class="right-text small-body-font">
-                        Donating from Visa card ending in {{ account.paymentMethod % 10000}}
+                        Donating from Visa card ending in {{ cardNumber % 10000}}
                     </div>
                 </div>
             </div>
