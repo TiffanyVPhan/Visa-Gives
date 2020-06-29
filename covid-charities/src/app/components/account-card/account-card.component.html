@@ -4,7 +4,7 @@
         <div class="account">
             <a href="account">
                 <img [src]="account.profilePicture" class="icon account-img" alt="Account Icon">
-                {{ account.name }}
+                {{ (account.firstName | titlecase) + ' ' + (account.lastName | titlecase) }}
             </a>
         </div>
         <hr>
@@ -29,7 +29,6 @@
             <div class="form-grid">
                 <a [routerLink]="['login']" class="center">Sign in</a>
                 <a [routerLink]="['create-account']" class="center">Create Account</a>
-                <button (click)="authenticationService.signOut()">sign out</button>
             </div>
         </div>
     </div>
