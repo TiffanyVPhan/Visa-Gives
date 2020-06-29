@@ -1,9 +1,9 @@
 <div *ngIf="account" class="dropdown">
-    <img [src]="account.profilePicture[0]" class="icon account-img" alt="Account Icon">
+    <img [src]="account.profilePicture" class="icon account-img" alt="Account Icon">
     <div class="small-body-font dropdown-content">
         <div class="account">
             <a href="account">
-                <img [src]="account.profilePicture[0]" class="icon account-img" alt="Account Icon">
+                <img [src]="account.profilePicture" class="icon account-img" alt="Account Icon">
                 {{ account.name }}
             </a>
         </div>
@@ -29,6 +29,7 @@
             <div class="form-grid">
                 <a [routerLink]="['login']" class="center">Sign in</a>
                 <a [routerLink]="['create-account']" class="center">Create Account</a>
+                <button (click)="authenticationService.signOut()">sign out</button>
             </div>
         </div>
     </div>

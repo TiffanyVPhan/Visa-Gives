@@ -18,13 +18,18 @@ export class CreateAccountComponent implements OnInit {
   submit = false;
   accountForm: FormGroup;
   account: Account;
+  userID: string;
 
   private file: File;
   public imageSrc;
 
   constructor(private accountService: AccountService,
               public authenticationService: AuthenticationService,
-              private fb: FormBuilder) {}
+              private fb: FormBuilder) {
+      this.authenticationService.ready.subscribe(() => {
+        this.userID = this.authenticationService.userID;
+      })
+  }
 
   ngOnInit() {
     this.accountForm = new FormGroup({
@@ -39,7 +44,9 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    this.authenticationService.signUp(this.email, this.password);
+    this.account = new Account(
+      this.firstName, this.lastName, ['health'], [], this.imageSrc, 0, this.email, null);
+    this.authenticationService.signUp(this.email, this.password, this.account);
     this.email = '';
     this.password = '';
     console.log(form);

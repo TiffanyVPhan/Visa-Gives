@@ -22,7 +22,7 @@ export class DonationHistoryComponent implements OnInit {
     this.accountService.ready.subscribe(() => {
       this.account = this.accountService.currentUser;
 
-      this.totalDonationAmount = Object.values(this.account.donationAmount).map(Number).reduce((x, y) => x + y);
+      // this.totalDonationAmount = Object.values(this.account.donationAmount).map(Number).reduce((x, y) => x + y);
     });
   }
 
