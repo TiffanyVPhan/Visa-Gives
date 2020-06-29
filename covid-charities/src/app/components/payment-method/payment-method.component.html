@@ -2,8 +2,8 @@
     <span class="header">Payment Methods</span>
     <br>
     <br>
-    <span *ngIf="!(account.paymentMethod == 'undefined')" class="sub-header">Your Visa card:</span>
     <span *ngIf="account.paymentMethod == 'undefined'" class="sub-header">Add a Visa Card to send donations</span>
+    <span *ngIf="!(account.paymentMethod == 'undefined')" class="sub-header">Your Visa card:</span>
 
     <div class="circle-container">
         <span class="circle circle1"></span>
@@ -14,7 +14,6 @@
     <div class="card-size" *ngIf="account.paymentMethod == 'undefined'" >
         <card>
             <div class="card-size"></div>
-    
             <div class="logo">
                 <img src="assets/images/VISA-logo.png">
             </div>
@@ -23,8 +22,23 @@
 
     <div class="card-size" *ngIf="!(account.paymentMethod == 'undefined')">
         <card>
-            <div class="card-size"></div>
+            <div class="card-size">
+                <form [formGroup]="cardForm" #f="ngForm">
+                        <input required type="text" class="small-body-font name" 
+                        placeholder="Full Name" [(ngModel)]="fullName"
+                        formControlName="fullName">
+                        <input required type="text" class="small-body-font small" 
+                        placeholder="1234 1234 1234 1234" [(ngModel)]="cardNumber"
+                        formControlName="cardNumber"> 
     
+                        <input required type="text" class="small-body-font small inline" 
+                        placeholder="EXP" [(ngModel)]="expDate"
+                        formControlName="expDate"> 
+                        <input required type="text" class="small-body-font small" 
+                        placeholder="CVC" [(ngModel)]="CVC"
+                        formControlName="CVC"> 
+                </form> 
+            </div>
             <div class="logo">
                 <img src="assets/images/VISA-logo.png">
             </div>

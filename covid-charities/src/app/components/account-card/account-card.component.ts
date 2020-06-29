@@ -31,8 +31,6 @@ export class AccountCardComponent implements OnInit {
     '#',
   ];
 
-  account: Account;
-  user: any;
   constructor(private  route: ActivatedRoute,
               public authenticationService: AuthenticationService) {
       this.authenticationService.ready.subscribe(() => {
