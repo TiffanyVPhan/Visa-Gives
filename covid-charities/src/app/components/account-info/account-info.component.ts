@@ -26,7 +26,8 @@ export class AccountInfoComponent implements OnInit {
                                     val.total_amount_donated,
                                     val.email_address,
                                     val.user_ID);
-          this.numDonatedCharities = Object.keys(this.account.donationHistory).length;
+          this.numDonatedCharities = ((this.account.donationHistory === undefined) ? 0 :
+              Object.keys(this.account.donationHistory).length);
         });
       }
     });
