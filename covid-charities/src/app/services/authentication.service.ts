@@ -3,51 +3,79 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Account } from '../model/account';
 import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  public account: Account = new Account('', [], [], [], [], '', '');
   private authState: Observable<firebase.User>;
   public currentUser: firebase.User = null;
   ready = new EventEmitter();
 
   public loggedIn = false;
   public errMsg = '';
+  public user: Account;
+  userID: any;
+  list: any;
 
-  constructor(private router: Router, private angularFireAuth: AngularFireAuth) {
+  constructor(private router: Router, private angularFireAuth: AngularFireAuth,
+              public db: AngularFireDatabase) {
     this.authState = angularFireAuth.authState;
 
     this.authState.subscribe(user => {
-      if (user) {
+      if (user != null) {
+        this.userID = user.uid;
+        console.log(this.userID);
         this.currentUser = user;
         console.log('Successfully authenticated');
         console.log('AUTHSTATE USER', user);
         this.loggedIn = true;
-        this.account.email = this.currentUser.email;
-        console.log('this.account.email', JSON.stringify(this.currentUser));
+        this.ready.emit(null);
       } else {
         console.log('AUTHSTATE USER EMPTY', user);
         this.currentUser = null;
       }
     },
-      err => {
-       console.log('Something went wrong with authState: ', err);
-      });
+    err => {
+      console.log('Something went wrong with authState: ', err);
+    });
   }
 
-  signUp(email: string, password: string) {
+  signUp(email: string, password: string, acc: Account) {
     this.angularFireAuth
       .createUserWithEmailAndPassword(email, password)
-      .then(res => {
+      .then( (res: any) => {
+        console.log(res.user.uid);
         console.log('Successfully signed up!', res);
+        this.newUser(acc, res.user.uid);
         this.router.navigate(['/login']);
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
         this.errMsg = error.message;
       });
+  }
+
+  // Create new user entry in database
+  newUser(acc: Account, uid: string) {
+    const itemRef = this.db.object(`Users/${uid}`).set({
+      first_name: acc.firstName,
+      last_name: acc.lastName,
+      interests: acc.interests,
+      email_address: acc.email,
+      user_ID: uid,
+      total_amount_donated: acc.totalAmountDonated,
+      profile_image: acc.profilePicture,
+      donation_history: acc.donationHistory
+    })
+    .then(() => {
+      console.log('Successfully created user in database');
+    })
+    .catch(error => {
+      console.log('Something went wrong: ', error);
+    });
   }
 
   signIn(email: string, password: string) {
@@ -73,11 +101,15 @@ export class AuthenticationService {
     console.log('Signed Out');
   }
 
-  // resetPassword(email: string) {
-  //   this.angularFireAuth.chang
-  // }
+  getUser() {
+    return this.db.object('Users/' + this.userID).valueChanges();
+  }
 
-  getLogInStatus() {
-    return this.loggedIn;
+  addDonation(money: number, id: string, date: string) {
+    this.db.list('Users/' + this.userID).push({
+      amount: money,
+      charity_id: id,
+      date_donated: date
+    });
   }
 }

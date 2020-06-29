@@ -2,7 +2,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Account } from '../../model/account';
-import { AccountService } from '../../services/account.service';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -32,15 +31,24 @@ export class AccountCardComponent implements OnInit {
     '#',
   ];
 
-  account: Account;
-  constructor(private accountService: AccountService,
-              private  route: ActivatedRoute,
+  constructor(private  route: ActivatedRoute,
               public authenticationService: AuthenticationService) {
-      this.accountService.ready.subscribe(() => {
-        this.account = this.accountService.currentUser;
-        console.log(this.account);
-        });
-      }
+      this.authenticationService.ready.subscribe(() => {
+        if (this.authenticationService.currentUser != null) {
+          this.authenticationService.getUser().subscribe((val) => {
+            this.account = new Account(val.first_name,
+                                      val.last_name,
+                                      val.interests,
+                                      val.donation_history,
+                                      val.profile_image,
+                                      val.total_amount_donated,
+                                      val.email_address,
+                                      val.user_ID);
+            console.log(this.account);
+          });
+        }
+      });
+    }
 
   ngOnInit() {}
 

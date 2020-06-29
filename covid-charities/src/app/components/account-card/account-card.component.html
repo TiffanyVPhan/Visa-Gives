@@ -1,10 +1,10 @@
 <div *ngIf="account" class="dropdown">
-    <img [src]="account.profilePicture[0]" class="icon account-img" alt="Account Icon">
+    <img [src]="account.profilePicture" class="icon account-img" alt="Account Icon">
     <div class="small-body-font dropdown-content">
         <div class="account">
             <a href="account">
-                <img [src]="account.profilePicture[0]" class="icon account-img" alt="Account Icon">
-                {{ account.name }}
+                <img [src]="account.profilePicture" class="icon account-img" alt="Account Icon">
+                {{ (account.firstName | titlecase) + ' ' + (account.lastName | titlecase) }}
             </a>
         </div>
         <hr>
