@@ -1,6 +1,6 @@
 <div *ngIf="charity" class="content">
     <span class="header">{{ charity.name }} </span>
-
+    
     <div class="charity-grid">
         <div class="main-photo">
             <img [src]="charity.coverPhoto[0]">
@@ -22,7 +22,12 @@
     </div>
 
     <div class="description">
-        <card>
+        <span class="donation-text">Show your support</span>
+        <div *ngIf="donated" class="donated-margin">
+            <img src="assets/images/done_24px.png">
+            <span class="body-font donated-text">&nbsp;${{ selectedAmount }} Donation Sent</span>
+        </div>
+        <card *ngIf="!donated">
             <div class="wrapper">
                 <div class="title">
                     <span class="donation-text">Donate Immediately</span>
@@ -32,10 +37,10 @@
                     </div>
                 </div>
 
-                <div class="horizontal">
+                <div class="horizontal horizontal-margin">
                     <div *ngFor="let amount of donationTiers">
                         <span class="donation-text">
-                            <div class="donation-button">Donate ${{ amount }} → </div>
+                            <div (click)="onClick(amount)" class="donation-button">Donate ${{ amount }} → </div>
                         </span>
                     </div>
                 </div>
@@ -45,9 +50,18 @@
                         No payment method
                     </div>
                 </div>
+                
                 <div *ngIf="account && (account.payment[0] !== undefined)">
                     <div class="right-text small-body-font">
                         Donating from Visa card ending in {{ cardNumber % 10000}}
+                    </div>
+                    <br>
+                    <div class="horizontal">
+                        <div *ngIf="selectedAmount" class="donation-button">
+                            <span class="donation-text" (click)="addDonation()">
+                                Click to confirm donation: ${{ this.selectedAmount }}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

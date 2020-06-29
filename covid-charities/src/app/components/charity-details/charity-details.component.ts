@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { DatePipe, formatDate } from '@angular/common';
 
 import { CharityService } from '../../services/charity.service';
 import { Charity } from 'src/app/model/charity';
@@ -20,6 +21,7 @@ export class CharityDetailsComponent implements OnInit {
   paymentMethod: paymentMethod[] = [];
   donationTiers: number[] = [5, 10, 25, 50, 100, 250, 500, 1000];
   cardNumber: number;
+  donated = false;
 
   constructor(private authenticationService: AuthenticationService,
               private charityService: CharityService,
@@ -42,7 +44,6 @@ export class CharityDetailsComponent implements OnInit {
                                     val.email_address,
                                     val.user_ID,
                                     this.paymentMethod);
-          console.log(this.account.payment[0]);
           this.cardNumber = parseInt(this.account.payment[0][0].card_number.replace(/ /g,''));
         });
       }
@@ -54,6 +55,7 @@ export class CharityDetailsComponent implements OnInit {
       this.charityName = params.get('charity_name');
       this.charity = this.charityService.getCharity(this.charityName);
     });
+    console.log(formatDate(new Date(), 'MM/dd/yyyy', 'en'));
   }
 
   onClick(amount) {
@@ -62,5 +64,21 @@ export class CharityDetailsComponent implements OnInit {
     } else {
       this.selectedAmount = amount;
     }
+    console.log(amount);
+  }
+
+  addDonation() {
+    const numDonations =
+      ((this.account.donationHistory === undefined) ? 0 :
+        this.account.donationHistory.length);
+    console.log(numDonations);
+
+    this.authenticationService.addDonation(
+      this.charityName,
+      this.selectedAmount,
+      formatDate(new Date(), 'MM/dd/yyyy', 'en'),
+      numDonations);
+
+    this.donated = !this.donated;
   }
 }
