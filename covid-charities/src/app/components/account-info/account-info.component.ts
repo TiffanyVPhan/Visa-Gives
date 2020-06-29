@@ -26,12 +26,11 @@ export class AccountInfoComponent implements OnInit {
                                     val.total_amount_donated,
                                     val.email_address,
                                     val.user_ID);
-          console.log(this.account);
+          this.numDonatedCharities = Object.keys(this.account.donationHistory).length;
         });
       }
     });
   }
-      // this.numDonatedCharities = Object.keys(this.account.donatedCharities).length;
 
   ngOnInit() {}
 }
