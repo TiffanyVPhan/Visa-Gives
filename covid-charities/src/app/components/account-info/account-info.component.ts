@@ -15,15 +15,23 @@ export class AccountInfoComponent implements OnInit {
   numDonatedCharities: number;
   constructor(private authenticationService: AuthenticationService,
               private  route: ActivatedRoute) {
-
-        this.authenticationService.ready.subscribe(() => {
-          this.authenticationService.getUser().subscribe((user) => {
-            console.log('hi');
-            console.log(user);
-            // this.numDonatedCharities = Object.keys(this.account.donatedCharities).length;
+    this.authenticationService.ready.subscribe(() => {
+      if (this.authenticationService.currentUser != null) {
+        this.authenticationService.getUser().subscribe((val) => {
+          this.account = new Account(val.first_name,
+                                    val.last_name,
+                                    val.interests,
+                                    val.donation_history,
+                                    val.profile_image,
+                                    val.total_amount_donated,
+                                    val.email_address,
+                                    val.user_ID);
+          console.log(this.account);
         });
-        });
-    }
+      }
+    });
+  }
+      // this.numDonatedCharities = Object.keys(this.account.donatedCharities).length;
 
   ngOnInit() {}
 }

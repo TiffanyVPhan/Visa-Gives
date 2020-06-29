@@ -102,8 +102,14 @@ export class AuthenticationService {
   }
 
   getUser() {
-    // console.log(this.db.object('Users/' + this.userID));
     return this.db.object('Users/' + this.userID).valueChanges();
-    // return this.db.object('Users/' + this.userID);
+  }
+
+  addDonation(money: number, id: string, date: string) {
+    this.db.list('Users/' + this.userID).push({
+      amount: money,
+      charity_id: id,
+      date_donated: date
+    });
   }
 }

@@ -36,17 +36,19 @@ export class AccountCardComponent implements OnInit {
   constructor(private  route: ActivatedRoute,
               public authenticationService: AuthenticationService) {
       this.authenticationService.ready.subscribe(() => {
-        this.authenticationService.getUser().subscribe((val) => {
-          this.account = new Account(val.first_name,
-                                     val.last_name,
-                                     val.interests,
-                                     val.donation_history,
-                                     val.profile_image,
-                                     val.total_amount_donated,
-                                     val.email_address,
-                                     val.user_ID);
-          console.log(this.account);
-        });
+        if (this.authenticationService.currentUser != null) {
+          this.authenticationService.getUser().subscribe((val) => {
+            this.account = new Account(val.first_name,
+                                      val.last_name,
+                                      val.interests,
+                                      val.donation_history,
+                                      val.profile_image,
+                                      val.total_amount_donated,
+                                      val.email_address,
+                                      val.user_ID);
+            console.log(this.account);
+          });
+        }
       });
     }
 
