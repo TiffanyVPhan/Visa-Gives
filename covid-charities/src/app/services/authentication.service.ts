@@ -127,4 +127,10 @@ export class AuthenticationService {
       console.log('Something went wrong: ', error);
     });
   }
+
+  removePayment() {
+    this.db.list('Users/' + this.userID + `/payment_methods/`).remove('0');
+    console.log('Removed payment.');
+    this.router.navigate['/payment-methods'];
+  }
 }
