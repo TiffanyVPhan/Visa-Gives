@@ -139,4 +139,16 @@ export class AuthenticationService {
       console.log('Something went wrong: ', error);
     });
   }
+
+  resetPassword(email: string) {
+    return this.angularFireAuth.sendPasswordResetEmail(email)
+      .then(() => console.log('Sent Password Reset Email'))
+      .catch((error) => console.log(error));
+  }
+
+  removeUser() {
+    this.db.list('Users/').remove(this.userID);
+    this.currentUser.delete();
+    this.router.navigate(['/']);
+  }
 }

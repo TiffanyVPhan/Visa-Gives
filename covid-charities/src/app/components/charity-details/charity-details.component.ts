@@ -55,7 +55,6 @@ export class CharityDetailsComponent implements OnInit {
       this.charityName = params.get('charity_name');
       this.charity = this.charityService.getCharity(this.charityName);
     });
-    console.log(formatDate(new Date(), 'MM/dd/yyyy', 'en'));
   }
 
   onClick(amount) {

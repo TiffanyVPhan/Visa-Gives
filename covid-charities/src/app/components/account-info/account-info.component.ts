@@ -13,6 +13,9 @@ export class AccountInfoComponent implements OnInit {
 
   account: Account;
   numDonatedCharities: number;
+  reset = false;
+  delete = false;
+
   constructor(private authenticationService: AuthenticationService,
               private  route: ActivatedRoute) {
     this.authenticationService.ready.subscribe(() => {
@@ -34,4 +37,23 @@ export class AccountInfoComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  resetPassword() {
+    this.authenticationService.resetPassword(this.account.email);
+    this.reset = true;
+    setTimeout(() => {
+      this.reset = false;
+      }, 3000);
+  }
+
+  trigger() {
+    this.delete = true;
+    setTimeout(() => {
+      this.reset = false;
+    }, 10000);
+  }
+
+  deleteUser() {
+    this.authenticationService.removeUser();
+  }
 }

@@ -50,6 +50,5 @@ export class AccountCardComponent implements OnInit {
       });
     }
 
-  ngOnInit() {}
-
+  ngOnInit() { }
 }
