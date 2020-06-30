@@ -109,3 +109,24 @@ p span {
 .donated-margin {
     margin-top: 1%;
 }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-container {
+    position: relative;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.thanks-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+}
