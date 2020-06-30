@@ -4,13 +4,10 @@ export class Charity {
                 public tags: string [],
                 public coverPhoto: string,
                 public additionalPhotos: string [],
-                public donationTiers: number [],
                 public summary: string,
-                public money: string) {}
-
-    public static JSONtoObj(obj: any): Charity {
-        return new Charity(obj.name, obj.description, obj.tags,
-                            obj.coverPhoto, obj.additionalPhotos,
-                            obj.donationTiers, obj.summary, obj.money);
-    }
+                public money: string,
+                public charityLink: string,
+                public cardNumber: number,
+                public exp: string,
+                public cvv: number) {}
 }
