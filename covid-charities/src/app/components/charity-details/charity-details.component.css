@@ -82,6 +82,17 @@ p span {
     margin: 5px;
 }
 
+.off-button {
+    display: block;
+    background: #C7C7C7;
+    border-radius: 3px;
+    padding: 15px 15px;
+    min-width: 167px;
+    text-align: center;
+    color: #ffffff;
+    margin: 5px;
+}
+
 .no-display {
     display: block;
     background: white;
