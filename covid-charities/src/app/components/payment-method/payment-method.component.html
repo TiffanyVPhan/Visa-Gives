@@ -2,8 +2,8 @@
     <span class="header">Payment Methods</span>
     <br>
     <br>
-    <span *ngIf="(account.payment === 'undefined')" class="sub-header">Add a Visa Card to send donations</span>
-    <span *ngIf="(account.payment != 'undefined')" class="sub-header">Your Visa card:</span>
+    <span *ngIf="(account.payment === undefined)" class="sub-header">Add a Visa Card to send donations</span>
+    <span *ngIf="(account.payment !== undefined)" class="sub-header">Your Visa card:</span>
 
     <div class="circle-container">
         <span class="circle circle1"></span>
@@ -26,7 +26,10 @@
                     <img src="assets/images/VISA-logo.png">
                 </div>
             </card>
-            <button *ngIf="!edit" (click)="onEdit()" class="btn button">Edit</button>
+            <div class="option-margin">
+                <button *ngIf="!edit" class="btn edit" (click)="onEdit()">Edit Card</button>
+                <button class="btn edit" (click)="deleteCard()">Delete Card</button>
+            </div>
         </div>
         
 
@@ -52,9 +55,9 @@
                         <img src="assets/images/VISA-logo.png">
                     </div>
                 </card>
-                
-                <button class="btn button" (click)="updateCardInfo()" style="display: inline-block;">Save Card</button>
-                <button class="btn button" (click)="deleteCard()" style="display: inline-block;">Delete Card</button>
+                <div class="option-margin">
+                    <button class="btn edit" (click)="updateCardInfo()" style="display: inline-block;">Save Card</button>
+                </div>
             </form> 
         </div>
         <br>
