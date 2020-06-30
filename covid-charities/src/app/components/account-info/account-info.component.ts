@@ -20,7 +20,7 @@ export class AccountInfoComponent implements OnInit {
               private  route: ActivatedRoute) {
     this.authenticationService.ready.subscribe(() => {
       if (this.authenticationService.currentUser != null) {
-        this.authenticationService.getUser().subscribe((val) => {
+        this.authenticationService.getUser().subscribe((val: any) => {
           this.account = new Account(val.first_name,
                                     val.last_name,
                                     val.interests,
@@ -28,7 +28,8 @@ export class AccountInfoComponent implements OnInit {
                                     val.profile_image,
                                     val.total_amount_donated,
                                     val.email_address,
-                                    val.user_ID);
+                                    val.user_ID,
+                                    val.payment_methods);
           this.numDonatedCharities = ((this.account.donationHistory === undefined) ? 0 :
               Object.keys(this.account.donationHistory).length);
         });

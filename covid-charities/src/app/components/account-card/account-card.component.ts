@@ -10,6 +10,9 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./account-card.component.css']
 })
 export class AccountCardComponent implements OnInit {
+
+  account: Account;
+
   public accountfeatures: string[] = [
     'Donation History',
     'Bookmarked',
@@ -18,13 +21,12 @@ export class AccountCardComponent implements OnInit {
     'Notifications',
     'Terms of Service',
     'Privacy Policy',
-    'Human Services',
+    'Sign Out'
   ];
   public accountroutes: string[] = [
     'donation-history',
     '#',
     'payment-methods',
-    '#',
     '#',
     '#',
     '#',
@@ -35,7 +37,7 @@ export class AccountCardComponent implements OnInit {
               public authenticationService: AuthenticationService) {
       this.authenticationService.ready.subscribe(() => {
         if (this.authenticationService.currentUser != null) {
-          this.authenticationService.getUser().subscribe((val) => {
+          this.authenticationService.getUser().subscribe((val: any) => {
             this.account = new Account(val.first_name,
                                       val.last_name,
                                       val.interests,
@@ -43,7 +45,8 @@ export class AccountCardComponent implements OnInit {
                                       val.profile_image,
                                       val.total_amount_donated,
                                       val.email_address,
-                                      val.user_ID);
+                                      val.user_ID,
+                                      val.payment_methods);
             console.log(this.account);
           });
         }

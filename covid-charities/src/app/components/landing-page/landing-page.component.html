@@ -6,7 +6,7 @@
 </div>
 
 <div *ngIf="charities.length > 0" role="main">
-    <div class="content">
+    <div class="featured-margin">
         <span class="sub-header">Featured</span>
         <div class="grid-container">
             <div class="featured-charity">
@@ -28,7 +28,7 @@
             <div *ngFor="let charity of charities.slice(1); let i = index" [attr.data-index]="i" class="desc-margin"
                 ngClass="desc-{{i+1}}">
                 <div class="sub-feature">
-                    <a [routerLink]="['/charity', charity.name]" class="body-font">{{ charity.name }}</a>
+                    <a [routerLink]="['/charity', charity.name]" class="side-charity-font">{{ charity.name }}</a>
                     <div *ngFor="let tag of charity.tags | keyvalue">
                         <span class="tag-button body-font tag-button-text">{{ tag.value }}</span>
                     </div>

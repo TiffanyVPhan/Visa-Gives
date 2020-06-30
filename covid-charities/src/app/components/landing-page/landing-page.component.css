@@ -4,9 +4,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.featured-margin {
+    margin: 2% 0% 8% 17%;
+    max-width: 1200px;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1.5fr;
   grid-template-rows: repeat(4, 100px);
   grid-row-gap: 2em;
   margin-top: 20px;
@@ -66,6 +71,7 @@
 }
 .desc-margin {
   margin-left: 20px;
+  width: 100%;
 }
 
 .side-charity-1 > img, 
@@ -150,6 +156,12 @@
 
 .popular-title {
   margin-top: 10%;
+}
+
+.side-charity-font {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 /* Responsive Styles */

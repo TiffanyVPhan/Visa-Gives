@@ -32,7 +32,7 @@ export class CharityDetailsComponent implements OnInit {
 
     this.authenticationService.ready.subscribe(() => {
       if (this.authenticationService.currentUser != null) {
-        this.authenticationService.getUser().subscribe((val) => {
+        this.authenticationService.getUser().subscribe((val: any) => {
           this.paymentMethod = [];
           this.paymentMethod.push(val.payment_methods);
           this.account = new Account(val.first_name,
@@ -43,7 +43,7 @@ export class CharityDetailsComponent implements OnInit {
                                     val.total_amount_donated,
                                     val.email_address,
                                     val.user_ID,
-                                    this.paymentMethod);
+                                    val.payment_methods);
           this.cardNumber = parseInt(this.account.payment[0][0].card_number.replace(/ /g,''));
         });
       }
