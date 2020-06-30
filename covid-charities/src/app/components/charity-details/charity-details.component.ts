@@ -16,9 +16,8 @@ export class CharityDetailsComponent implements OnInit {
 
   account: Account;
   charity: Charity;
-  selectedAmount: number;
+  selectedAmount: number = null;
   charityName: string;
-  paymentMethod: paymentMethod[] = [];
   donationTiers: number[] = [5, 10, 25, 50, 100, 250, 500, 1000];
   cardNumber: number;
   donated = false;
@@ -33,8 +32,6 @@ export class CharityDetailsComponent implements OnInit {
     this.authenticationService.ready.subscribe(() => {
       if (this.authenticationService.currentUser != null) {
         this.authenticationService.getUser().subscribe((val: any) => {
-          this.paymentMethod = [];
-          this.paymentMethod.push(val.payment_methods);
           this.account = new Account(val.first_name,
                                     val.last_name,
                                     val.interests,
@@ -44,7 +41,7 @@ export class CharityDetailsComponent implements OnInit {
                                     val.email_address,
                                     val.user_ID,
                                     val.payment_methods);
-          this.cardNumber = parseInt(this.account.payment[0][0].card_number.replace(/ /g,''));
+          this.cardNumber = parseInt(this.account.payment[0].card_number.replace(/ /g,''));
         });
       }
     });
@@ -59,7 +56,7 @@ export class CharityDetailsComponent implements OnInit {
 
   onClick(amount) {
     if (amount === this.selectedAmount) {
-      this.selectedAmount = undefined;
+      this.addDonation();
     } else {
       this.selectedAmount = amount;
     }
@@ -79,5 +76,9 @@ export class CharityDetailsComponent implements OnInit {
       numDonations);
 
     this.donated = !this.donated;
+  }
+
+  cancelDonation() {
+    this.selectedAmount = null;
   }
 }
