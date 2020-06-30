@@ -61,10 +61,13 @@ input[type="submit"] {
     font-weight: bold;
 }
 
-.signup {
-    text-decoration: underline;
-}
 
-.small-body-font {
-    font-size: 16px;
+.signin-text {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    margin-top: 2%;
 }

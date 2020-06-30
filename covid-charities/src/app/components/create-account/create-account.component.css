@@ -102,6 +102,16 @@ input.ng-invalid.ng-touched {
     width: 500px;
 }
 
+.signin-text {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    margin-top: 2%;
+}
+
 @media screen and (max-width: 768px) {
     card {
         display: none;

@@ -37,6 +37,7 @@ export class AuthenticationService {
       } else {
         console.log('AUTHSTATE USER EMPTY', user);
         this.currentUser = null;
+        this.router.navigate(['/create-account']);
       }
     },
     err => {
