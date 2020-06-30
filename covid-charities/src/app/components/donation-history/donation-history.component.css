@@ -32,34 +32,53 @@
     display: grid;
     grid-template-columns: 1;
     grid-auto-rows: minmax(100px, auto);
-    grid-row-gap: 10%;
-    width: 75%;
-    margin-top: 10%
+    grid-row-gap: 3%;
+    /* width: 75%; */
+    margin-top: 10%;
 }
 
-.charity-img,
-.text {
-    height: 152px;
+.info {
+    display: block;
+    margin-left: 5%;
 }
 
 .charity-img {
-    width: 206px;
-    background: grey;
+    height: 152px;
 }
 
-.row {
-    display: flex;
-  }
-  
-  /* Create three equal columns that sits next to each other */
-  .column {
-    flex: 33.33%;
-    padding: 5px;
-  }
+.text {
+    margin-top: -0.5%;
+}
 
-  @media screen and (min-width: 1025px) {
-    .donation-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+.charity-img {
+    width: 300px;
+    float: left;
+    margin-right: 2%;
+}
+
+.small-dollar {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: top;
+    line-height: 39px;
+}
+
+.amount {
+    line-height: 39px;
+}
+
+.dates {
+    display: flex;
+}
+
+.date-font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+
+.horizontal {
+    display: flex;
 }

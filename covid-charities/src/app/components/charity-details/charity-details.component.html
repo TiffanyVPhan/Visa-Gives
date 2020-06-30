@@ -1,6 +1,13 @@
 <div *ngIf="charity" class="content">
     <span class="header">{{ charity.name }} </span>
-    
+    <div *ngIf="donated">
+        <div class="img-container">
+            <img src="assets/images/donation-bg.png" class="banner">
+            <div class="centered">
+                <span class="thanks-text">You rock star, thanks for donating ${{ selectedAmount }}</span>
+            </div>
+        </div>
+    </div>
     <div class="charity-grid">
         <div class="main-photo">
             <img [src]="charity.coverPhoto[0]">

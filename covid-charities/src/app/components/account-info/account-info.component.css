@@ -66,10 +66,19 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .card-width {
     width: 500px;
+}
+
+.alert {
+    padding: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    position:absolute;
+    bottom:0;
 }
 
 @media screen and (max-width: 768px) {

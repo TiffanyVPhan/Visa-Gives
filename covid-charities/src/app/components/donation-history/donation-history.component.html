@@ -9,21 +9,24 @@
     </div>
 
     <div class="donation-grid">
-        <div class="charity-img">charity-img
-        </div>
-        <div class="text">Text
-        </div>
+        <div *ngFor="let donation of donations | keyvalue">
+            <div class="charity-img">
+                <img [src]="donation.value.charityImg[0]" alt="Charity Image" class="charity-img">
+            </div>
+            <div class="info">
+                <span class="small-dollar">$ </span>
+                <span class="header amouont">{{ donation.value.amount }}</span>
+                <p class="text body-font">{{ donation.key }}</p>
+            </div>
 
-        <div class="charity-img">charity-img
+            <div class="horizontal">
+                <span class="date-font">Sent on&nbsp;</span>
+                <div *ngFor="let date of donation.value.dates_donated; let i=index" [attr.data-index]="i">
+                    <span class="dates date-font"> {{ date }} </span>
+                    <span *ngIf="donation.value.dates_donated.length == 2 && i==0" class="dates date-font">and&nbsp;</span>
+                </div>
+            </div>
         </div>
-        <div class="text">Text
-        </div>
-
-        <div class="charity-img">charity-img
-        </div>
-        <div class="text">Text
-        </div>
-       
     </div>
 </div>
 

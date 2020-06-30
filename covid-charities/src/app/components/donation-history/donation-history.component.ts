@@ -5,18 +5,23 @@ import { Account, paymentMethod } from 'src/app/model/account';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { CharityService } from '../../services/charity.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-donation-history',
   templateUrl: './donation-history.component.html',
   styleUrls: ['./donation-history.component.css']
 })
+
+
 export class DonationHistoryComponent implements OnInit {
 
   account: Account;
   charities: Charity[];
-  totalDonationAmount: number;
-  paymentMethod: paymentMethod[] = [];
+  numDonatedCharities: number;
+  totalDonationAmount = 0;
+  charityImg = [];
+  donations: {[charity_name: string]: { amount: number, dates_donated: string[], charityImg: string }} = {};
 
   constructor(private authenticationService: AuthenticationService,
               private charityService: CharityService) {
@@ -25,9 +30,7 @@ export class DonationHistoryComponent implements OnInit {
 
     this.authenticationService.ready.subscribe(() => {
       if (this.authenticationService.currentUser != null) {
-        this.authenticationService.getUser().subscribe((val) => {
-          this.paymentMethod = [];
-          this.paymentMethod.push(val.payment_methods);
+        this.authenticationService.getUser().subscribe((val: any) => {
           this.account = new Account(val.first_name,
                                     val.last_name,
                                     val.interests,
@@ -36,7 +39,31 @@ export class DonationHistoryComponent implements OnInit {
                                     val.total_amount_donated,
                                     val.email_address,
                                     val.user_ID,
-                                    this.paymentMethod);
+                                    val.payment_methods);
+          this.numDonatedCharities = ((this.account.donationHistory === undefined) ? 0 :
+            Object.keys(this.account.donationHistory).length);
+
+          if (this.account.donationHistory !== undefined) {
+            for (const donation of this.account.donationHistory) {
+              console.log(typeof donation.amount);
+              this.totalDonationAmount += donation.amount;
+              if (donation.charity_name in this.donations) {
+                this.donations[donation.charity_name].amount += donation.amount;
+                if ((this.donations[donation.charity_name].dates_donated !== 'undefined') && 
+                (this.donations[donation.charity_name].dates_donated.slice(-1)[0] !== donation.date_donated.replace(/\//g, '.'))) {
+                this.donations[donation.charity_name].dates_donated.push(donation.date_donated.replace(/\//g, '.'));
+              }
+            }
+              else {
+                this.donations[donation.charity_name] = {
+                  amount: donation.amount,
+                  dates_donated: [donation.date_donated.replace(/\//g, '.')],
+                  charityImg: this.charityService.getCharity(donation.charity_name).coverPhoto
+                };
+              }
+            }
+          }
+          console.log(this.donations);
         });
       }
     });

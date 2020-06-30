@@ -14,7 +14,7 @@
         <!-- TO-DO: add routing once backend is finished -->
         <div class="link-grid">
             <div class="reset-password">
-                <span class="link-font">Reset Password</span>
+                <span class="link-font" (click)="resetPassword()">Reset Password</span>
             </div>
             <div class="logout">
                 <a href="/" (click)="authenticationService.signOut()" class="link-font">Sign Out</a>
@@ -23,13 +23,15 @@
                 <span class="link-font">Invite Friends</span>
             </div>
             <div class="delete-account">
-                <span class="link-font">Delete Account</span>
+                <span class="link-font" (click)="trigger()">Delete Account</span>
             </div>
             <div class="contact-us">
                 <span class="link-font">Contact Us</span>
             </div>
         </div>
     </card>
+    <span *ngIf="reset" class="link-font alert">Reset Password Email Sent!</span>
+    <span *ngIf="delete" (click)="deleteUser()" class="link-font alert">Click Here to Confirm Account Deletion</span>
 </div>
 
 <div id="div-mobile">

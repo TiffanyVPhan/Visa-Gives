@@ -19,7 +19,6 @@ export class PaymentMethodComponent implements OnInit {
   CVV: number;
   cardForm: FormGroup;
   updateCard: FormGroup;
-  paymentMethod: paymentMethod[] = [];
   edit = false;
 
   ready2 = new EventEmitter();
@@ -28,9 +27,8 @@ export class PaymentMethodComponent implements OnInit {
               private route: ActivatedRoute) {
       this.authenticationService.ready.subscribe(() => {
         if (this.authenticationService.currentUser != null) {
-          this.authenticationService.getUser().subscribe((val) => {
-            this.paymentMethod = [];
-            this.paymentMethod.push(val.payment_methods);
+          this.authenticationService.getUser().subscribe((val: any) => {
+
             this.account = new Account(val.first_name,
                                       val.last_name,
                                       val.interests,
@@ -39,7 +37,7 @@ export class PaymentMethodComponent implements OnInit {
                                       val.total_amount_donated,
                                       val.email_address,
                                       val.user_ID,
-                                      this.paymentMethod);
+                                      val.payment_methods);
             this.ready2.emit(null);
             console.log(this.account.payment);
           });
@@ -56,12 +54,12 @@ export class PaymentMethodComponent implements OnInit {
     });
 
     this.ready2.subscribe(() => {
-      if (this.account.payment[0] !== undefined) {
+      if (this.account.payment !== undefined) {
         this.updateCard = new FormGroup({
-          fullName: new FormControl(this.account.payment[0][0].card_holder, Validators.required),
-          cardNumber: new FormControl(this.account.payment[0][0].card_number, [Validators.required]),
-          expDate: new FormControl(this.account.payment[0][0].exp_, [Validators.required]),
-          CVV: new FormControl(this.account.payment[0][0].cvv_, [Validators.required]),
+          fullName: new FormControl(this.account.payment[0].card_holder, Validators.required),
+          cardNumber: new FormControl(this.account.payment[0].card_number, [Validators.required]),
+          expDate: new FormControl(this.account.payment[0].exp_, [Validators.required]),
+          CVV: new FormControl(this.account.payment[0].cvv_, [Validators.required]),
         });
       }
     });
@@ -89,12 +87,12 @@ export class PaymentMethodComponent implements OnInit {
   }
 
   updateCardInfo() {
-    console.log(this.account.payment[0][0]);
+    console.log(this.account.payment[0]);
     this.authenticationService.addPayment(
-      this.account.payment[0][0].card_holder,
-      this.account.payment[0][0].card_number,
-      this.account.payment[0][0].exp_,
-      this.account.payment[0][0].cvv_
+      this.account.payment[0].card_holder,
+      this.account.payment[0].card_number,
+      this.account.payment[0].exp_,
+      this.account.payment[0].cvv_
     );
     this.onEdit();
   }
