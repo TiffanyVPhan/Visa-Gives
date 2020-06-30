@@ -22,18 +22,11 @@ input[type="submit"] {
 .btn {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
-    margin: 10% 0% 0% 35%;
+    margin: 2% 0% 0% 35%;
+    width: 125px;
     background: none;
     outline: transparent;
     border: none;
-}
-
-.button {
-    background: var(--secondary);
-    padding: 3% 10%;
-    border-radius: 2px;
-    cursor: pointer;
-    color: white;
 }
 
 .name {
@@ -42,11 +35,12 @@ input[type="submit"] {
 }
 
 .edit {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    /* margin: 20% 0% 0% 50%; */
+    display: inline-block;
 }
 
+.option-margin {
+    margin-top: 5%;
+}
 .small {
     font-size: 20px;
 }
@@ -54,7 +48,6 @@ input[type="submit"] {
 .card-size {
     width: 500px;
     height: 212.5px;
-    margin-left: 3%;
 }
 
 .logo {
