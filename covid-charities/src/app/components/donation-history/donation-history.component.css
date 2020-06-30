@@ -28,13 +28,17 @@
     vertical-align: top;
 }
 
-.donation-grid {
+/* .donation-grid {
     display: grid;
     grid-template-columns: 1;
     grid-auto-rows: minmax(100px, auto);
     grid-row-gap: 3%;
-    /* width: 75%; */
     margin-top: 10%;
+} */
+
+.donation-grid {
+    display: flex;
+    flex-direction: column;
 }
 
 .info {
@@ -50,6 +54,9 @@
     margin-top: -0.5%;
 }
 
+.text2 {
+    margin-top: -1.5%;
+}
 .charity-img {
     width: 300px;
     float: left;
@@ -76,9 +83,32 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
+.date-font2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
 
 .horizontal {
     display: flex;
+}
+
+.charity-name {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.money-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    margin: 2% 14% 8% 17%;
 }

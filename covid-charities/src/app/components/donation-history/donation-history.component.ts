@@ -21,7 +21,7 @@ export class DonationHistoryComponent implements OnInit {
   numDonatedCharities: number;
   totalDonationAmount = 0;
   charityImg = [];
-  donations: {[charity_name: string]: { amount: number, dates_donated: string[], charityImg: string }} = {};
+  donations: {[charity_name: string]: { amount: number, dates_donated: string[], charityImg: string, money: string }} = {};
 
   constructor(private authenticationService: AuthenticationService,
               private charityService: CharityService) {
@@ -58,7 +58,8 @@ export class DonationHistoryComponent implements OnInit {
                 this.donations[donation.charity_name] = {
                   amount: donation.amount,
                   dates_donated: [donation.date_donated.replace(/\//g, '.')],
-                  charityImg: this.charityService.getCharity(donation.charity_name).coverPhoto
+                  charityImg: this.charityService.getCharity(donation.charity_name).coverPhoto,
+                  money: this.charityService.getCharity(donation.charity_name).money
                 };
               }
             }

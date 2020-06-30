@@ -1,4 +1,4 @@
-<div *ngIf="charities && account" class="content">
+<div *ngIf="charities && account" class="container">
     <span class="header">Donation History</span>
     <div class="img-container">
         <img src="assets/images/donation-bg.png" class="banner">
@@ -16,14 +16,15 @@
             <div class="info">
                 <span class="small-dollar">$ </span>
                 <span class="header amouont">{{ donation.value.amount }}</span>
-                <p class="text body-font">{{ donation.key }}</p>
+                <p class="text charity-name">{{ donation.key }}</p>
+                <p class="text2 money-text">"{{ donation.value.money }}"</p>
             </div>
 
             <div class="horizontal">
-                <span class="date-font">Sent on&nbsp;</span>
+                <p class="date-font">Sent on&nbsp;</p>
                 <div *ngFor="let date of donation.value.dates_donated; let i=index" [attr.data-index]="i">
-                    <span class="dates date-font"> {{ date }} </span>
-                    <span *ngIf="donation.value.dates_donated.length == 2 && i==0" class="dates date-font">and&nbsp;</span>
+                    <p *ngIf="i != donation.value.dates_donated.length - 1" class="dates date-font2"> {{ date }}, &nbsp;</p>
+                    <p *ngIf="i == donation.value.dates_donated.length - 1" class="dates date-font2"> {{ date }} &nbsp;</p>
                 </div>
             </div>
         </div>
