@@ -26,7 +26,8 @@
             <br>
             <span>{{ charity.money }}</span>
             <br>
-            <span>Learn more about {{ charity.name }}: {{ charity.charityLink }}</span>
+            <span class="italics">Learn more about {{ charity.name }}: </span>
+            <span><a href="{{ charity.charityLink }}">{{ charity.charityLink }}</a></span>
         </p>
     </div>
 
@@ -39,7 +40,7 @@
         <card *ngIf="!donated" id="outer">
             <div class="wrapper">
                 <div class="title">
-                    <span class="donation-text">Donate Immediately</span>
+                    <span class="donation-text left-text">Donate Immediately</span>
                     <div class="right-text body-font">
                         <input type="checkbox">
                         Make it Monthly
@@ -58,6 +59,13 @@
                     </div>
                 </div>
 
+                <div *ngIf="selectedAmount == null" class="right-text body-font italics">
+                    Select a donation
+               </div>
+               <div *ngIf="selectedAmount" class="right-text body-font italics">
+                   Confirm ${{ selectedAmount }} donation →
+              </div>
+
                 <div *ngIf="account && (account.payment[0] === undefined)">
                     <div class="right-text body-font">
                         No payment method
@@ -65,7 +73,7 @@
                 </div>
                 
                 <div *ngIf="account && (account.payment[0] !== undefined)">
-                    <div class="right-text small-body-font">
+                    <div class="left-text small-body-font">
                         Donating from Visa card ending in {{ cardNumber % 10000}}
                     </div>
                 </div>

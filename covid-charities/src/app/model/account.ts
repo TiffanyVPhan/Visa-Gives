@@ -1,8 +1,8 @@
-// export type donationHistoryItem = {
-//     amount: number,
-//     charityID: string,
-//     dateDonated
-// }
+export type donationHistoryItem = {
+    amount: number,
+    charityID: string,
+    dateDonated: string[];
+}
 
 export type paymentMethod = {
     cardHolder: string,
