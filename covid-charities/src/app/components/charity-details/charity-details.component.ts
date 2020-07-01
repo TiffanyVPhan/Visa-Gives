@@ -52,6 +52,18 @@ export class CharityDetailsComponent implements OnInit {
       this.charityName = params.get('charity_name');
       this.charity = this.charityService.getCharity(this.charityName);
     });
+    this.authenticationService.getUser().subscribe((val: any) => {
+      this.account = new Account(val.first_name,
+                                val.last_name,
+                                val.interests,
+                                val.donation_history,
+                                val.profile_image,
+                                val.total_amount_donated,
+                                val.email_address,
+                                val.user_ID,
+                                val.payment_methods);
+      this.cardNumber = parseInt(this.account.payment[0].card_number.replace(/ /g,''));
+    });
   }
 
   onClick(amount) {

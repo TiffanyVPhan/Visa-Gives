@@ -65,6 +65,7 @@ input[type="submit"] {
 }
 
 .circle {
+    display: inline-block;
     height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -88,7 +89,7 @@ input[type="submit"] {
 }
 
 .circle-container {
-    display: flex;
-    align-items: center;
-    vertical-align: middle;
+    /* display: flex; */
+    width: 500px;
+    text-align: center;
 }
