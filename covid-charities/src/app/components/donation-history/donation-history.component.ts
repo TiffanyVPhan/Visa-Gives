@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Charity } from 'src/app/model/charity';
-import { Account, paymentMethod, donationHistoryItem} from 'src/app/model/account';
+import { Account} from 'src/app/model/account';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { CharityService } from '../../services/charity.service';
@@ -40,7 +40,7 @@ export class DonationHistoryComponent implements OnInit {
                                     val.payment_methods);
           this.numDonatedCharities = ((this.account.donationHistory === undefined) ? 0 :
             Object.keys(this.account.donationHistory).length);
-      
+
           if (this.account.donationHistory !== undefined) {
             for (const donation of this.account.donationHistory) {
               this.totalDonationAmount += donation.amount;

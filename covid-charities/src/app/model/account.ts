@@ -1,7 +1,7 @@
 export type donationHistoryItem = {
     amount: number,
-    charityID: string,
-    dateDonated: string[];
+    charity_name: string,
+    date_donated: string;
 }
 
 export type paymentMethod = {
@@ -15,7 +15,7 @@ export class Account {
     constructor(public firstName: string,
                 public lastName: string,
                 public interests: string [],
-                public donationHistory: string [],
+                public donationHistory: donationHistoryItem [],
                 public profilePicture: string,
                 public totalAmountDonated: number,
                 public email: string,
