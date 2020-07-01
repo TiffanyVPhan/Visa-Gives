@@ -9,14 +9,16 @@
     </div>
 
     <div class="donation-grid">
-        <div *ngFor="let donation of donations | keyvalue">
+        <div *ngFor="let donation of donations | keyvalue" class="container2">
             <div class="charity-img">
                 <img [src]="donation.value.charityImg[0]" alt="Charity Image" class="charity-img">
             </div>
             <div class="info">
                 <span class="small-dollar">$ </span>
                 <span class="header amouont">{{ donation.value.amount }}</span>
-                <p class="text charity-name">{{ donation.key }}</p>
+                <a [routerLink]="['/charity', donation.key]">
+                    <p class="text charity-name">{{ donation.key }}</p>
+                </a>
                 <p class="text2 money-text">"{{ donation.value.money }}"</p>
             </div>
 
