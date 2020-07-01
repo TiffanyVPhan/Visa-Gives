@@ -16,6 +16,10 @@ p span {
     "main-photo side-3";
 }
 
+.image-margin {
+    margin-top: 1.5%;
+}
+
 .main-photo {
     grid-area: main-photo;
     overflow: hidden;
@@ -150,4 +154,14 @@ p span {
 
 .italics {
     font-style: italic;
+}
+
+.inline {
+    display: inline;
+}
+
+.cover-img {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
 }

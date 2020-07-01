@@ -27,6 +27,7 @@ export class CharityDetailsComponent implements OnInit {
               private route: ActivatedRoute) {
     this.charityService.ready.subscribe(() => {
       this.charity = this.charityService.getCharity(this.charityName);
+      console.log(this.charity);
     });
 
     this.authenticationService.ready.subscribe(() => {
@@ -53,6 +54,7 @@ export class CharityDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.charityName = params.get('charity_name');
       this.charity = this.charityService.getCharity(this.charityName);
+      console.log(this.charity);
     });
     this.authenticationService.getUser().subscribe((val: any) => {
       this.account = new Account(val.first_name,
