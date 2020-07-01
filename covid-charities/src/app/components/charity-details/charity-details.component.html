@@ -66,13 +66,13 @@
                    Confirm ${{ selectedAmount }} donation →
               </div>
 
-                <div *ngIf="account && (account.payment[0] === undefined)">
-                    <div class="right-text body-font">
+                <div *ngIf="account && (account.payment === undefined)">
+                    <div class="left-text body-font">
                         No payment method
                     </div>
                 </div>
                 
-                <div *ngIf="account && (account.payment[0] !== undefined)">
+                <div *ngIf="account && (account.payment !== undefined)">
                     <div class="left-text small-body-font">
                         Donating from Visa card ending in {{ cardNumber % 10000}}
                     </div>
