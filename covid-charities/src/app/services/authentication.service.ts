@@ -21,7 +21,7 @@ export class AuthenticationService {
   userID: any;
   list: any;
   numCards = 0;
-
+  
   constructor(private router: Router, private angularFireAuth: AngularFireAuth,
               public db: AngularFireDatabase) {
     this.authState = angularFireAuth.authState;
@@ -127,6 +127,7 @@ export class AuthenticationService {
     this.router.navigate(['/payment-methods']);
   }
 
+  // Adds donation to user database
   addDonation(name: string, amount_: number, date_: string, numDonation: number) {
     this.db.object(`Users/${this.userID}/donation_history/${numDonation}`).set({
           amount: amount_,
@@ -140,6 +141,13 @@ export class AuthenticationService {
       console.log('Something went wrong: ', error);
     });
   }
+
+
+  settleTransaction() {
+
+
+  }
+
 
   resetPassword(email: string) {
     return this.angularFireAuth.sendPasswordResetEmail(email)
