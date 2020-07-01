@@ -9,12 +9,6 @@
     margin-bottom: 8%;
     margin-top: 2%; 
     margin-right: 15%;
-    /* max-width: 1200px; */
-  
-    /* display: flex;
-    justify-content: center;
-    vertical-align: middle; */
-
 }
 
 .grid-container {
@@ -148,7 +142,6 @@
 
 .charity-photo {
   grid-area: charity-photo;
-  /* overflow: hidden; */
 }
 
 .charity-photo > img {
