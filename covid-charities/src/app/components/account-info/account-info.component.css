@@ -38,8 +38,8 @@
     margin: 10% 0 15% 15%;
     grid-template-areas: 
         "reset-password delete-account"
-        "invite-friends ..."
-        "contact-us logout";
+        "invite-friends logout"
+        "contact-us ...";
 }
 
 .reset-password {
