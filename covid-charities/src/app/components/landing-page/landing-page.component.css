@@ -230,9 +230,30 @@
     margin-right: 7%;
   }
 }
-
-@media screen and (max-width: 768px) {
-  .tag-line-container {
+@media screen and (min-width: 766px) {
+  #div-mobile {
     display: none;
   }
 }
+
+@media screen and (max-width: 765px) {
+  #div-mobile {
+    display: block;
+  }
+ .content {
+   display: none;
+ }
+ .featured-margin {
+   display: none;
+}
+.tag-line-container {
+    display: none;
+  }
+  .toolbar {
+    display: none;
+  }
+
+  .content {
+    display: none;
+  }
+} 
