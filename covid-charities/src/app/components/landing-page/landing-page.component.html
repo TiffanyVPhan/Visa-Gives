@@ -20,11 +20,10 @@
                 </p>
             </div>
     
-            <div *ngFor="let charity of charities.slice(1,4); let i = index" [attr.data-index]="i" class="col-2"
+            <div *ngFor="let charity of charities.slice(1,4); let i = index" [attr.data-index]="i"
                 ngClass="side-charity-{{i+1}}">
                 <img [src]="charity.coverPhoto[0]" />
             </div>
-    
             <div *ngFor="let charity of charities.slice(1,4); let i = index" [attr.data-index]="i" class="desc-margin"
                 ngClass="desc-{{i+1}}">
                 <div class="sub-feature">
@@ -32,13 +31,16 @@
                     <div *ngFor="let tag of charity.tags | keyvalue">
                         <span class="tag-button body-font tag-button-text">{{ tag.value }}</span>
                     </div>
+                    <br>
+                    <br>
+                    <span class="side-charity-desc">{{ charity.money }}</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="content">
-        <span class="sub-header">Popular</span>
+    <div class="featured-margin">
+        <span class="sub-header">All Charities</span>
         <div class="popular-grid">
             <div *ngFor="let charity of charities; let i = index" [attr.data-index]="i" class="border">
                 <div class="charity-photo">
@@ -50,7 +52,10 @@
                     </a>
                     <br>
                     <br>
-                    <span class="body-font">{{ charity.description }}</span>
+                    <span class="body-font">{{ charity.description | slice:0:150 }}</span>
+                    <a [routerLink]="['/charity', charity.name]">
+                        <span class="body-font">&nbsp;...</span>
+                    </a>
                 </div>
             </div>
         </div>
