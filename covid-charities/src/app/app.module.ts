@@ -6,7 +6,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
@@ -82,7 +82,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AccountService, CharityService, AuthenticationService],
   bootstrap: [AppComponent, AccountCardComponent]
