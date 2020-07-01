@@ -5,7 +5,10 @@
 }
 
 .featured-margin {
-    margin: 2% 0% 8% 17%;
+    /* margin: 2% 0% 8% 17%; */
+    margin-left: 17%;
+    margin-bottom: 8%;
+    margin-top: 2%;
     max-width: 1200px;
 }
 

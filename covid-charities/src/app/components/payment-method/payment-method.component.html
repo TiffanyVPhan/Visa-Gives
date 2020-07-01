@@ -5,10 +5,12 @@
     <span *ngIf="(account.payment === undefined)" class="sub-header">Add a Visa Card to send donations</span>
     <span *ngIf="(account.payment !== undefined)" class="sub-header">Your Visa card:</span>
 
-    <div class="circle-container">
-        <span class="circle circle1"></span>
-        <span class="circle circle2"></span>
-        <span class="circle circle3"></span>
+    <div class="center-wrap">
+        <div class="circle-container">
+            <span class="circle circle1"></span>
+            <span class="circle circle2"></span>
+            <span class="circle circle3"></span>
+        </div>
     </div>
 
     <div class="card-size" *ngIf="(account.payment != undefined)" >
