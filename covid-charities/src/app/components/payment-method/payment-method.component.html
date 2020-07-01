@@ -7,22 +7,23 @@
 
     <div class="center-wrap">
         <div class="circle-container">
-            <span class="circle circle1"></span>
-            <span class="circle circle2"></span>
-            <span class="circle circle3"></span>
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
         </div>
     </div>
 
+    <!-- Payment method is already added -->
     <div class="card-size" *ngIf="(account.payment != undefined)" >
         <div *ngIf="!edit">
             <card>
-                <div class="card-size" style="margin-top: 10%; margin-left: 7%">
-                    <span class="small-body-font name">{{ account.payment[0].card_holder }}</span>
-                    <br>
-                    <span class="small-body-font small"> {{ account.payment[0].card_number}} </span>
-                    <br>
-                    <span class="small-body-font small"> {{ account.payment[0].exp_ }} </span>
-                    <span class="small-body-font small"> {{ account.payment[0].cvv_ }} </span>
+                <div class="card-size" style="margin-top: 10%; margin-left: 5%">
+                    <span class="input-text name">{{ account.payment[0].card_holder }}</span>
+                    <br><br>
+                    <span class="input-text small"> **** **** **** {{ account.payment[0].card_number % 10000 }} </span>
+                    <br><br>
+                    <span class="input-text small"> *** </span>
+                    <span class="input-text small"> *** </span>
                 </div>
                 <div *ngIf="!edit" class="logo">
                     <img src="assets/images/VISA-logo.png">
@@ -34,25 +35,29 @@
             </div>
         </div>
         
-
+        <!-- Edit Card -->
         <div *ngIf="edit">
             <form [formGroup]="updateCard">
                 <card>
                     <div class="card-size" style="margin-top: 10%; margin-left: 5%">
-                        <input required type="text" class="small-body-font name" 
-                            [(ngModel)]="account.payment[0].card_holder"
-                            formControlName="fullName">
-                        <input required type="text" class="small-body-font small" 
-                            [(ngModel)]="account.payment[0].card_number"
-                            formControlName="cardNumber"> 
-    
-                        <input required type="text" class="small-body-font small inline" 
-                            [(ngModel)]="account.payment[0].exp_"
-                            formControlName="expDate"> 
-                        <input required type="text" class="small-body-font small" 
-                            [(ngModel)]="account.payment[0].cvv_"
-                            formControlName="CVV"> 
+                        <input required type="text" class="input-text name" 
+                        [(ngModel)]="account.payment[0].card_holder"
+                        formControlName="fullName">
+                        <br><br>
+                        <input required type="text" class="input-text small" 
+                        [(ngModel)]="account.payment[0].card_number"
+                        formControlName="cardNumber"> 
+                        <br>
+                        <div class="form-container input">
+                            <input required type="text" class="input-text small inline" 
+                                [(ngModel)]="account.payment[0].exp_"
+                                formControlName="expDate"> 
+                            <input required type="text" class="input-text small inline" 
+                                [(ngModel)]="account.payment[0].cvv_"
+                                formControlName="CVV"> 
+                        </div>
                     </div>
+
                     <div class="logo">
                         <img src="assets/images/VISA-logo.png">
                     </div>
@@ -65,21 +70,23 @@
         <br>
     </div>
 
+    <!-- Payment method has not been inserted -->
     <div class="card-size" *ngIf="(account.payment === undefined)">
         <form [formGroup]="cardForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <card>
                 <div class="card-size" style="margin-top: 10%; margin-left: 5%">
-                    <input required type="text" class="small-body-font name" 
+                    <input required type="text" class="input-text name" 
                     placeholder="Full Name" [(ngModel)]="fullName"
                     formControlName="fullName">
-                    <input required type="text" class="small-body-font small" 
+                    <br><br>
+                    <input required type="text" class="input-text small" 
                     placeholder="1234 1234 1234 1234" [(ngModel)]="cardNumber"
                     formControlName="cardNumber"> 
-
-                    <input required type="text" class="small-body-font small inline" 
+                    <br>
+                    <input required type="text" class="input-text small inline" 
                     placeholder="EXP" [(ngModel)]="expDate"
                     formControlName="expDate"> 
-                    <input required type="text" class="small-body-font small" 
+                    <input required type="text" class="input-text small" 
                     placeholder="CVV" [(ngModel)]="CVV"
                     formControlName="CVV"> 
                  </div>

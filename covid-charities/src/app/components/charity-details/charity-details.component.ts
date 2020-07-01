@@ -22,11 +22,12 @@ export class CharityDetailsComponent implements OnInit {
   cardNumber: number;
   donated = false;
 
-  constructor(private authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService,
               private charityService: CharityService,
               private route: ActivatedRoute) {
     this.charityService.ready.subscribe(() => {
       this.charity = this.charityService.getCharity(this.charityName);
+      console.log(this.charity);
     });
 
     this.authenticationService.ready.subscribe(() => {
@@ -41,7 +42,9 @@ export class CharityDetailsComponent implements OnInit {
                                     val.email_address,
                                     val.user_ID,
                                     val.payment_methods);
-          this.cardNumber = parseInt(this.account.payment[0].card_number.replace(/ /g,''));
+          if (this.account.payment != undefined) {
+            this.cardNumber = parseInt(this.account.payment[0].card_number.replace(/ /g,''));
+          }
         });
       }
     });
@@ -51,6 +54,21 @@ export class CharityDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.charityName = params.get('charity_name');
       this.charity = this.charityService.getCharity(this.charityName);
+      console.log(this.charity);
+    });
+    this.authenticationService.getUser().subscribe((val: any) => {
+      this.account = new Account(val.first_name,
+                                val.last_name,
+                                val.interests,
+                                val.donation_history,
+                                val.profile_image,
+                                val.total_amount_donated,
+                                val.email_address,
+                                val.user_ID,
+                                val.payment_methods);
+      if (this.account.payment != undefined) {
+        this.cardNumber = parseInt(this.account.payment[0].card_number.replace(/ /g,''));
+      }
     });
   }
 

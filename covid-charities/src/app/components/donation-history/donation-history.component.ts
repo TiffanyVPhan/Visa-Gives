@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Charity } from 'src/app/model/charity';
-import { Account} from 'src/app/model/account';
+import { Account } from 'src/app/model/account';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { CharityService } from '../../services/charity.service';

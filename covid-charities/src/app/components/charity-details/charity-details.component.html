@@ -1,5 +1,5 @@
 <div *ngIf="charity" class="content">
-    <span class="header">{{ charity.name }} </span>
+    <span class="header image-margin">{{ charity.name }} </span>
     <div *ngIf="donated">
         <div class="img-container">
             <img src="assets/images/donation-bg.png" class="banner">
@@ -8,7 +8,12 @@
             </div>
         </div>
     </div>
-    <div class="charity-grid">
+
+    <div *ngIf="charity.additionalPhotos === undefined">
+        <img [src]="charity.coverPhoto[0]" class="cover-img image-margin">
+    </div>
+
+    <div *ngIf="charity.additionalPhotos != undefined" class="charity-grid image-margin">
         <div class="main-photo">
             <img [src]="charity.coverPhoto[0]">
         </div>
@@ -19,16 +24,15 @@
     </div>
 
     <div class="description">
-        <p class="body-font">
-            <span>{{ charity.summary }}</span>
+        <div class="body-font">
+            <p>{{ charity.summary }}</p>
+            <p>{{ charity.description }}</p>
+    
+            <p>{{ charity.money }}</p>
             <br>
-            <span>{{ charity.description }}</span>
-            <br>
-            <span>{{ charity.money }}</span>
-            <br>
-            <span class="italics">Learn more about {{ charity.name }}: </span>
-            <span><a href="{{ charity.charityLink }}">{{ charity.charityLink }}</a></span>
-        </p>
+            <span class="italics inline">Learn more about {{ charity.name }}: </span>
+            <span class="italics inline"><a href="{{ charity.charityLink }}">{{ charity.charityLink }}</a></span>
+        </div>
     </div>
 
     <div class="description">
@@ -66,13 +70,13 @@
                    Confirm ${{ selectedAmount }} donation →
               </div>
 
-                <div *ngIf="account && (account.payment[0] === undefined)">
-                    <div class="right-text body-font">
+                <div *ngIf="account && (account.payment === undefined)">
+                    <div class="left-text body-font">
                         No payment method
                     </div>
                 </div>
                 
-                <div *ngIf="account && (account.payment[0] !== undefined)">
+                <div *ngIf="account && (account.payment !== undefined)">
                     <div class="left-text small-body-font">
                         Donating from Visa card ending in {{ cardNumber % 10000}}
                     </div>
