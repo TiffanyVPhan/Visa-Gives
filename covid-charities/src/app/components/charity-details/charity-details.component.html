@@ -35,7 +35,7 @@
                 <div class="horizontal">
                     <div *ngFor="let amount of donationTiers">
                         <span class="donation-text">
-                            <div class="donation-button">Donate ${{ amount }} → </div>
+                            <div class="donation-button" (click)="openPopup()">Donate ${{ amount }} → </div>
                         </span>
                     </div>
                 </div>
@@ -53,4 +53,12 @@
             </div>
         </card>
     </div>
+    <app-popup class="confirmation" [isOpen]="popupOpen">
+        <div class="donation-text"> Donate? </div>
+        <div class="body-font donation-info">
+            <div> Amount: </div>
+            <div> Frequency: </div>
+            <div class="donation-button confirm" (click)="closePopup()"> Confirm </div>
+        </div>
+    </app-popup>
 </div>

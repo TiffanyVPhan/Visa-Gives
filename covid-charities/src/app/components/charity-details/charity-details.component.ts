@@ -20,6 +20,16 @@ export class CharityDetailsComponent implements OnInit {
 
   donationTiers: number[] = [5, 10, 25, 50, 100, 250, 500, 1000];
 
+  popupOpen = false;
+
+  openPopup() {
+    this.popupOpen = true;
+  }
+
+  closePopup() {
+    this.popupOpen = false;
+  }
+
   constructor(private accountService: AccountService,
               private charityService: CharityService,
               private route: ActivatedRoute) {

@@ -4,6 +4,7 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
@@ -18,6 +19,7 @@ import { AccountCardComponent } from './components/account-card/account-card.com
 import { PaymentMethodComponent } from './components/payment-method/payment-method.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { DonationHistoryComponent } from './components/donation-history/donation-history.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 const routes: Routes = [
   { path: '',
@@ -55,6 +57,7 @@ const routes: Routes = [
     AccountCardComponent,
     PaymentMethodComponent,
     DonationHistoryComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ const routes: Routes = [
     }),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   providers: [AccountService, CharityService],
   bootstrap: [AppComponent, AccountCardComponent]

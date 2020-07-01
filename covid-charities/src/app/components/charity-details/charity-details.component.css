@@ -99,3 +99,19 @@ p span {
     padding: 5% 10%;
 }
 
+.confirmation {
+    text-align: center;
+}
+
+.donation-info {
+    margin-top: 10px;
+}
+
+.confirm {
+    margin-left: 150px;
+    margin-top: 20px;
+    width: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
