@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
 import { Account } from '../../model/account';
-import { AccountService } from '../../services/account.service';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -23,12 +22,11 @@ export class CreateAccountComponent implements OnInit {
   private file: File;
   public imageSrc;
 
-  constructor(private accountService: AccountService,
-              public authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService,
               private fb: FormBuilder) {
       this.authenticationService.ready.subscribe(() => {
         this.userID = this.authenticationService.userID;
-      })
+      });
   }
 
   ngOnInit() {
@@ -39,8 +37,6 @@ export class CreateAccountComponent implements OnInit {
       confirm: new FormControl(this.confirmPassword, [Validators.required]),
       email_: new FormControl(this.email, [Validators.required])
     });
-    console.log(this.accountForm);
-    // console.log(this.authenticationService.userData);
   }
 
   onSubmit(form: NgForm): void {

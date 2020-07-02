@@ -8,7 +8,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AccountService } from './services/account.service';
 import { CharityService } from './services/charity.service';
 import { AuthenticationService } from './services/authentication.service';
 
@@ -85,7 +84,7 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [AccountService, CharityService, AuthenticationService],
+  providers: [CharityService, AuthenticationService],
   bootstrap: [AppComponent, AccountCardComponent]
 })
 export class AppModule { }
