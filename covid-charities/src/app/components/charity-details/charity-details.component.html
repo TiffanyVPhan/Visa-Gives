@@ -81,7 +81,11 @@
                         No payment method
                     </div>
                 </div>
-                
+                <div *ngIf="!account">
+                    <div class="left-text body-font">
+                        <a [routerLink]="['/create-account']">Create an account to donate</a>
+                    </div>
+                </div>
                 <div *ngIf="account && (account.payment !== undefined)">
                     <div class="left-text small-body-font">
                         Donating from Visa card ending in {{ cardNumber % 10000}}
