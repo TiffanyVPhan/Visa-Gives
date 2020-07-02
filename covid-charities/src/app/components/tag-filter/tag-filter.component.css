@@ -172,6 +172,10 @@
     line-height: 16px;
     color: rgba(0, 0, 0, 0.5);
   }
+
+  .tag-color {
+      color: rgba(0, 0, 0, 0.5);
+  }
   
   /* Responsive Styles */
   @media screen and (max-width: 1452px) {

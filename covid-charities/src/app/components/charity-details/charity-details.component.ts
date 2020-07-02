@@ -77,18 +77,11 @@ export class CharityDetailsComponent implements OnInit {
   onClick(amount) {
     if (amount === this.selectedAmount) {
       this.addDonation();
-      const date = this.account.payment[0].exp_.split('/');
-      const senderExp = '20' + date[1] + '-' + date[0];
-      const date2 = this.charity.exp.split('/');
-      const recipientExp = '20' + date2[1] + '-' + date2[0];
       const payment = {
-        amount: "100",
-        senderPrimaryAccountNumber: this.account.payment[0].card_number.toString(),
-        senderCardExpiryDate: senderExp,
-        recipientPrimaryAccountNumber: this.charity.cardNumber.toString(),
-        recipientCardExpiryDate: recipientExp
+          'amount': '25',
+          'senderEmail': 'test',
+          'recipientEmail': 'test'
       };
-
       this.onCreateTransaction(JSON.stringify(payment));
     } else {
       this.selectedAmount = amount;
@@ -98,6 +91,7 @@ export class CharityDetailsComponent implements OnInit {
   onCreateTransaction(postData: string) {
     this.http.post('http://visa-gives.herokuapp.com/donate/', postData).subscribe((postdata) => {
       this.response = postdata;
+      console.log(this.response);
     });
   }
 
