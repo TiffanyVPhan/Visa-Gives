@@ -1,6 +1,6 @@
 <div *ngIf="charity" class="content">
     <span class="header image-margin">{{ charity.name }} </span>
-    <div *ngIf="donated">
+    <div *ngIf="donated && (response.STATUS === 'SUCCESS')">
         <div class="img-container">
             <img src="assets/images/donation-bg.png" class="banner">
             <div class="centered">
