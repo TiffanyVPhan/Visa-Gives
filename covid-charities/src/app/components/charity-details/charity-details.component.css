@@ -83,6 +83,7 @@ p span {
     text-align: center;
     color: #ffffff;
     margin: 5px;
+    cursor: pointer;
 }
 
 .off-button {
