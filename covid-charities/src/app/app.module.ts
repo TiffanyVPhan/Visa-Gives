@@ -23,6 +23,7 @@ import { DonationHistoryComponent } from './components/donation-history/donation
 import { MobileComponent } from './components/mobile/mobile.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { TagFilterComponent } from './components/tag-filter/tag-filter.component';
 
 const routes: Routes = [
   { path: '',
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'charity/:charity_name',
     component: CharityDetailsComponent },
+  {
+    path: 'tag/:tag',
+    component: TagFilterComponent
+  },
   {
     path: 'account',
     component: AccountInfoComponent
@@ -71,6 +76,7 @@ const routes: Routes = [
     MobileComponent,
     LoginComponent,
     NavBarComponent,
+    TagFilterComponent,
   ],
   imports: [
     BrowserModule,
