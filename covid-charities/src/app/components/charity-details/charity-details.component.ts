@@ -6,7 +6,7 @@ import { CharityService } from '../../services/charity.service';
 import { Charity } from 'src/app/model/charity';
 import { Account  } from '../../model/account';
 import { AuthenticationService } from '../../services/authentication.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-charity-details',
@@ -22,6 +22,7 @@ export class CharityDetailsComponent implements OnInit {
   donationTiers: number[] = [5, 10, 25, 50, 100, 250, 500, 1000];
   cardNumber: number;
   donated = false;
+  response: any;
 
   // payment = {
   //   amount: "",
@@ -194,7 +195,8 @@ export class CharityDetailsComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService,
               private charityService: CharityService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private http: HttpClient) {
     this.charityService.ready.subscribe(() => {
       this.charity = this.charityService.getCharity(this.charityName);
       console.log(this.charity);
@@ -248,15 +250,18 @@ export class CharityDetailsComponent implements OnInit {
       this.addDonation();
       console.log(this.charity);
       console.log(this.account.payment[0]);
-      const payment = {
-        amount: amount.toString(),
-        senderExpDate: this.account.payment[0].exp_,
-        senderCardNumber: this.account.payment[0].card_number,
-        recipientCardNumber: this.charity.cardNumber.toString(),
-        recipientExpDate: this.charity.exp
-      };
-      console.log(JSON.stringify(payment));
+      const date = this.account.payment[0].exp_.split('/');
+      const senderExp = '20' + date[1] + '-' + date[0];
+      const date2 = this.charity.exp.split('/');
+      const recipientExp = '20' + date2[1] + '-' + date2[0];
 
+      const payment = {
+        amount: '124',
+        senderExpDate: senderExp,
+        senderCardNumber: this.account.payment[0].card_number.toString(),
+        recipientCardNumber: this.charity.cardNumber.toString(),
+        recipientExpDate: recipientExp
+      };
       // Add new settle transaction function call here from auth service
       this.pullFunds.senderPrimaryAccountNumber = this.cardNumber.toString();
       this.pullFunds.amount = amount.toString();
@@ -264,13 +269,23 @@ export class CharityDetailsComponent implements OnInit {
 
       const pullFondsJSON = JSON.stringify(this.pullFunds);
       const pushFundsJSON = JSON.stringify(this.pushFunds);
-
-      this.authenticationService.onCreateTransaction(pullFondsJSON);
-      this.authenticationService.onCreateTransaction(pushFundsJSON);
+      this.onCreateTransaction(JSON.stringify(payment));
     } else {
       this.selectedAmount = amount;
     }
     console.log(amount);
+  }
+
+  onCreateTransaction(postData: string) {
+    console.log(postData);
+    this.http.get('https://cors-anywhere.herokuapp.com/http://visa-gives.herokuapp.com/donate/').subscribe((postdata) => {
+      console.log(postdata);
+    });
+    // this.http.post('http://visa-gives.herokuapp.com/donate/', postData)
+    //   .subscribe((responseData: any) => {
+    //      this.response = responseData;
+    //      console.log(this.response.success);
+    //   });
   }
 
   addDonation() {

@@ -34,7 +34,7 @@
                 <button class="btn edit" (click)="deleteCard()">Delete Card</button>
             </div>
         </div>
-        
+
         <!-- Edit Card -->
         <div *ngIf="edit">
             <form [formGroup]="updateCard">
@@ -65,6 +65,7 @@
                 <div class="option-margin">
                     <button class="btn edit" (click)="updateCardInfo()" style="display: inline-block;">Save Card</button>
                 </div>
+                <div class="rectangle"></div>
             </form> 
         </div>
         <br>

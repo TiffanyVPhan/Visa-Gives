@@ -14,6 +14,7 @@ export class AuthenticationService {
   private authState: Observable<firebase.User>;
   public currentUser: firebase.User = null;
   ready = new EventEmitter();
+  ready2 = new EventEmitter();
 
   public loggedIn = false;
   public errMsg = '';
@@ -22,7 +23,7 @@ export class AuthenticationService {
   userID: any;
   list: any;
   numCards = 0;
-  
+
   constructor(private router: Router, private angularFireAuth: AngularFireAuth,
               public db: AngularFireDatabase, private http: HttpClient) {
     this.authState = angularFireAuth.authState;
@@ -149,10 +150,11 @@ export class AuthenticationService {
 
   onCreateTransaction(postData: string) {
     console.log(postData);
-    this.http.post('', postData)
+    this.http.post('https://af2772ab1c4a2b70bd93a81268e90117.m.pipedream.net', postData)
       .subscribe((responseData: any) => {
-        console.log(responseData);
-      });
+         console.log(responseData);
+         this.ready2.emit(responseData);
+        });
   }
 
 
