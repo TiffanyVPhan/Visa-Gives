@@ -9,19 +9,14 @@ import { CharityService } from '../../services/charity.service';
 })
 export class LandingPageComponent implements OnInit {
   public tags: string[] = [
-                            'Arts',
-                            'Community',
                             'COVID-19',
-                            'Education',
-                            'Environment',
+                            'Civil Rights',
+                            'Food',
                             'Health',
-                            'Human & Civil Rights',
                             'Human Services',
                             'International',
                             'Research',
                           ];
-
-  public dataFetch: boolean = false;
   public charities: Charity[];
   constructor(private charityService: CharityService) {}
 

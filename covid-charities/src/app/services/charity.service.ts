@@ -12,6 +12,8 @@ export class CharityService {
   dbPath = '/Charity';
   ready = new EventEmitter();
 
+  tagCharities: Charity[] = [];
+
   constructor(private db: AngularFireDatabase) {
     this.db.list(this.dbPath).snapshotChanges().subscribe(item => {
       item.forEach(element => {
@@ -28,5 +30,18 @@ export class CharityService {
         return charity;
       }
     }
+  }
+
+  getCharityByTag(tag: string): Charity[] {
+    this.tagCharities = [];
+    for (const charity of this.charities) {
+      console.log(charity);
+      Object.keys(charity.tags).forEach(key => {
+        if (charity.tags[key] === tag) {
+          this.tagCharities.push(charity);
+        }
+      });
+    }
+    return this.tagCharities;
   }
 }

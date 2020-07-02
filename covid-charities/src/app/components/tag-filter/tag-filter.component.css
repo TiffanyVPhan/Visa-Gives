@@ -1,0 +1,253 @@
+.featured-margin {
+    margin-left: 17%;
+    margin-bottom: 10%;
+    margin-top: 2%; 
+    margin-right: 15%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1.5fr;
+  grid-template-rows: repeat(4, 120px);
+  grid-row-gap: 3em;
+  grid-column-gap: 2em;
+  margin-top: 20px;
+  grid-template-areas: 
+    "featured-charity  side-charity-1 desc-1 desc-1"
+    "featured-charity  side-charity-2 desc-2 desc-2"
+    "featured-charity  side-charity-3 desc-3 desc-3"
+    "featured-desc   ... ... ...";
+}
+
+.featured-charity {
+    grid-area: featured-charity;
+    overflow: hidden;
+  }
+  
+  .featured-charity > img {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+    
+  }
+  
+  .featured-desc-margin {
+    grid-area: featured-desc;
+    margin-top: -6%;
+  }
+  
+  .featured-desc {
+    margin-top: -4%;
+  }
+  
+  .side-charity-1 {
+    grid-area: side-charity-1;
+    overflow: hidden;
+  }
+  
+  .side-charity-2 {
+    grid-area: side-charity-2;
+    overflow: hidden;
+  }
+  
+  .side-charity-3 {
+    grid-area: side-charity-3;
+    overflow: hidden;
+  }
+  
+  .desc-1 {
+    grid-area: desc-1;
+  }
+  .desc-2 {
+    grid-area: desc-2;
+  }
+  .desc-3 {
+    grid-area: desc-3;
+  }
+  .desc-margin {
+    width: 100%;
+    margin-left: -7%;
+  }
+  
+  .side-charity-1 > img, 
+  .side-charity-2 > img, 
+  .side-charity-3 > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    float: left;
+  }
+  
+  .small-body-size {
+    font-size: 8px;
+  }
+  
+  .tag-line-container {
+    display: flex;
+    margin-top: 25px;
+    margin-left: 17%;
+    margin-right: 17%;
+  }
+  
+  .tag {
+    font-size: 14px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  
+  .tag-bar {
+    margin: auto;
+  }
+  
+  .tag-button-text {
+    font-size: 10px;
+  }
+  
+  .tag-button {
+    float: left;
+    width: max-content;
+    min-height: 100%;
+    background: #F0F0F0;
+    border-radius: 2px;
+    margin: 8px 5px 0px 0px;
+    padding: 4px 15px;
+    line-height: 11px;
+  }
+  
+  .tag-container {
+    display: inline-block;
+    text-align: center;
+  }
+  .sub-feature {
+    margin-left: 5%;
+  }
+  
+  .popular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+    grid-auto-rows: minmax(205px, auto);
+    grid-column-gap: 2em;
+    grid-row-gap: 4em;
+    margin-top: 20px;
+    grid-template-areas: 
+      "charity-photo charity-photo charity-photo"
+      "charity-desc charity-desc charity-desc";
+  }
+  
+  .charity-photo {
+    grid-area: charity-photo;
+  }
+  
+  .charity-photo > img {
+    width: 321px;
+    height: 205px;
+    object-fit: cover;
+  }
+  
+  .charity-desc {
+    grid-area: charity-desc;
+  }
+  
+  .popular-title {
+    margin-top: 10%;
+  }
+  
+  .side-charity-font {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+  }
+  
+  .popular-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .side-charity-desc {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 1452px) {
+    .content {
+      margin: 2% 14% 8%;
+    }
+    .featured-desc-margin {
+      margin-top: -6%;
+    }
+    .tag-line-container {
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+  }
+  
+  @media screen and (min-width: 1301px) and (max-width: 1500px) {
+    .featured-desc-margin {
+      margin-top: -10%;
+    }
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .content {
+      margin: 2% 10% 8%;
+    }
+    .featured-desc-margin {
+      margin-top: -10%;
+    }
+    .tag-line-container {
+      margin-left: 12%;
+      margin-right: 12%;
+    }
+  }
+  
+  @media screen and (max-width: 1168px) {
+    .featured-desc-margin {
+      margin-top: -20%;
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .content {
+      margin: 2% 5% 8%;
+    }
+    .featured-desc-margin {
+      margin-top: -15%;
+    }
+    .tag-line-container {
+      margin-left: 7%;
+      margin-right: 7%;
+    }
+  }
+  @media screen and (min-width: 766px) {
+    #div-mobile {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 765px) {
+    #div-mobile {
+      display: block;
+    }
+   .content {
+     display: none;
+   }
+   .featured-margin {
+     display: none;
+  }
+  .tag-line-container {
+      display: none;
+    }
+    .toolbar {
+      display: none;
+    }
+  
+    .content {
+      display: none;
+    }
+  } 

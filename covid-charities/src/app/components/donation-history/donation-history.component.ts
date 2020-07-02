@@ -22,7 +22,7 @@ export class DonationHistoryComponent implements OnInit {
   donations: {[charity_name: string]: { amount: number, dates_donated: string[], charityImg: string, money: string }} = {};
 
   constructor(private authenticationService: AuthenticationService,
-              private charityService: CharityService) { 
+              private charityService: CharityService) {
     this.charities = this.charityService.charities;
     console.log(this.charities);
 
