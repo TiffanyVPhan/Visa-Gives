@@ -81,7 +81,6 @@ export class CharityDetailsComponent implements OnInit {
       const senderExp = '20' + date[1] + '-' + date[0];
       const date2 = this.charity.exp.split('/');
       const recipientExp = '20' + date2[1] + '-' + date2[0];
-
       const payment = {
         amount: "100",
         senderPrimaryAccountNumber: this.account.payment[0].card_number.toString(),
@@ -89,10 +88,8 @@ export class CharityDetailsComponent implements OnInit {
         recipientPrimaryAccountNumber: this.charity.cardNumber.toString(),
         recipientCardExpiryDate: recipientExp
       };
-      console.log(JSON.stringify(payment));
-      // Add new settle transaction function call here from auth service
+
       this.onCreateTransaction(JSON.stringify(payment));
-      console.log(this.selectedAmount);
     } else {
       this.selectedAmount = amount;
     }
