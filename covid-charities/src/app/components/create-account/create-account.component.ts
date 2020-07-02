@@ -39,7 +39,7 @@ export class CreateAccountComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(form): void {
     this.account = new Account(
       this.firstName, this.lastName, ['health'], [], this.imageSrc, 0,
       this.email, null, null);

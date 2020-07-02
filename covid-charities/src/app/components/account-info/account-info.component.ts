@@ -16,7 +16,7 @@ export class AccountInfoComponent implements OnInit {
   reset = false;
   delete = false;
 
-  constructor(private authenticationService: AuthenticationService,
+  constructor(public authenticationService: AuthenticationService,
               private  route: ActivatedRoute) {
     this.authenticationService.ready.subscribe(() => {
       if (this.authenticationService.currentUser != null) {

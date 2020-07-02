@@ -4,14 +4,13 @@
             <div class="img-wrapper">
                 <img [src]="account.profilePicture">
             </div>
-            <span class="sub-header name">{{ account.name }}</span>
+            <span class="sub-header name">{{ (account.firstName | titlecase) + ' ' + (account.lastName | titlecase) }}</span>
             <span class="small-body-font charity-text">Donated to 
                 {{ numDonatedCharities }}
                 {{ (numDonatedCharities != 1) ? 'NPOs' : 'NPO' }} 
             </span>
         </div> 
-
-        <!-- TO-DO: add routing once backend is finished -->
+        
         <div class="link-grid">
             <div class="reset-password">
                 <span class="link-font" (click)="resetPassword()">Reset Password</span>
