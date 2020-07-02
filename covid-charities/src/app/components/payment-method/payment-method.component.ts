@@ -56,6 +56,21 @@ export class PaymentMethodComponent implements OnInit {
       CVV: new FormControl(this.CVV, [Validators.required]),
     });
 
+    this.authenticationService.getUser().subscribe((val: any) => {
+
+      this.account = new Account(val.first_name,
+                                val.last_name,
+                                val.interests,
+                                val.donation_history,
+                                val.profile_image,
+                                val.total_amount_donated,
+                                val.email_address,
+                                val.user_ID,
+                                val.payment_methods);
+      this.ready2.emit(null);
+      console.log(this.account.payment);
+    });
+
     this.ready2.subscribe(() => {
       if (this.account.payment !== undefined) {
         this.updateCard = new FormGroup({

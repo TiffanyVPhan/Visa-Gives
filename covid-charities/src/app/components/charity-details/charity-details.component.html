@@ -59,7 +59,12 @@
 
                 <div class="horizontal horizontal-margin">
                     <div *ngFor="let amount of donationTiers">
-                        <div *ngIf="account">
+                        <div *ngIf="account && (account.payment === undefined)">
+                            <span *ngIf="selectedAmount == null" class="donation-text">
+                                <div class="donation-button">Donate ${{ amount }} → </div>
+                            </span>
+                        </div>
+                        <div *ngIf="account && (account.payment !== undefined)">
                             <span *ngIf="selectedAmount == null" class="donation-text">
                                 <div *ngIf="!selectedAmount" (click)="onClick(amount)" class="donation-button">Donate ${{ amount }} → </div>
                             </span>
@@ -76,7 +81,7 @@
                     </div>
                 </div>
 
-                <div *ngIf="selectedAmount == null && account" class="right-text body-font italics">
+                <div *ngIf="selectedAmount == null && account && (account.payment !== undefined)" class="right-text body-font italics">
                     Select a donation
                </div>
                <div *ngIf="selectedAmount" class="right-text body-font italics">
@@ -85,7 +90,7 @@
 
                 <div *ngIf="account && (account.payment === undefined)">
                     <div class="left-text body-font">
-                        No payment method
+                        <a [routerLink]="['/payment-methods']">Enter a payment method</a>
                     </div>
                 </div>
                 <div *ngIf="!account">
