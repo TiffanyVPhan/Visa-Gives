@@ -7,7 +7,8 @@
 </div>
 <div *ngIf="charities.length > 0" role="main">
     <div class="featured-margin">
-        <span class="sub-header">Featured</span>
+        <span class="sub-header">Featured | </span>
+        <span class="sub-header tag-color"> {{ tag }}</span>
         <div class="grid-container">
             <div class="featured-charity">
                 <img [src]="charities[0].coverPhoto[0]" />
