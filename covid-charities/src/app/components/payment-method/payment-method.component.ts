@@ -106,7 +106,6 @@ export class PaymentMethodComponent implements OnInit {
   }
 
   updateCardInfo() {
-    console.log(this.account.payment[0]);
     this.authenticationService.addPayment(
       this.account.payment[0].card_holder,
       this.account.payment[0].card_number,

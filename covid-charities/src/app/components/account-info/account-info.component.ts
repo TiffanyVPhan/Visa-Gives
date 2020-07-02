@@ -32,7 +32,6 @@ export class AccountInfoComponent implements OnInit {
                                     val.payment_methods);
           this.numDonatedCharities = ((this.account.donationHistory === undefined) ? 0 :
               Object.keys(this.account.donationHistory).length);
-              console.log(Object.values(this.account.donationHistory));
         });
       }
     });

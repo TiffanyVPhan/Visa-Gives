@@ -4,9 +4,7 @@
             <span class="header header-text center">Login</span>
             <form [formGroup]="accountForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
                 <div class="form-grid">
-                    <!-- <span class="body-font form-text field">Email</span> -->
                     <input required type="email" [(ngModel)]="email" formControlName="email_" placeholder="Email">
-                    <!-- <span class="body-font form-text field">Password</span> -->
                     <input required type="password" [(ngModel)]="password" formControlName="password_" placeholder="Password">
     
                 </div>

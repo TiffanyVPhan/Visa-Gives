@@ -30,7 +30,6 @@ export class CharityDetailsComponent implements OnInit {
               private http: HttpClient) {
     this.charityService.ready.subscribe(() => {
       this.charity = this.charityService.getCharity(this.charityName);
-      console.log(this.charity);
     });
 
     this.authenticationService.ready.subscribe(() => {
