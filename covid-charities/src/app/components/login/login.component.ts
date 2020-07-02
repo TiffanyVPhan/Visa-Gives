@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(form): void {
     this.authenticationService.signIn(this.email, this.password);
     this.email = '';
     this.password = '';

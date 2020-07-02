@@ -83,7 +83,7 @@ export class PaymentMethodComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm): void {
+  onSubmit(form): void {
     this.addCard();
     this.fullName = '';
     this.cardNumber = null;
