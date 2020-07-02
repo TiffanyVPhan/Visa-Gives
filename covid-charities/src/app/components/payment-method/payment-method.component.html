@@ -7,9 +7,9 @@
 
     <div class="center-wrap">
         <div class="circle-container">
-            <div class="circle circle1"></div>
-            <div class="circle circle2"></div>
-            <div class="circle circle3"></div>
+            <div class="circle color1" (click)="updateColor('white')"></div>
+            <div class="circle color2" (click)="updateColor('#A1E9FF')"></div>
+            <div class="circle color3" (click)="updateColor('#FFBDFC')"></div>
         </div>
     </div>
 
@@ -28,6 +28,7 @@
                 <div *ngIf="!edit" class="logo">
                     <img src="assets/images/VISA-logo.png">
                 </div>
+                <div class="rectangle" [ngStyle]="{ 'background-color': getColor() }"></div>
             </card>
             <div class="option-margin">
                 <button *ngIf="!edit" class="btn edit" (click)="onEdit()">Edit Card</button>
@@ -61,6 +62,7 @@
                     <div class="logo">
                         <img src="assets/images/VISA-logo.png">
                     </div>
+                    <div class="rectangle"></div>
                 </card>
                 <div class="option-margin">
                     <button class="btn edit" (click)="updateCardInfo()" style="display: inline-block;">Save Card</button>
@@ -93,6 +95,7 @@
                 <div class="logo">
                     <img src="assets/images/VISA-logo.png">
                 </div>
+                <div class="rectangle"></div>
             </card>
             
             <input type="submit" value="Add Card">
