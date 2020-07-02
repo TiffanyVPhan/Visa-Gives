@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ParamMap, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 import { Account, paymentMethod } from '../../model/account';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -24,7 +25,8 @@ export class PaymentMethodComponent implements OnInit {
   ready2 = new EventEmitter();
 
   constructor(private authenticationService: AuthenticationService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private http: HttpClient) {
       this.authenticationService.ready.subscribe(() => {
         if (this.authenticationService.currentUser != null) {
           this.authenticationService.getUser().subscribe((val: any) => {
@@ -76,6 +78,7 @@ export class PaymentMethodComponent implements OnInit {
   addCard() {
     this.authenticationService.addPayment(this.fullName,
       this.cardNumber, this.expDate, this.CVV);
+    this.createAlias();
   }
 
   onEdit() {
@@ -95,5 +98,15 @@ export class PaymentMethodComponent implements OnInit {
       this.account.payment[0].cvv_
     );
     this.onEdit();
+  }
+
+  createAlias() {
+    const payload = {
+      'email': this.account.email,
+      'recipientPrimaryAccountNumber': '4895140000066666'
+    };
+    this.http.post('https://visa-gives.herokuapp.com/create-alias/', payload).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
