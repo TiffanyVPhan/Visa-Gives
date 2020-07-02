@@ -43,7 +43,7 @@
                 <span class="body-font donated-text">&nbsp;${{ selectedAmount }} Donation Sent</span>
             </div>
             <div *ngIf="(response.STATUS !== 'SUCCESS')">
-                <span class="body-font donated-text">Invalid payment method</span>
+                <span class="body-font donated-text">Unable to process donation.</span>
             </div>
         </div>
         
@@ -59,17 +59,24 @@
 
                 <div class="horizontal horizontal-margin">
                     <div *ngFor="let amount of donationTiers">
-                        <span *ngIf="selectedAmount == null" class="donation-text">
-                            <div *ngIf="!selectedAmount" (click)="onClick(amount)" class="donation-button">Donate ${{ amount }} → </div>
-                        </span>
-                        <span *ngIf="selectedAmount" class="donation-text">
-                            <div *ngIf="selectedAmount == amount" (click)="onClick(amount)" class="donation-button">Donate ${{ amount }} → </div>
-                            <div *ngIf="selectedAmount != amount" (click)="onClick(amount)" class="off-button">Donate ${{ amount }} → </div>
-                        </span>
+                        <div *ngIf="account">
+                            <span *ngIf="selectedAmount == null" class="donation-text">
+                                <div *ngIf="!selectedAmount" (click)="onClick(amount)" class="donation-button">Donate ${{ amount }} → </div>
+                            </span>
+                            <span *ngIf="selectedAmount" class="donation-text">
+                                <div *ngIf="selectedAmount == amount" (click)="onClick(amount)" class="donation-button">Donate ${{ amount }} → </div>
+                                <div *ngIf="selectedAmount != amount" (click)="onClick(amount)" class="off-button">Donate ${{ amount }} → </div>
+                            </span>
+                        </div>
+                        <div *ngIf="!account">
+                            <span *ngIf="selectedAmount == null" class="donation-text">
+                                <div *ngIf="!selectedAmount" class="donation-button">Donate ${{ amount }} → </div>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                <div *ngIf="selectedAmount == null" class="right-text body-font italics">
+                <div *ngIf="selectedAmount == null && account" class="right-text body-font italics">
                     Select a donation
                </div>
                <div *ngIf="selectedAmount" class="right-text body-font italics">
