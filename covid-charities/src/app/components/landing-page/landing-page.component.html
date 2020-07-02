@@ -1,7 +1,8 @@
-<!-- TODO: Start + finish features for tags pages + add routing to each respective `tag` -->
 <div class="tag-line-container">
     <div *ngFor="let tag of tags" class="tag-bar">
-        <span class="small-body-font tag">{{ tag }}</span>
+        <a [routerLink]="['/tag', tag]">
+            <span class="small-body-font tag">{{ tag }}</span>
+        </a>
     </div>
 </div>
 
@@ -61,9 +62,8 @@
         </div>
 
     </div>
-
-    
 </div>
+
 <div id="div-mobile">
     <app-mobile></app-mobile>
 </div>
