@@ -38,11 +38,11 @@
     <div class="description">
         <span class="donation-text">Show your support</span>
         <div *ngIf="donated" class="donated-margin">
-            <div *ngIf="(response.success === true)">
+            <div *ngIf="(response.STATUS === 'SUCCESS')">
                 <img src="assets/images/done_24px.png">
                 <span class="body-font donated-text">&nbsp;${{ selectedAmount }} Donation Sent</span>
             </div>
-            <div *ngIf="(response.success !== true)">
+            <div *ngIf="(response.STATUS !== 'SUCCESS')">
                 <span class="body-font donated-text">Invalid payment method</span>
             </div>
         </div>

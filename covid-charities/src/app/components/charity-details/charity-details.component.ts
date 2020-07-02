@@ -248,20 +248,36 @@ export class CharityDetailsComponent implements OnInit {
   onClick(amount) {
     if (amount === this.selectedAmount) {
       this.addDonation();
-      console.log(this.charity);
+      console.log(this.selectedAmount);
       console.log(this.account.payment[0]);
       const date = this.account.payment[0].exp_.split('/');
       const senderExp = '20' + date[1] + '-' + date[0];
       const date2 = this.charity.exp.split('/');
       const recipientExp = '20' + date2[1] + '-' + date2[0];
 
+      // const payment = {
+      //   amount: '124',
+      //   senderExpDate: senderExp,
+      //   senderCardNumber: this.account.payment[0].card_number.toString(),
+      //   recipientCardNumber: this.charity.cardNumber.toString(),
+      //   recipientExpDate: recipientExp
+      // };
+
+      // const payment = {
+      //   "amount": "100",
+      //   "senderPrimaryAccountNumber": "4957030005123304",
+      //   "senderCardExpiryDate": "2020-11",
+      //   "recipientPrimaryAccountNumber": "5123280115058611",
+      //   "recipientCardExpiryDate": "2020-11"
+      // }
       const payment = {
-        amount: '124',
-        senderExpDate: senderExp,
-        senderCardNumber: this.account.payment[0].card_number.toString(),
-        recipientCardNumber: this.charity.cardNumber.toString(),
-        recipientExpDate: recipientExp
+        amount: this.selectedAmount.toString(),
+        senderPrimaryAccountNumber: this.account.payment[0].card_number.toString(),
+        senderCardExpiryDate: senderExp,
+        recipientPrimaryAccountNumber: this.charity.cardNumber.toString(),
+        recipientCardExpiryDate: recipientExp
       };
+      console.log(JSON.stringify(payment));
       // Add new settle transaction function call here from auth service
       this.pullFunds.senderPrimaryAccountNumber = this.cardNumber.toString();
       this.pullFunds.amount = amount.toString();
@@ -278,14 +294,9 @@ export class CharityDetailsComponent implements OnInit {
 
   onCreateTransaction(postData: string) {
     console.log(postData);
-    this.http.get('https://cors-anywhere.herokuapp.com/http://visa-gives.herokuapp.com/donate/').subscribe((postdata) => {
-      console.log(postdata);
+    this.http.post('http://visa-gives.herokuapp.com/donate/', postData).subscribe((postdata) => {
+      this.response = postdata;
     });
-    // this.http.post('http://visa-gives.herokuapp.com/donate/', postData)
-    //   .subscribe((responseData: any) => {
-    //      this.response = responseData;
-    //      console.log(this.response.success);
-    //   });
   }
 
   addDonation() {
