@@ -21,6 +21,7 @@ export class PaymentMethodComponent implements OnInit {
   cardForm: FormGroup;
   updateCard: FormGroup;
   edit = false;
+  bgColor = '#A1E9FF';
 
   ready2 = new EventEmitter();
 
@@ -108,5 +109,13 @@ export class PaymentMethodComponent implements OnInit {
     this.http.post('https://visa-gives.herokuapp.com/create-alias/', payload).subscribe((response) => {
       console.log(response);
     });
+  }
+
+  updateColor(color: string) {
+    this.bgColor = color;
+  }
+
+  getColor() {
+    return this.bgColor;
   }
 }
