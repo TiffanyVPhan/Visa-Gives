@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Account } from '../model/account';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -13,6 +14,7 @@ export class AuthenticationService {
   private authState: Observable<firebase.User>;
   public currentUser: firebase.User = null;
   ready = new EventEmitter();
+  ready2 = new EventEmitter();
 
   public loggedIn = false;
   public errMsg = '';
@@ -23,7 +25,7 @@ export class AuthenticationService {
   numCards = 0;
 
   constructor(private router: Router, private angularFireAuth: AngularFireAuth,
-              public db: AngularFireDatabase) {
+              public db: AngularFireDatabase, private http: HttpClient) {
     this.authState = angularFireAuth.authState;
 
     this.authState.subscribe(user => {
@@ -60,6 +62,9 @@ export class AuthenticationService {
       });
   }
 
+  // sender primary acount #
+  // country - code same
+  // 
   // Create new user entry in database
   newUser(acc: Account, uid: string) {
     const itemRef = this.db.object(`Users/${uid}`).set({
@@ -127,6 +132,7 @@ export class AuthenticationService {
     this.router.navigate(['/payment-methods']);
   }
 
+  // Adds donation to user database
   addDonation(name: string, amount_: number, date_: string, numDonation: number) {
     this.db.object(`Users/${this.userID}/donation_history/${numDonation}`).set({
           amount: amount_,
@@ -140,6 +146,17 @@ export class AuthenticationService {
       console.log('Something went wrong: ', error);
     });
   }
+
+
+  onCreateTransaction(postData: string) {
+    console.log(postData);
+    this.http.post('https://af2772ab1c4a2b70bd93a81268e90117.m.pipedream.net', postData)
+      .subscribe((responseData: any) => {
+         console.log(responseData);
+         this.ready2.emit(responseData);
+        });
+  }
+
 
   resetPassword(email: string) {
     return this.angularFireAuth.sendPasswordResetEmail(email)

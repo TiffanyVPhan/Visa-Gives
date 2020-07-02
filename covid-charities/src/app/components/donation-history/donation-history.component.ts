@@ -67,6 +67,7 @@ export class DonationHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

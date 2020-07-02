@@ -109,3 +109,10 @@ input[type="submit"] {
     width: 500px;
     text-align: center;
 }
+
+.rectangle {
+    width: 28px;
+    height: 19px;
+    border-radius: 4px;
+    background-color: #A1E9FF
+}

@@ -38,9 +38,15 @@
     <div class="description">
         <span class="donation-text">Show your support</span>
         <div *ngIf="donated" class="donated-margin">
-            <img src="assets/images/done_24px.png">
-            <span class="body-font donated-text">&nbsp;${{ selectedAmount }} Donation Sent</span>
+            <div *ngIf="(response.success === true)">
+                <img src="assets/images/done_24px.png">
+                <span class="body-font donated-text">&nbsp;${{ selectedAmount }} Donation Sent</span>
+            </div>
+            <div *ngIf="(response.success !== true)">
+                <span class="body-font donated-text">Invalid payment method</span>
+            </div>
         </div>
+        
         <card *ngIf="!donated" id="outer">
             <div class="wrapper">
                 <div class="title">

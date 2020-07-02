@@ -47,7 +47,6 @@ export class AccountCardComponent implements OnInit {
                                       val.email_address,
                                       val.user_ID,
                                       val.payment_methods);
-            console.log(this.account);
           });
         }
       });
