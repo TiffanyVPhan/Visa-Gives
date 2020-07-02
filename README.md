@@ -1,3 +1,4 @@
-# Visa Hackathon Project 
+# Visa Gives 
+Team Members: Anand Chandra, Avi Bomb, Caitlin Dooley, Gage Benham, Tiffany Phan
 
-This app is intended to help individuals affected by COVID-19 connect with charities. 
+Visa Gives is a web and mobile app that empowers users to discover and donate to nonprofits, charities, and businesses.  
