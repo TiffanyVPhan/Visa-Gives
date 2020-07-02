@@ -21,13 +21,7 @@
 </div>
 
 <div *ngIf="!account" class="dropdown">
-    <img src="assets/images/account.svg" class="icon" alt="Account Icon">
-    <div class="small-body-font dropdown-content">
-        <div class="center">
-            <div class="form-grid">
-                <a [routerLink]="['login']" class="center">Sign in</a>
-                <a [routerLink]="['create-account']" class="center">Create Account</a>
-            </div>
-        </div>
-    </div>
+    <a [routerLink]="['create-account']" class="center">
+        <img src="assets/images/account.svg" class="icon" alt="Account Icon">
+    </a>
 </div>
