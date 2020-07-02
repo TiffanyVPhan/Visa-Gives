@@ -14,7 +14,6 @@ export class AuthenticationService {
   private authState: Observable<firebase.User>;
   public currentUser: firebase.User = null;
   ready = new EventEmitter();
-  ready2 = new EventEmitter();
 
   public loggedIn = false;
   public errMsg = '';
@@ -62,10 +61,6 @@ export class AuthenticationService {
       });
   }
 
-  // sender primary acount #
-  // country - code same
-  // 
-  // Create new user entry in database
   newUser(acc: Account, uid: string) {
     const itemRef = this.db.object(`Users/${uid}`).set({
       first_name: acc.firstName,
@@ -146,18 +141,7 @@ export class AuthenticationService {
       console.log('Something went wrong: ', error);
     });
   }
-
-
-  onCreateTransaction(postData: string) {
-    console.log(postData);
-    this.http.post('https://af2772ab1c4a2b70bd93a81268e90117.m.pipedream.net', postData)
-      .subscribe((responseData: any) => {
-         console.log(responseData);
-         this.ready2.emit(responseData);
-        });
-  }
-
-
+  
   resetPassword(email: string) {
     return this.angularFireAuth.sendPasswordResetEmail(email)
       .then(() => console.log('Sent Password Reset Email'))
