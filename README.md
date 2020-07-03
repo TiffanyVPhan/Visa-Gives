@@ -4,7 +4,7 @@ Our mission is to make it easier for people to help those in need.
 
 This is the repository for the website frontend. To check out the mobile and backend repositories as well as our demos, go [here](https://github.com/AviBomb/VisaGives/blob/master/README.md).
 
-Access the website [here](http://tiffanyphan.dev/Visa-Gives/)
+Access the website: [http://tiffanyphan.dev/Visa-Gives/](http://tiffanyphan.dev/Visa-Gives/)
 
 ### Team Members
 - Anand Chandra | [Github](https://github.com/anandchandra50)
